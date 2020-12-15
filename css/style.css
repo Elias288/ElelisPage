@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap');
+@import url(menu.css);
+
 *{
     margin: 0px;
     padding: 0px;
@@ -5,51 +8,31 @@
 }
 body{
     background-color:rgb(3, 70, 70)!important;
+    font-family: 'JetBrains Mono', monospace !important;
 }
-.container{
-    width: 100%!important;
-    padding-right: 15!important;
-    padding-left: 15!important;
-    margin-right: 0!important;
-    margin-left: 0!important;
-}
-.row{
-    display: -webkit-box;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    height: 100%;
-}
-.Lateral{
-    background-color: cadetblue;
-    border: solid 2px;
-    padding: 10px 15px 10px;
-    height: 100%;
-}
-.Lateral a{
-    color: black!important;
 
+header{
+    width: 100%;
+    height: 50px;
+    background:rgb(4, 61, 75);
+    color: #fff;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
-.sup{
-    background-color: cadetblue;
-    padding: 5px 10px 10px;
+
+.container{
+    width: 98%;
+    margin: auto;
 }
-.panel1{
-    padding: 5px 10px 10px;
-    color: white!important;
-    /*border: solid 2px;
-    background-color: rgb(3, 70, 70);*/
+
+h1{
+    float: left;
 }
-.panel1 h2{
-    color: white!important;
-}
-.panel1 p{
-    color: white!important;
-}
-.panel1 a{
-    color: white!important;
-}
-.panel1 i{
-    color: white!important;
+
+header .container{
+    display: table;
+
 }
