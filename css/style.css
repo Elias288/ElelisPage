@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color:rgb(3, 70, 70)!important;
+    /*background-color:rgb(3, 70, 70)!important;*/
     font-family: 'JetBrains Mono', monospace !important;
 }
 
@@ -29,10 +29,19 @@ header{
 }
 
 h1{
+    margin-top: 0 !important;
+    font-weight: 0 !important;
     float: left;
 }
 
 header .container{
     display: table;
 
+}
+
+section{
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 60px;
+    text-align: center;
 }

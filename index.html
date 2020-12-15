@@ -8,16 +8,48 @@
     <body>
         <header>
             <div class="container">
-                <h1>Eleli's Page</h1>
+                <h1 class="glyphicon glyphicon-sunglasses"> Eleli'sPage</h1>
                 <input type="checkbox" id="menu-bar">
                 <label class="glyphicon glyphicon-th-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <a href="#">Inicio</a>
-                    <a href="#">Inicio1</a>
-                    <a href="#">Inicio2</a>
-                    <a href="#">Inicio3</a>
+                    <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
+                    <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
+                    <a class="tablinks" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
                 </nav>
             </div>
         </header>
+        <main>
+            <section id="bienvenidos" class="tabcontent">
+                <h2>Bienvenido a mi Pagina</h2>
+                <p>Mi pagina de pruebas</p>
+            </section>
+            <section id="informacion"  class="tabcontent" style="display: none;">
+                <h2>Información</h2>
+                <p>Me llamo Elias</p>
+            </section>
+            <section id="contacto"  class="tabcontent" style="display: none;">
+                <h2>Contacto</h2>
+                <p>bianchi.elias@gmail.com</p>
+            </section>
+        </main>
     </body>
+    <script>
+        document.getElementById("defaultOpen").click;
+        function cambiarPestaña(evt, idPestaña){
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for(i = 0; i < tabcontent.length; i++){
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for(i = 0; i < tablinks.length; i++){
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(idPestaña).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </html>
