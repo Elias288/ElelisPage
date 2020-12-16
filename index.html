@@ -42,8 +42,21 @@
 
             <!--//////////////////CONTACTO//////////////////-->
             <section id="contacto"  class="tabcontent" style="display: none;">
-                <h2><strong>Contacto</strong></h2>
-                <p class="icon-envelope"> bianchi.elias@gmail.com</p>
+                <h2>Contacto</h2>
+                <p>bianchi.elias@gmail.com</p>
+
+                <form action="enviar.php" method="POST">
+                    <input type="text" name="name" id="name" class="name" placeholder="NOMRE">
+                    <input type="text" name="mail" id="mail" class="email" placeholder="CORREO">
+                    <input type="text" name="phone" id="phone" class="subjet" placeholder="TELEFONO">
+                    <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje"></textarea>
+
+                    <div class="clear"></div>
+                    <div class="con-md-8">
+                        <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    </div>
+                </form>
+
             </section>
         </main>
     </body>
