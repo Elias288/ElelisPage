@@ -3,19 +3,19 @@
         <title>Eleli'sPage</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fonts.css">
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="glyphicon glyphicon-sunglasses"> Eleli'sPage</h1>
+                <h1 class="icon-laptop"> Eleli'sPage</h1>
                 <input type="checkbox" id="menu-bar">
-                <label class="glyphicon glyphicon-th-list" for="menu-bar"></label>
+                <label class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
+                    <a class="tablinks active" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
-                    <a class="tablinks" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
+                    <a class="tablinks" id="defaultOpen" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
                 </nav>
             </div>
         </header>
@@ -43,7 +43,7 @@
             <!--//////////////////CONTACTO//////////////////-->
             <section id="contacto"  class="tabcontent" style="display: none;">
                 <h2><strong>Contacto</strong></h2>
-                <p>bianchi.elias@gmail.com</p>
+                <p class="icon-envelope"> bianchi.elias@gmail.com</p>
             </section>
         </main>
     </body>
