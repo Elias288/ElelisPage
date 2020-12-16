@@ -13,26 +13,41 @@
                 <label class="glyphicon glyphicon-th-list" for="menu-bar"></label>
                 <nav class="menu">
                     <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
+                    <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
                 </nav>
             </div>
         </header>
         <main>
+            <!--//////////////////BIENVENIDA//////////////////-->
             <section id="bienvenidos" class="tabcontent">
-                <h2>Bienvenido a mi Pagina</h2>
+                <h2><strong>Bienvenido a mi Pagina</strong></h2>
                 <p>Mi pagina de pruebas</p>
             </section>
+            
+            <!--//////////////////INFORMACION//////////////////-->
             <section id="informacion"  class="tabcontent" style="display: none;">
-                <h2>Información</h2>
+                <h2><strong>Información</strong></h2>
                 <p>Me llamo Elias</p>
+                <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Curriculum Vitae</a>
+                <!--<embed src="files/Curriculum Vitae(2020).pdf" type="application/pdf" width="100%" height="600px" />-->
             </section>
+
+            <!--//////////////////LIBRERIA//////////////////-->
+            <section id="libreria"  class="tabcontent" style="display: none;">
+                <h2><strong>Librería</strong></h2>
+                <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
+            </section>
+
+            <!--//////////////////CONTACTO//////////////////-->
             <section id="contacto"  class="tabcontent" style="display: none;">
-                <h2>Contacto</h2>
+                <h2><strong>Contacto</strong></h2>
                 <p>bianchi.elias@gmail.com</p>
             </section>
         </main>
     </body>
+
     <script>
         document.getElementById("defaultOpen").click;
         function cambiarPestaña(evt, idPestaña){
