@@ -8,20 +8,21 @@
     <body>
         <header>
             <div class="container">
-                <h1 class="icon-laptop"> Eleli'sPage</h1>
+                <div class="icon-laptop"></div>
+                <h1> Eleli'sPage</h1>
                 <input type="checkbox" id="menu-bar">
                 <label class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <a class="tablinks active" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
+                    <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
-                    <a class="tablinks" id="defaultOpen" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
+                    <a class="tablinks" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
                 </nav>
             </div>
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <section id="bienvenidos" class="tabcontent">
+            <section id="bienvenidos" class="tabcontent" ">
                 <h2><strong>Bienvenido a mi Pagina</strong></h2>
                 <p>Mi pagina de pruebas</p>
             </section>
@@ -44,19 +45,17 @@
             <section id="contacto"  class="tabcontent" style="display: none;">
                 <h2>Contacto</h2>
                 <p>bianchi.elias@gmail.com</p>
-
-                <form action="enviar.php" method="POST">
-                    <input type="text" name="name" id="name" class="name" placeholder="NOMRE">
-                    <input type="text" name="mail" id="mail" class="email" placeholder="CORREO">
-                    <input type="text" name="phone" id="phone" class="subjet" placeholder="TELEFONO">
-                    <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje"></textarea>
-
-                    <div class="clear"></div>
-                    <div class="con-md-8">
-                        <button type="submit" class="btn btn-primary">ENVIAR</button>
-                    </div>
-                </form>
-
+                <div class="formulario">
+                    <form action="enviar.php" method="POST">
+                        <input type="text" name="name" id="name" class="name" placeholder="NOMRE">
+                        <input type="text" name="mail" id="mail" class="email" placeholder="CORREO">
+                        <input type="text" name="phone" id="phone" class="subjet" placeholder="TELEFONO">
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje"></textarea>
+                        <div class="con-md-8">
+                            <button type="submit" class="btn btn-primary">ENVIAR</button>
+                        </div>
+                    </form>
+                </div>
             </section>
         </main>
     </body>
