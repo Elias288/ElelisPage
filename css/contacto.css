@@ -3,7 +3,7 @@
     width: 80%;
     margin: 40px auto;
 }
-.formulario input{
+.formulario .inf{
     display: block;
     width: 100%;
     height: 70px;
@@ -14,7 +14,7 @@
 
 #mensaje{
     width: 100%;
-    height: 600px;
+    height: 400px;
     margin-top: 30px;
     border: 1px solid;
     font-size: 30px;
@@ -26,7 +26,7 @@
     float: right;
 }
 
-.btn{
+.enviar{
     font-size: 40px;
     padding: 30px;
     margin-top: 30px;
@@ -37,7 +37,7 @@
         width: 50%;
     }
 
-    .formulario input{
+    .formulario .inf{
         height: 30px;
         font-size: 15px;
         margin-bottom: 3px;
@@ -51,7 +51,7 @@
         padding: 5px;
     }
 
-    .btn{
+    .enviar{
         font-size: 15px;
         padding: 10px;
         margin-top: 10px;

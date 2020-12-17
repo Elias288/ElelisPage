@@ -14,6 +14,14 @@ header{
     z-index: 100;
 }
 
+header .volver{
+    float: right;
+    font-size: 70px;
+    margin: 75px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
 header label {
     float: right;
     font-size: 70px;
@@ -101,5 +109,10 @@ header .icon-laptop{
 
     header label{
         display: none;
+    }
+
+    header .volver{
+        margin: 10px auto;
+        font-size: 30px;
     }
 }

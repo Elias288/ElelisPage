@@ -16,19 +16,19 @@
                     <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
-                    <a class="tablinks" onclick="cambiarPestaña(event, 'contacto')">Contacto</a>
+                    <a class="tablinks" href="contacto.php">Contacto</a>
                 </nav>
             </div>
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <section id="bienvenidos" class="tabcontent" ">
+            <section id="bienvenidos" class="tabcontent" >
                 <h2><strong>Bienvenido a mi Pagina</strong></h2>
                 <p>Mi pagina de pruebas</p>
             </section>
             
             <!--//////////////////INFORMACION//////////////////-->
-            <section id="informacion"  class="tabcontent" style="display: none;">
+            <section id="informacion"  class="tabcontent">
                 <h2><strong>Información</strong></h2>
                 <p>Me llamo Elias</p>
                 <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Curriculum Vitae</a>
@@ -36,31 +36,17 @@
             </section>
 
             <!--//////////////////LIBRERIA//////////////////-->
-            <section id="libreria"  class="tabcontent" style="display: none;">
+            <section id="libreria"  class="tabcontent">
                 <h2><strong>Librería</strong></h2>
                 <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
-            </section>
-
-            <!--//////////////////CONTACTO//////////////////-->
-            <section id="contacto"  class="tabcontent" style="display: none;">
-                <h2>Contacto</h2>
-                <p>bianchi.elias@gmail.com</p>
-                <div class="formulario">
-                    <form action="enviar.php" method="POST" >
-                        <input type="text" name="name" id="name" class="name" placeholder="NOMRE">
-                        <input type="text" name="mail" id="mail" class="email" placeholder="CORREO">
-                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje"></textarea>
-                        <div class="con-md-8">
-                            <button type="submit" class="btn btn-primary">ENVIAR</button>
-                        </div>
-                    </form>
-                </div>
             </section>
         </main>
     </body>
 
     <script>
-        document.getElementById("defaultOpen").click;
+        window.onload = function(e){ 
+            document.getElementById("defaultOpen").click();
+        } 
         function cambiarPestaña(evt, idPestaña){
             var i, tabcontent, tablinks;
             
@@ -76,6 +62,6 @@
 
             document.getElementById(idPestaña).style.display = "block";
             evt.currentTarget.className += " active";
-        }
+        }  
     </script>
 </html>
