@@ -17,8 +17,8 @@
             </div>
         </header>
         <main>
-            <section id="contacto" >
-                <h2>Contacto</h2>
+            <section id="contacto" class="tab4">
+                <h2 class="icon-envelope"> Contacto</h2>
                 <p>Enviame un mensaje</p>
                 <div class="formulario">
                     <form action="" method="post" id="formEnviar">

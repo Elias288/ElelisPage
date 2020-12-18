@@ -71,3 +71,9 @@
 .icon-reply-all:before {
   content: "\6b";
 }
+.icon-twitter-square:before {
+  content: "\6c";
+}
+.icon-instagrem:before {
+  content: "\6d";
+}

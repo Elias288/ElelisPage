@@ -27,13 +27,15 @@ section#contacto{
     border-bottom: 2px solid;
     font-size: 30px;
     padding: 30px;
+    margin-bottom: 10px;
 }
 
 #mensaje{
     width: 100%;
     height: 400px;
     margin-top: 30px;
-    border: 1px solid;
+    border: none;
+    border-bottom: 2px solid;
     font-size: 30px;
     padding: 5px;
     padding: 30px;

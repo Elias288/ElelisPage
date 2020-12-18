@@ -15,14 +15,10 @@
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
 
-                    <label id="menu-items" for="radio1">Inicio</label>
-                    <label id="menu-items" for="radio2">Información</label>
-                    <label id="menu-items" for="radio3">Librería</label>
-                   
-                    <!--<a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
-                    <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
-                    <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>-->
-                    <a class="tablinks" href="contacto.php">Contacto</a>
+                    <label id="menu-items" for="radio1">HOME</label>
+                    <label id="menu-items" for="radio2">ABOUT</label>
+                    <label id="menu-items" for="radio3">LIBRARY</label>
+                    <a class="tablinks" href="contacto.php">CONTACT</a>
                     
                 </nav>
             </div>
@@ -30,23 +26,46 @@
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
             <input type="radio" name="radio" id="radio1" checked>
-            <section id="inicio" class="tab1">
+            <section id="home" class="tab1">
                 <h2><strong>Bienvenido a mi Pagina</strong></h2>
-                <p>Mi pagina de pruebas</p>
+                <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
             </section>
             
             <!--//////////////////INFORMACION//////////////////-->
-            <input type="radio" name="radio" id="radio2">
-            <section id="informacion"  class="tab2">
-                <h2><strong>Información</strong></h2>
-                <p>Me llamo Elias</p>
-                <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Curriculum Vitae</a>
-                <!--<embed src="files/Curriculum Vitae(2020).pdf" type="application/pdf" width="100%" height="600px" />-->
+            <input type="radio" name="radio" id="radio2" >
+            <section id="about"  class="tab2">
+                <div class="card">
+                    <h2><strong>Elias Bianchi</strong></h2>
+                    <p>Programador</p>
+                </div>
+                <div class="cirular_portrait">
+                    <img src="img/Elias.png" alt="programador">
+                </div>
+                <div class="info">
+                    <div class="links">
+                        <a href="https://www.facebook.com/bianchi.elias" class="icon-facebook-square"></a>
+                        <a href="https://twitter.com/BianchiEliass" class="icon-twitter-square"></a>
+                        <a href="https://www.instagram.com/elelibian/" class="icon-instagrem"></a>
+                        <a href="contacto.php" class="icon-envelope"></a>
+                        <!--<a href="" class="icon-paypal"></a>-->
+                    </div>
+                    <p>Soy un estudiante de la carrera de Tecnologo en Informatica de Uruguay, 
+                        programar es mi pasión dentro de la informática, conozo los 
+                        principales lenguajes como java, c++/c y visual studio; 
+                        ademas de desarrollo web con HTML, css, php y javascript.
+                        Linux es mi sistema operativo favorito, en donde me he especializado 
+                        en servidores web.
+                    </p>
+                    <div class="CV">
+                        <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Descargar CV</a>
+                    </div>
+                    
+                </div>
             </section>
 
             <!--//////////////////LIBRERIA//////////////////-->
             <input type="radio" name="radio" id="radio3">
-            <section id="libreria"  class="tab3">
+            <section id="library"  class="tab3">
                 <h2><strong>Librería</strong></h2>
                 <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
             </section>

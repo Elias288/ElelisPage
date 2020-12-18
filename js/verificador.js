@@ -31,7 +31,7 @@ window.onload=function(){
                                 '<h3>Errores encontrados</h3>'+
                                 errores +
                                 '<span id="btn_close">Cerrar</span>'+
-                                ' </div> </div>'
+                                ' </div> </div>';
            cont.insertAdjacentHTML('beforebegin', MensajeModal);
 
            
