@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
+        <script src="js/verificador.js"></script>
         <!--<link rel="stylesheet" href="css/fonts.css">-->
     </head>
     <body>
@@ -18,7 +19,8 @@
                     <label id="menu-items" for="radio1">HOME</label>
                     <label id="menu-items" for="radio2">ABOUT</label>
                     <label id="menu-items" for="radio3">LIBRARY</label>
-                    <a class="tablinks" href="contacto.php">CONTACT</a>
+                    <label id="menu-items" for="radio4">CONTACT</label>
+                    <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
                     
                 </nav>
             </div>
@@ -27,15 +29,20 @@
             <!--//////////////////BIENVENIDA//////////////////-->
             <input type="radio" name="radio" id="radio1" checked>
             <section id="home" class="tab1">
-                <h2><strong>Bienvenido a mi Pagina</strong></h2>
-                <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                <div class="card">
+                    <h2>Bienvenido a mi Pagina</h2>
+                    <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                </div>
+                <div class="info">
+                    
+                </div>
             </section>
             
             <!--//////////////////INFORMACION//////////////////-->
             <input type="radio" name="radio" id="radio2" >
             <section id="about"  class="tab2">
                 <div class="card">
-                    <h2><strong>Elias Bianchi</strong></h2>
+                    <h2>Elias Bianchi</h2>
                     <p>Programador</p>
                 </div>
                 <div class="cirular_portrait">
@@ -46,7 +53,7 @@
                         <a href="https://www.facebook.com/bianchi.elias" class="icon-facebook-square"></a>
                         <a href="https://twitter.com/BianchiEliass" class="icon-twitter-square"></a>
                         <a href="https://www.instagram.com/elelibian/" class="icon-instagrem"></a>
-                        <a href="contacto.php" class="icon-envelope"></a>
+                        <a href="https://github.com/Elias288" class="icon-github"></a>
                         <!--<a href="" class="icon-paypal"></a>-->
                     </div>
                     <p>Soy un estudiante de la carrera de Tecnologo en Informatica de Uruguay, 
@@ -56,8 +63,9 @@
                         Linux es mi sistema operativo favorito, en donde me he especializado 
                         en servidores web.
                     </p>
-                    <div class="CV">
+                    <div class="info-foot">
                         <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Descargar CV</a>
+                        <a href="contacto.php" class="icon-envelope"> Contacto</a>
                     </div>
                     
                 </div>
@@ -68,6 +76,27 @@
             <section id="library"  class="tab3">
                 <h2><strong>Librería</strong></h2>
                 <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
+            </section>
+
+            <!--//////////////////CONTACTO//////////////////-->
+            <input type="radio" name="radio" id="radio4">
+            <section id="contacto" class="tab4">
+                <div class="card">
+                    <h2 class="icon-envelope"> Contacto</h2>
+                    <p>Enviame un mensaje</p>
+                </div>
+                <div class="formulario">
+                    <form action="" method="post" id="formEnviar">
+                        <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
+                        <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO"require>
+                        <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
+                        <div class="con-md-8">
+                            <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
+                        </div>
+                    </form>
+                    <?php include("enviar.php");?>
+                </div>
             </section>
         </main>
     </body>

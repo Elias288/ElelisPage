@@ -2,6 +2,7 @@
 @import url(menu.css);
 @import url(blog.css);
 @import url(contacto.css);
+@import url(about.css);
 
 *{
     margin: 0px;
@@ -31,5 +32,9 @@ header .container{
     }
     .container{
         width: 1000px;
+    }
+
+    #home, #library, #contacto{
+        overflow: hidden;
     }
 }

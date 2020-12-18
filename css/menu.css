@@ -29,13 +29,14 @@ header #menu-ico {
     cursor: pointer;
 }
 
-#radio1, #radio2, #radio3{
+#radio1, #radio2, #radio3, #radio4{
     display: none;
 }
 
 #radio1:checked ~ .tab1,
 #radio2:checked ~ .tab2,
-#radio3:checked ~ .tab3
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4
 {
     opacity: 1;
     visibility: visible;

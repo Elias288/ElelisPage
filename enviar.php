@@ -15,8 +15,8 @@ if(isset($_POST['enviar'])){
     $message .= "Mensaje: " . $_POST['message'] . "\r\n";
     $message .= "Enviado el: " . date('d/m/Y', time());
 
-    //$mail = mail("bianchi.elias@gmail.com", $asunto, $message, $header);
-    //if($mail){
+    $mail = mail("bianchi.elias@gmail.com", $asunto, $message, $header);
+    if($mail){
         //echo "<h2>Mail enviado exitosamente</h2>";
         echo "<script>";
         echo "var cont = document.getElementById('contacto');";
@@ -30,6 +30,6 @@ if(isset($_POST['enviar'])){
         echo "document.getElementById('formEnviar').setAttribute('action', '');});";
         
         echo "</script>";
-    //}
+    }
 }
 ?>

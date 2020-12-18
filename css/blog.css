@@ -3,17 +3,30 @@ section{
     height: 100vh;
     overflow: scroll;
     margin-bottom: 200px;
-    margin-top: 250px;
+    margin-top: 200px;
     /*text-align: center;*/
     position: absolute;
     opacity: 0;
     visibility: hidden;
 }
 section h2{
-    font-size: 60px;
+    font-size: 40px;
 }
 section p, section a{
-    font-size: 40px;
+    font-size: 20px;
+}
+
+.info{
+    width: 90%;
+    justify-content: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    margin: 20px auto 500px;
+    padding: 300px 40px;
+    background: #fff;
+}
+
+.info-foot{
+    margin-top: 200px;
 }
 
 #Gdrive{
@@ -26,64 +39,12 @@ section p, section a{
     text-align: center;
 }
 
-.tab2{
-    margin-top: 200px;
-}
-
 .card{
     width: 100%;
     text-align: center;
     background-color: #838383;
-    padding: 40px 0 150px;
-    height: 400px;
-}
-
-.info{
-    width: 90%;
-    justify-content: center;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    margin: -190px auto 500px;
-    padding: 300px 40px;
-    background: #fff;
-}
-
-.cirular_portrait{
-    position: relative;
-    margin: -180 auto;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.cirular_portrait img{
-    width: 100%;
-    height: auto;
-    margin-top: -130px;
-}
-
-.links{
-    margin-bottom: 100px;
-    text-align: center;
-}
-
-.links a{
-    margin: 0 30px 0;
-    text-decoration: none;
-    font-size: 100px;
-    color: #838383;
-}
-
-.CV{
-    margin-top: 200px;
-}
-
-.CV a{
-    text-decoration: none;
-    border: 2px solid #838383;
-    color: #fff;
-    background: rgb(4, 61, 75);
-    padding: 3px 10px;
+    padding: 40px 60px ;
+    border-bottom: 2px solid;
 }
 
 
@@ -91,7 +52,7 @@ section p, section a{
 @media (min-width:1024px){
     
     section{
-        margin-top: 8%;
+        margin-top: 50px;
         margin-bottom: 25px;
     }
     section h2{
@@ -99,6 +60,16 @@ section p, section a{
     }
     section p, section a{
         font-size: 17px;
+    }
+
+    .info{
+        padding: 90px 100px;
+        width: 1000px;
+        margin: 20px auto 200px;
+    }
+
+    .info-foot{
+        margin-top: 50px;
     }
 
     .tabs{
@@ -118,41 +89,4 @@ section p, section a{
         flex-shrink: 0;
     }
 
-    .tab2{
-        margin-top: 50px;
-    }
-
-    .card{
-        height: 170px;
-        padding: 20px;
-    }
-
-    .cirular_portrait{
-        width: 150px;
-        height: 150px;
-        margin: -75px auto;
-    }
-
-    .cirular_portrait img{
-        margin-top: -60px;
-    }
-
-    .info{
-        padding: 90px 100px;
-        width: 1000px;
-        margin: 20px auto 200px;
-    }
-
-    .links{
-        margin-bottom: 30px;
-    }
-
-    .links a{
-        margin: 0 10px 0;
-        font-size: 50px;
-    }
-
-    .CV{
-        margin-top: 50px;
-    }
 }
