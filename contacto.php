@@ -3,30 +3,31 @@
         <title>Eleli'sPage</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/fonts.css">
+        <!--<link rel="stylesheet" href="css/fonts.css">-->
+        <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
+        <script src="js/verificador.js"></script>
     </head>
     <body>
         <header>
             <div class="container">
                 <div class="icon-laptop"></div>
                 <h1> Eleli'sPage</h1>
-                <a href="index.html" class="volver icon-paper-plane" for="menu-bar"></a>
+                <a href="index.html" class="volver icon-reply-all" for="menu-bar"></a>
                 
             </div>
         </header>
         <main>
-            <section id="contacto"  class="tabcontent">
+            <section id="contacto" >
                 <h2>Contacto</h2>
-                <p>bianchi.elias@gmail.com</p>
+                <p>Enviame un mensaje</p>
                 <div class="formulario">
-                    <form method="post" >
-                        <input type="text" name="name" id="name" class="inf" placeholder="NOMRE">
-                        <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO">
+                    <form action="" method="post" id="formEnviar">
+                        <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
+                        <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO"require>
                         <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
-                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje"></textarea>
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
                         <div class="con-md-8">
-                            <input type="submit" class="enviar" value="ENVIAR" name="enviar">
-                            <!--<button type="submit" class="btn btn-primary">ENVIAR</button>-->
+                            <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
                         </div>
                     </form>
                     <?php include("enviar.php");?>
