@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <!--<script src="js/inicio.js"></script>-->
     </head>
     <body>
         <header>
@@ -11,24 +12,32 @@
                 <div class="icon-laptop"></div>
                 <h1> Eleli'sPage</h1>
                 <input type="checkbox" id="menu-bar">
-                <label class="icon-list" for="menu-bar"></label>
+                <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
+
+                    <label id="menu-items" for="radio1">Inicio</label>
+                    <label id="menu-items" for="radio2">Información</label>
+                    <label id="menu-items" for="radio3">Librería</label>
+                   
+                    <!--<a class="tablinks active" id="defaultOpen" onclick="cambiarPestaña(event, 'bienvenidos')">Inicio</a>
                     <a class="tablinks" onclick="cambiarPestaña(event, 'libreria')">Librería</a>
-                    <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>
+                    <a class="tablinks" onclick="cambiarPestaña(event, 'informacion')">Información</a>-->
                     <a class="tablinks" href="contacto.php">Contacto</a>
+                    
                 </nav>
             </div>
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <section id="bienvenidos" class="tabcontent" >
+            <input type="radio" name="radio" id="radio1" checked>
+            <section id="inicio" class="tab1">
                 <h2><strong>Bienvenido a mi Pagina</strong></h2>
                 <p>Mi pagina de pruebas</p>
             </section>
             
             <!--//////////////////INFORMACION//////////////////-->
-            <section id="informacion"  class="tabcontent">
+            <input type="radio" name="radio" id="radio2">
+            <section id="informacion"  class="tab2">
                 <h2><strong>Información</strong></h2>
                 <p>Me llamo Elias</p>
                 <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Curriculum Vitae</a>
@@ -36,32 +45,11 @@
             </section>
 
             <!--//////////////////LIBRERIA//////////////////-->
-            <section id="libreria"  class="tabcontent">
+            <input type="radio" name="radio" id="radio3">
+            <section id="libreria"  class="tab3">
                 <h2><strong>Librería</strong></h2>
                 <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
             </section>
         </main>
     </body>
-
-    <script>
-        window.onload = function(e){ 
-            document.getElementById("defaultOpen").click();
-        } 
-        function cambiarPestaña(evt, idPestaña){
-            var i, tabcontent, tablinks;
-            
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for(i = 0; i < tabcontent.length; i++){
-                tabcontent[i].style.display = "none";
-            }
-
-            tablinks = document.getElementsByClassName("tablinks");
-            for(i = 0; i < tablinks.length; i++){
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            document.getElementById(idPestaña).style.display = "block";
-            evt.currentTarget.className += " active";
-        }  
-    </script>
 </html>

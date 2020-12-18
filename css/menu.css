@@ -22,11 +22,23 @@ header .volver{
     text-decoration: none;
 }
 
-header label {
+header #menu-ico {
     float: right;
     font-size: 70px;
     margin: 75px 30px;
     cursor: pointer;
+}
+
+#radio1, #radio2, #radio3{
+    display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3
+{
+    opacity: 1;
+    visibility: visible;
 }
 
 header h1, .icon-laptop{  
@@ -52,7 +64,7 @@ header .icon-laptop{
     cursor: pointer;
 }
 
-.menu a{
+.menu a, #menu-items{
     display: block;
     color: #fff;
     font-size: 50px;
@@ -62,7 +74,7 @@ header .icon-laptop{
     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.menu a:hover{
+.menu a:hover, #menu-items:hover{
     background: rgba(255, 255, 255, 0.3);
 }
 
@@ -72,7 +84,6 @@ header .icon-laptop{
 
 #menu-bar:checked ~ .menu{
     transform: translateX(0%);
-    
 }
 
 @media (min-width:1024px){
@@ -86,11 +97,11 @@ header .icon-laptop{
         background:rgb(4, 61, 75);
     }
 
-    .menu a{
+    .menu a, #menu-items{
         border: none;
         font-size: 14px;
         height: 50px;
-
+        cursor: pointer;
     }
 
     header h1, .icon-laptop{
@@ -107,7 +118,7 @@ header .icon-laptop{
         background-color: rgb(2, 40, 49);
     }
 
-    header label{
+    header #menu-ico{
         display: none;
     }
 
