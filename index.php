@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
-        <script src="js/verificador.js"></script>
         <!--<link rel="stylesheet" href="css/fonts.css">-->
     </head>
     <body>
@@ -12,13 +11,11 @@
             <div class="container">
                 <div class="icon-laptop"></div>
                 <h1> Eleli'sPage</h1>
-                <input type="checkbox" id="menu-bar">
+                <input type="checkbox" id="menu-bar"> 
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-
                     <label id="menu-items" for="radio1">HOME</label>
                     <label id="menu-items" for="radio2">ABOUT</label>
-                    <label id="menu-items" for="radio3">LIBRARY</label>
                     <label id="menu-items" for="radio4">CONTACT</label>
                     <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
                     
@@ -29,11 +26,43 @@
             <!--//////////////////BIENVENIDA//////////////////-->
             <input type="radio" name="radio" id="radio1" checked>
             <section id="home" class="tab1">
-                <div class="card">
-                    <h2>Bienvenido a mi Pagina</h2>
-                    <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
-                </div>
                 <div class="info">
+                    <div class="submenu">
+                        <ul id="nav">
+                            <li>
+                                <label id="submenu-ico" class="icon-list" for="submenu-bar"></label>
+                                <ul>
+                                    <li><label for="radio1-1" id="submenuitem">Inicio</label></li>
+                                    <li><label for="radio1-2" id="submenuitem">Linux</label></li>
+                                    <!--<li><label for="radio1-3" id="submenuitem">TIP</label></li>-->
+                                    <li><label for="radio1-4" id="submenuitem">Biblioteca</label></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--BIENVENIDA-->
+                    <input type="radio" name="radio1" id="radio1-1" checked>
+                    <section id="bienvenida"  class="tab1-1">
+                        <h2>Bienvenido a mi Pagina</h2>
+                        <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                    </section>
+                    <!--LINUX-->
+                    <input type="radio" name="radio1" id="radio1-2">
+                    <section id="linux"  class="tab1-2">
+                        <?php include("linux.html") ?>
+                    </section>
+                    <!--TIP
+                    <input type="radio" name="radio1" id="radio1-3" >
+                    <section id="TIP"  class="tab1-3">
+                        <h2>Bienvenido a mi Pagina</h2>
+                        <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                    </section>-->
+                    <!--BIENVENIDA-->
+                    <input type="radio" name="radio1" id="radio1-4">
+                    <section id="library"  class="tab1-4">
+                        <h2><strong>Librería</strong></h2>
+                        <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
+                    </section>
                     
                 </div>
             </section>
@@ -71,12 +100,12 @@
                 </div>
             </section>
 
-            <!--//////////////////LIBRERIA//////////////////-->
+            <!--//////////////////LIBRERIA//////////////////
             <input type="radio" name="radio" id="radio3">
             <section id="library"  class="tab3">
                 <h2><strong>Librería</strong></h2>
                 <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
-            </section>
+            </section>-->
 
             <!--//////////////////CONTACTO//////////////////-->
             <input type="radio" name="radio" id="radio4">
@@ -100,4 +129,5 @@
             </section>
         </main>
     </body>
+    <script src="js/verificador.js"></script>
 </html>

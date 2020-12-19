@@ -1,11 +1,11 @@
 
 .tab2 .card{
     padding-bottom: 200px;
-    border: none;
 }
 
 .tab2 .info{
     margin-top: -190px;
+    padding: 300px 40px;
 }
 
 .cirular_portrait{
@@ -50,7 +50,9 @@
     }
 
     .tab2 .info{
+        padding: 90px 100px;
         margin-top: 20px;
+        width: 1000px;
     }
 
     .cirular_portrait{

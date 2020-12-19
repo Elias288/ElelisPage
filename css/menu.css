@@ -1,7 +1,3 @@
-#menu-bar{
-    display: none;
-}
-
 header{
     width: 100%;
     height: 200px;
@@ -29,18 +25,6 @@ header #menu-ico {
     cursor: pointer;
 }
 
-#radio1, #radio2, #radio3, #radio4{
-    display: none;
-}
-
-#radio1:checked ~ .tab1,
-#radio2:checked ~ .tab2,
-#radio3:checked ~ .tab3,
-#radio4:checked ~ .tab4
-{
-    opacity: 1;
-    visibility: visible;
-}
 
 header h1, .icon-laptop{  
     margin: 60 0;
@@ -50,7 +34,11 @@ header h1, .icon-laptop{
 }
 
 header .icon-laptop{
-    margin: 70 0;
+    margin: 70 0 0;
+}
+
+#menu-bar{
+    display: none;
 }
 
 .menu{
@@ -73,6 +61,7 @@ header .icon-laptop{
     text-decoration: none;
     padding: 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 .menu a:hover, #menu-items:hover{
@@ -85,6 +74,76 @@ header .icon-laptop{
 
 #menu-bar:checked ~ .menu{
     transform: translateX(0%);
+}
+
+/*SUBMENU HOME*/
+.tab1 .info .submenu{
+    width: 100%;
+    float: left;
+    height: 100px;
+}
+
+.tab1 .info ul{
+    list-style: none;
+    font-size: 50px;
+}
+
+.tab1 .info #nav > li{
+    float: left;
+}
+
+.tab1 #submenu-ico{
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+}
+
+.tab1 #submenu-ico:hover{
+    background-color: #434343;
+}
+
+.tab1 .info #nav li ul{
+    width: 90%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.tab1 .info #nav li ul li{
+    padding: 40px;
+    border-bottom: 1px solid;
+}
+
+.tab1 .info #nav li:hover > ul{
+    display: block;
+}
+
+
+
+/*BOTONES*/
+
+#radio1, #radio2, #radio3, #radio4, 
+#radio1-1, #radio1-2, #radio1-3, #radio1-4{
+    display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+#radio1-1:checked ~ .tab1-1,
+#radio1-2:checked ~ .tab1-2,
+#radio1-3:checked ~ .tab1-3,
+#radio1-4:checked ~ .tab1-4
+{
+    display: block;
 }
 
 @media (min-width:1024px){
@@ -105,6 +164,32 @@ header .icon-laptop{
         cursor: pointer;
     }
 
+    .tab1 .info #nav li ul{
+        width: 1000px;
+        display: flex;
+        font-size: 30px;
+        padding: 0 150px;
+    }
+
+    .tab1 .info #nav li:hover > ul{
+        display: flex;
+
+    }
+    
+    .tab1 #submenu-ico{
+        display: none;
+    }
+    .tab1 .info #nav li ul li:hover{
+        background-color: #434343;
+    }
+
+    .tab1 .info #nav li ul li{
+        padding: 10 20px;
+        border-right: 1px solid;
+        border-left: 1px solid;
+
+    }
+
     header h1, .icon-laptop{
         margin-top: 0 ;
         margin-bottom: 0 ;
@@ -112,7 +197,7 @@ header .icon-laptop{
     }
 
     header .icon-laptop{
-        margin: 6 0 0 50px;
+        margin-top: 6px;
     }
 
     .tablinks.active{
