@@ -24,7 +24,7 @@
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio1" >
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -281,14 +281,47 @@
             </section>
 
             <!--//////////////////CONTACTO//////////////////-->
-            <input type="radio" name="radio" id="radio4">
+            <input type="radio" name="radio" id="radio4" checked>
             <section id="contacto" class="tab4">
                 <div class="card">
                     <h2 class="icon-envelope"> Contacto</h2>
                     <p>Enviame un mensaje</p>
                 </div>
                 <div class="formulario">
-                    <form action="" method="post" id="formEnviar">
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <!--<label>
+                            Nombre:
+                        </label>-->
+                        <input class="form-control inf" placeholder="NOMRE" type="text" v-model="from_name" required>
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <!--<label>
+                            Asunto:
+                        </label>-->
+                        <input class="form-control inf" type="text" placeholder="ASUNTO" v-model="subject" required>
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <!--<label>
+                            Correo:
+                        </label>-->
+                        <input class="form-control inf" type="email" placeholder="CORREO" v-model="from_email" required>
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <!--<label>
+                            Mensaje:
+                        </label>-->
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
+                    </div>
+                    <div class="con-md-8">
+                        <button @click="enviar" class="btn btn-success enviar">
+                            Enviar
+                        </button>
+                    </div>
+
+                    <!--<form action="" method="post" id="formEnviar">
                         <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
                         <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO"require>
                         <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
@@ -297,7 +330,7 @@
                             <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
                         </div>
                     </form>
-                    <!--<?php include("enviar.php");?>-->
+                    <?php include("enviar.php");?>-->
                 </div>
             </section>
         </main>
