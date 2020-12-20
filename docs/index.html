@@ -1,0 +1,308 @@
+<html>
+    <head>
+        <title>Eleli'sPage</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="css/fonts.css">-->
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="icon-laptop"></div>
+                <h1> Eleli'sPage</h1>
+                <input type="checkbox" id="menu-bar"> 
+                <label id="menu-ico" class="icon-list" for="menu-bar"></label>
+                <nav class="menu">
+                    <label id="menu-items" class="label1" for="radio1">HOME</label>
+                    <label id="menu-items" class="label2" for="radio2">ABOUT</label>
+                    <label id="menu-items" class="label3" for="radio4">CONTACT</label>
+                    <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
+                    
+                </nav>
+            </div>
+        </header>
+        <main>
+            <!--//////////////////BIENVENIDA//////////////////-->
+            <input type="radio" name="radio" id="radio1" >
+            <section id="home" class="tab1">
+                <div class="info">
+                    <div class="submenu">
+                        <ul id="nav">
+                            <li>
+                                <input type="checkbox" id="submenu-bar"> 
+                                <label id="submenu-ico" class="submenu-ico icon-list" for="submenu-bar"></label>
+                                <ul class="submenu-ul">
+                                    <li class="li li-inicio">
+                                        <label for="radio1-1" id="submenuitem">Inicio</label>
+                                    </li>
+                                    <li class="li li-linux">
+                                        <label for="radio1-2" id="submenuitem">Linux</label>
+                                    </li>
+                                    <!--<li class="li li-tip">
+                                        <label for="radio1-3" id="submenuitem">TIP</label>
+                                    </li>-->
+                                    <li class="li li-biblioteca">
+                                        <label for="radio1-4" id="submenuitem">Biblioteca</label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--BIENVENIDA-->
+                    <input type="radio" name="radio1" id="radio1-1" checked>
+                    <section id="bienvenida"  class="tab1-1">
+                        <h2>Bienvenido a mi Pagina</h2>
+                        <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                    </section>
+                    <!--LINUX-->
+                    <input type="radio" name="radio1" id="radio1-2">
+                    <section id="linux"  class="tab1-2">
+                        <h2>Comandos linux</h2>
+                        <br>
+                        <h3>Basicos</h3><br>
+                        <pre><b>pwd</b>                                 Muestra directorio corriente</pre><hr>
+                        <pre><b>ps</b>                                  visualiza procesos en ejecucion</pre><hr>
+                        <pre><b>ls</b>                                  Muestra contenido de directorio corriente</pre><hr>
+                        <pre><b>ls -l *nombre archivo*</b>              Muestra los permisos del archivo</pre><hr>
+                        <pre><b>ls -la</b>                              Muestra mas informacion de los archivos 
+                                                            incluyendo archivos ocultos</pre><hr>
+                        <pre><b>ls -lhR</b>                             Se mete en directorios y subdirectorios</pre><hr>
+                        <pre><b>ls *direccion* | grep *letras*</b>      Busca en la direccion cualquier cosa con las 
+                                                            letras dadas</pre><hr>
+                        <pre><b>Zombie</b>                              Finaliza su ejecucion pero queda rastos 
+                                                            en el kernel</pre><hr>
+                        <pre><b>qrenconde -o 'name' String</b>          genera un qr</pre><hr>
+                        <pre><b>curl -F file=@*foto*.jpg -H 'Host:*hostname*' https:ip -k -u 'usuario'</b>
+                                                            envia un archivo a la pagina</pre><hr>
+                        <pre><b>ssh usuario@numIp</b>                   conecta a un servidor</pre><hr>
+                        <pre><b>ssh MV@ip</b>                           entra al equipo MV de la ip</pre><hr>
+                        <pre><b>shutdown now</b>                        apaga linux (en root)</pre><hr>
+                        <pre><b>shutdown -r now</b>                     reinicia linux (en root)</pre><hr>
+                        <pre><b>Ready</b>                               Listo para ser ejecutado</pre><hr>
+                        <pre><b>Run</b>                                 Proceso en ejecucion</pre><hr>
+                        <pre><b>Blocked</b>                             Proceso bloqueado</pre><hr>
+                        <pre><b>echo -e "\e[92m texto \e[0m"</b>        cambia de color texto en terminal</pre><hr>
+                        <pre><b>leafpad</b>                             abre el editor de texto</pre><hr>
+                        <pre><b>xterm</b>                               abre la terminal</pre><hr>
+                        <pre><b>pcmanfm</b>                             abre el explorador de archivos</pre><hr>
+                        <pre><b>kill -term</b>                          obliga a cerrar</pre><hr>
+                        <pre><b>kill -stop</b>                          detiene la ejecucion</pre><hr>
+                        <pre><b>kill -kill</b>                          cierra de una</pre><hr>
+                        <pre><b>kill -cont</b>                          cambia señal para que proceso continue su 
+                                                            operacion´</pre><hr>
+                        <pre><b>ncat -l -p 5000</b>                     abre el puerto 5000 como servidor</pre><hr>
+                        <pre><b>echo hola | ncat ip_servidor 5000</b>   envia al servidor hola</pre><hr>
+                        <br>
+                        <h3>Comandos Archivos</h3><br><hr>
+
+                        <pre><b>tail -f Nombre archivo</b>              permite ver en vivo la modificacion de 
+                                                            archivo en servidor</pre><hr>
+                        <pre><b>gcc nomArchivo -o nomArchivo.exe</b>    recrea el archivo a ejecutable</pre><hr>
+                        <pre><b>./ </b>                                 ejecutar archivo</pre><hr>
+                        <pre><b>activate</b>                            cargar archivos en el sistema</pre><hr>
+                        <pre><b>mv file destino</b>                     mueve y renombra</pre><hr>
+                        <pre><b>mv -t destino `ls | grep text`</b>      mueve archivos similares</pre><hr>
+                        <pre><b>cp archivoOrg archivoDes</b>            copia el archivoOrg a archivoDes</pre> <hr>
+                        <pre><b>scp archivoOrg archivoDes</b>           copia el archivoOrg a archivoDes a traves 
+                                                            de ssh (de windows a linux)</pre>
+                        <pre><b>ejemplo</b> (scp /home/putoelquelolea so-equipo4@192.168.0.2:/home/so-equipo4)</pre><hr>
+                        <pre><b>pscp archivoOrg archivoDes</b>          copia el archivoOrg a archivoDes a 
+                                                            traves de ssh (de linux a windows)</pre><hr>
+                        <pre><b>mkdir/.../nombredir</b>                 crea directorios</pre><hr>
+                        <pre><b>cat</b>                                 muestra contenido</pre><hr>
+                        <pre><b>tar -cJvf dest/ origen.tar.rz</b>       comprime archivos en rz</pre><hr>
+                        <pre><b>tar -czvf dest/ origen.tar.gz</b>       comprime archivos en gz</pre><hr>
+                        <pre><b>rm 'archivo'</b>                        Elimina el archivo</pre><hr>
+                        <pre><b>rm *.algo</b>                           Elimina todos los archivos con .algo</pre><hr>
+                        <pre><b>rm -r 'fichero'</b>                     Elimina  ficheros</pre><hr>
+                        <pre><b>mpg123 'archivo.mp3'</b>                reproduce audio</pre><hr>
+                        <pre><b>tail --follow /archivo</b>              mirar archivo en vivo</pre><hr>
+                        <br>
+                        <h3>Vi</h3>
+                        <br><hr>
+                        <pre><b>vi nombre</b>                           crea un editor de texto desde terminal</pre><hr>
+                        <pre><b>"esc"</b>                               modo comando</pre><hr>
+                        <pre><b>:q!</b>                                 salir sin guardar</pre><hr>
+                        <pre><b>:w</b>                                  guarda</pre><hr>
+                        <pre><b>:wq
+                        ZZ</b>                                  guardar y salir</pre><hr>
+                        <br>
+                        <b>Moverse</b>
+                        <br><hr>
+                        <pre><b>$</b>                                   final de la linea actual</pre><hr>
+                        <pre><b>+</b>                                   comienzo de la linea</pre><hr>
+                        <pre><b>e</b>                                   comienzo de la palabra</pre><hr>
+                        <pre><b>w</b>                                   fin de la palabra</pre><hr>
+                        <pre><b>x</b>                                   borrar caracter</pre><hr>
+
+                        <br>
+                        <b>Escribir</b>
+                        <br><hr>
+
+                        <pre><b>o</b>                                   inserta una linea debajo del cursor</pre><hr>
+                        <pre><b>a</b>                                   inserta caracter detras de la posicion del 
+                                                            cursor</pre><hr>
+                        <pre><b>i</b>                                   inserta caracter delante de la posicion del 
+                                                            cursor</pre><hr>
+                        <pre><b>u</b>                                   deshace/rehace el ultimo cambio </pre><hr>
+                        <pre><b>yy</b>                                  copia linea</pre><hr>
+                        <pre><b>yw</b>                                  copia palabra</pre><hr>
+                        <pre><b>P</b>                                   pega antes del cursor</pre><hr>
+                        <pre><b>p</b>                                   pega despues del cursor</pre><hr>
+                        <pre><b>(numero de lineas)dd</b>                borrar linea</pre><hr>
+                        <pre><b>d$</b>                                  borra desde la posicion actual hasta el final 
+                                                            de la linea</pre><hr>
+                        <pre><b>d^</b>                                  borra desde la posicion actual hasta el inico 
+                                                            de la linea</pre><hr>
+                        <pre><b>dw</b>                                  borra desde la posicion actual hasta el final 
+                                                            de la palabra</pre><hr>
+                        <pre><b>D</b>                                   elimina hasta final de la linea</pre><hr>
+                        <pre><b>(numero)G</b>                           te lleva al numero de linea</pre><hr>
+                        <pre><b>f(letra)</b>                            busca las letra de la linea</pre><hr>
+                        <pre><b>T(letra)</b>                            va al caracter posterior a la letra</pre><hr>
+                        <pre><b>t(letra)</b>                            va al caracter anterior a la letra</pre><hr>
+                            <br>
+                        <h3>Keylogger</h3>
+                        <br><hr>
+                        <pre><b>logkeys --start --output</b>            inicia capturador de teclado</pre><hr>
+                        <pre><b>logkeys --kill</b>                     detiene capturador de teclado</pre><hr>
+                        <br>
+
+                        <h3>Permisos</h3>
+                        <br><hr>
+                        <pre><b>chmod</b> usuario, grupo, otros, archivo</pre>
+                        <pre><b>chmod</b> u + rwx, g + rwx ,o + rwx</pre>
+                        <pre><b>chmod</b> 777</pre>
+
+                        <table border="1px">
+                            <tr >
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>r</td>
+                                <td>w</td>
+                                <td>x</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>r</td>
+                                <td>w</td>
+                                <td>-</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>r</td>
+                                <td>-</td>
+                                <td>x</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>r</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>w</td>
+                                <td>x</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>w</td>
+                                <td>-</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>x</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+
+                        <pre><b>r</b> = lectura</pre>
+                        <pre><b>w</b> = escritura</pre>
+                        <pre><b>x</b> = ejecucion</pre>
+
+                    </section>
+                    <!--TIP
+                    <input type="radio" name="radio1" id="radio1-3" >
+                    <section id="TIP"  class="tab1-3">
+                        <h2>Bienvenido a mi Pagina</h2>
+                        <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
+                    </section>-->
+                    <!--BIENVENIDA-->
+                    <input type="radio" name="radio1" id="radio1-4">
+                    <section id="library"  class="tab1-4">
+                        <h2><strong>Librería</strong></h2>
+                        <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
+                    </section>
+                    
+                </div>
+            </section>
+            
+            <!--//////////////////ABOUT//////////////////-->
+            <input type="radio" name="radio" id="radio2" >
+            <section id="about"  class="tab2">
+                <div class="card">
+                    <h2>Elias Bianchi</h2>
+                    <p>Programador</p>
+                </div>
+                <div class="cirular_portrait">
+                    <img src="img/Elias.png" alt="programador">
+                </div>
+                <div class="info">
+                    <div class="links">
+                        <a href="https://www.facebook.com/bianchi.elias" class="icon-facebook-square"></a>
+                        <a href="https://twitter.com/BianchiEliass" class="icon-twitter-square"></a>
+                        <a href="https://www.instagram.com/elelibian/" class="icon-instagrem"></a>
+                        <a href="https://github.com/Elias288" class="icon-github"></a>
+                        <!--<a href="" class="icon-paypal"></a>-->
+                    </div>
+                    <p>Soy un estudiante de la carrera de Tecnologo en Informatica de Uruguay, 
+                        programar es mi pasión dentro de la informática, conozo los 
+                        principales lenguajes como java, c++/c y visual studio; 
+                        ademas de desarrollo web con HTML, css, php y javascript.
+                        Linux es mi sistema operativo favorito, en donde me he especializado 
+                        en servidores web.
+                    </p>
+                    <div class="info-foot">
+                        <a href="files/Curriculum Vitae(2020).pdf" class="foot-item" target="_blank">Descargar CV</a>
+                        <label class="foot-item icon-envelope" for="radio4"> Contacto</label>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!--//////////////////CONTACTO//////////////////-->
+            <input type="radio" name="radio" id="radio4" checked>
+            <section id="contacto" class="tab4">
+                <div class="card">
+                    <h2 class="icon-envelope"> Contacto</h2>
+                    <p>Enviame un mensaje</p>
+                </div>
+                <div class="formulario">
+                    <form action="" method="post" id="my-form">
+                        <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
+                        <input type="email" name="mail" id="mail" class="inf" placeholder="CORREO"require>
+                        <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
+                        <div class="con-md-8">
+                            <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
+                        </div>
+                    </form>
+                    <!--<?php include("enviar.php");?>-->
+                    <div id="status"></div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="js/verificador.js"></script>
+    <script src="js/inicio.js"></script>
+</html>
