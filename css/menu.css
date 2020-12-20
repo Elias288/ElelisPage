@@ -93,6 +93,7 @@ header .icon-laptop{
     text-decoration: none;
     padding: 10px 12px;
     display: block;
+    color: #fff;
 }
 
 .submenu-ul{
@@ -102,7 +103,7 @@ header .icon-laptop{
     color: #fff;
     /*display: none;*/
     transition: all 0.55s;
-    transform: translateX(-110%);
+    transform: translateX(-150%);
     position: absolute;
     min-width: 140px;
 }
@@ -126,6 +127,7 @@ header .icon-laptop{
 {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0vh);
 }
 
 
@@ -170,9 +172,9 @@ header .icon-laptop{
         background: rgba(255, 255, 255, 0.3);
     }
 
-    .tab1 #submenu-ico{
+    /*.tab1 #submenu-ico{
         display: none;
-    }
+    }*/
 
     .tab1 .info ul{
         font-size: 30px;
@@ -183,7 +185,7 @@ header .icon-laptop{
         display: flex;
         font-size: 30px;
         padding: 0 250px;
-        transform: translate(0%);
+        /*transform: translate(0%);*/
     }
     .submenu-ul li:hover{
         background: rgba(255, 255, 255, 0.3);

@@ -60,12 +60,12 @@
                     <section id="linux"  class="tab1-2">
                         <?php include("linux.html") ?>
                     </section>
-                    <!--TIP
+                    <!--TIP-->
                     <input type="radio" name="radio1" id="radio1-3" >
                     <section id="TIP"  class="tab1-3">
-                        <h2>Bienvenido a mi Pagina</h2>
-                        <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
-                    </section>-->
+                        <h2>Pagina en servicio</h2>
+                        <p>cosas de la carrera</p>
+                    </section>
                     <!--BIENVENIDA-->
                     <input type="radio" name="radio1" id="radio1-4">
                     <section id="library"  class="tab1-4">
