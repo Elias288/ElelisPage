@@ -35,7 +35,7 @@
     color: #838383;
 }
 
-.info-foot a{
+.info-foot .foot-item{
     text-decoration: none;
     border: 2px solid #838383;
     color: #fff;

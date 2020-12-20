@@ -18,7 +18,7 @@
 section h2{
     font-size: 60px;
 }
-section p, section a{
+section p, section a, section label{
     font-size: 40px;
 }
 
@@ -77,7 +77,7 @@ section p, section a{
     section h2{
         font-size: 30px;
     }
-    section p, section a{
+    section p, section a, section label{
         font-size: 17px;
     }
 

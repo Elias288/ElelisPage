@@ -14,9 +14,9 @@
                 <input type="checkbox" id="menu-bar"> 
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <label id="menu-items" for="radio1">HOME</label>
-                    <label id="menu-items" for="radio2">ABOUT</label>
-                    <label id="menu-items" for="radio4">CONTACT</label>
+                    <label id="menu-items" class="label1" for="radio1">HOME</label>
+                    <label id="menu-items" class="label2" for="radio2">ABOUT</label>
+                    <label id="menu-items" class="label3" for="radio4">CONTACT</label>
                     <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
                     
                 </nav>
@@ -30,12 +30,21 @@
                     <div class="submenu">
                         <ul id="nav">
                             <li>
-                                <label id="submenu-ico" class="icon-list" for="submenu-bar"></label>
-                                <ul>
-                                    <li><label for="radio1-1" id="submenuitem">Inicio</label></li>
-                                    <li><label for="radio1-2" id="submenuitem">Linux</label></li>
-                                    <!--<li><label for="radio1-3" id="submenuitem">TIP</label></li>-->
-                                    <li><label for="radio1-4" id="submenuitem">Biblioteca</label></li>
+                                <input type="checkbox" id="submenu-bar"> 
+                                <label id="submenu-ico" class="submenu-ico icon-list" for="submenu-bar"></label>
+                                <ul class="submenu-ul">
+                                    <li class="li li-inicio">
+                                        <label for="radio1-1" id="submenuitem">Inicio</label>
+                                    </li>
+                                    <li class="li li-linux">
+                                        <label for="radio1-2" id="submenuitem">Linux</label>
+                                    </li>
+                                    <!--<li class="li li-tip">
+                                        <label for="radio1-3" id="submenuitem">TIP</label>
+                                    </li>-->
+                                    <li class="li li-biblioteca">
+                                        <label for="radio1-4" id="submenuitem">Biblioteca</label>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -67,7 +76,7 @@
                 </div>
             </section>
             
-            <!--//////////////////INFORMACION//////////////////-->
+            <!--//////////////////ABOUT//////////////////-->
             <input type="radio" name="radio" id="radio2" >
             <section id="about"  class="tab2">
                 <div class="card">
@@ -93,19 +102,12 @@
                         en servidores web.
                     </p>
                     <div class="info-foot">
-                        <a href="files/Curriculum Vitae(2020).pdf" target="_blank">Descargar CV</a>
-                        <a href="contacto.php" class="icon-envelope"> Contacto</a>
+                        <a href="files/Curriculum Vitae(2020).pdf" class="foot-item" target="_blank">Descargar CV</a>
+                        <label class="foot-item icon-envelope" for="radio4"> Contacto</label>
                     </div>
                     
                 </div>
             </section>
-
-            <!--//////////////////LIBRERIA//////////////////
-            <input type="radio" name="radio" id="radio3">
-            <section id="library"  class="tab3">
-                <h2><strong>Librería</strong></h2>
-                <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
-            </section>-->
 
             <!--//////////////////CONTACTO//////////////////-->
             <input type="radio" name="radio" id="radio4">

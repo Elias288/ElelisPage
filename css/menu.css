@@ -37,7 +37,7 @@ header .icon-laptop{
     margin: 70 0 0;
 }
 
-#menu-bar{
+#menu-bar, #submenu-bar{
     display: none;
 }
 
@@ -64,22 +64,19 @@ header .icon-laptop{
     border-top: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.menu a:hover, #menu-items:hover{
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.tablinks.active{
-    background-color: rgb(4, 61, 75);
-}
-
 #menu-bar:checked ~ .menu{
     transform: translateX(0%);
 }
+/*
+.tablinks.active{
+    background-color: rgb(2, 34, 43);
+}
+*/
 
 /*SUBMENU HOME*/
 .tab1 .info .submenu{
     width: 100%;
-    float: left;
+    float: left;    
     height: 100px;
 }
 
@@ -98,29 +95,22 @@ header .icon-laptop{
     display: block;
 }
 
-.tab1 #submenu-ico:hover{
-    background-color: #434343;
-}
-
-.tab1 .info #nav li ul{
+.submenu-ul{
     width: 90%;
-    background: rgba(0, 0, 0, 0.9);
+    /*background: rgba(0, 0, 0, 0.9);*/
+    background-color: rgba(4, 61, 75, 0.9);
     color: #fff;
-    display: none;
+    /*display: none;*/
+    transition: all 0.55s;
+    transform: translateX(-110%);
     position: absolute;
     min-width: 140px;
 }
 
-.tab1 .info #nav li ul li{
+.submenu-ul .li{
     padding: 40px;
     border-bottom: 1px solid;
 }
-
-.tab1 .info #nav li:hover > ul{
-    display: block;
-}
-
-
 
 /*BOTONES*/
 
@@ -138,6 +128,7 @@ header .icon-laptop{
     visibility: visible;
 }
 
+
 #radio1-1:checked ~ .tab1-1,
 #radio1-2:checked ~ .tab1-2,
 #radio1-3:checked ~ .tab1-3,
@@ -146,6 +137,17 @@ header .icon-laptop{
     display: block;
 }
 
+#submenu-bar:checked ~ .submenu-ul{
+    transform: translateX(0%);
+}
+
+#submenu-bar:checked ~ .submenu-ico{
+    background-color: rgba(2, 34, 43, 0.9);
+    color: #fff;
+}
+
+
+/*Modo PC*/
 @media (min-width:1024px){
     .menu{
         position: static;
@@ -164,29 +166,38 @@ header .icon-laptop{
         cursor: pointer;
     }
 
-    .tab1 .info #nav li ul{
+    .menu a:hover, #menu-items:hover{
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .tab1 #submenu-ico{
+        display: none;
+    }
+
+    .tab1 .info ul{
+        font-size: 30px;
+    }
+
+    .submenu-ul{
         width: 1000px;
         display: flex;
         font-size: 30px;
-        padding: 0 150px;
+        padding: 0 250px;
+        transform: translate(0%);
+    }
+    .submenu-ul li:hover{
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .submenu-ul .li{
+        padding: 10 20px;
+        border-right: 1px solid;
+        border-left: 1px solid;
+
     }
 
     .tab1 .info #nav li:hover > ul{
         display: flex;
-
-    }
-    
-    .tab1 #submenu-ico{
-        display: none;
-    }
-    .tab1 .info #nav li ul li:hover{
-        background-color: #434343;
-    }
-
-    .tab1 .info #nav li ul li{
-        padding: 10 20px;
-        border-right: 1px solid;
-        border-left: 1px solid;
 
     }
 
@@ -198,10 +209,6 @@ header .icon-laptop{
 
     header .icon-laptop{
         margin-top: 6px;
-    }
-
-    .tablinks.active{
-        background-color: rgb(2, 40, 49);
     }
 
     header #menu-ico{
