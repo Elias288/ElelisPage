@@ -288,52 +288,21 @@
                     <p>Enviame un mensaje</p>
                 </div>
                 <div class="formulario">
-                    <div class="col-sm-6 col-sm-offset-3 form-group">
-                        <!--<label>
-                            Nombre:
-                        </label>-->
-                        <input class="form-control inf" placeholder="NOMRE" type="text" v-model="from_name" required>
-                        </input>
-                    </div>
-                    <div class="col-sm-6 col-sm-offset-3 form-group">
-                        <!--<label>
-                            Asunto:
-                        </label>-->
-                        <input class="form-control inf" type="text" placeholder="ASUNTO" v-model="subject" required>
-                        </input>
-                    </div>
-                    <div class="col-sm-6 col-sm-offset-3 form-group">
-                        <!--<label>
-                            Correo:
-                        </label>-->
-                        <input class="form-control inf" type="email" placeholder="CORREO" v-model="from_email" required>
-                        </input>
-                    </div>
-                    <div class="col-sm-6 col-sm-offset-3 form-group">
-                        <!--<label>
-                            Mensaje:
-                        </label>-->
-                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
-                    </div>
-                    <div class="con-md-8">
-                        <button @click="enviar" class="btn btn-success enviar">
-                            Enviar
-                        </button>
-                    </div>
-
-                    <!--<form action="" method="post" id="formEnviar">
+                    <form action="" method="post" id="my-form">
                         <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
-                        <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO"require>
+                        <input type="email" name="mail" id="mail" class="inf" placeholder="CORREO"require>
                         <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
                         <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
                         <div class="con-md-8">
                             <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
                         </div>
                     </form>
-                    <?php include("enviar.php");?>-->
+                    <!--<?php include("enviar.php");?>-->
+                    <div id="status"></div>
                 </div>
             </section>
         </main>
     </body>
     <script src="js/verificador.js"></script>
+    <script src="js/inicio.js"></script>
 </html>

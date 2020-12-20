@@ -1,24 +1,52 @@
-window.onload = function(){
-    strartTab();
-}
+window.addEventListener("DOMContentLoaded", function() {
 
-function strartTab(){
-    document.getElementById("defaultOpen").click();
-}
-
-function cambiarPestaña(evt, idPestaña){
-    var i, tabcontent, tablinks;
+    // get the form elements defined in your form HTML above
     
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for(i = 0; i < tabcontent.length; i++){
-        tabcontent[i].style.display = "none";
-    }
+    var form = document.getElementById("my-form");
+    var status = document.getElementById("status");
 
-    tablinks = document.getElementsByClassName("tablinks");
-    for(i = 0; i < tablinks.length; i++){
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      //status.innerHTML = "Thanks!";
+      status.innerHTML = "<div class=\"modal_wrap\" id=\"modal_wrap\">" +
+                        "<div class=\"mensaje_modal\">"+
+                        "<h3>Mensaje enviado correctamente</h3>"+
+                        "<span id=\"btn_close\">Cerrar</span>"+
+                        "</div> </div>";
+        document.getElementById("btn_close").addEventListener('click', function(e){
+          document.getElementById('modal_wrap').remove();
+          
+      });
     }
+    
+    function error() {
+      //status.innerHTML = "Oops! There was a problem.";
+    }
+    
+    // handle the form submission event
 
-    document.getElementById(idPestaña).style.display = "block";
-    evt.currentTarget.className += " active";
-}  
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+  
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }

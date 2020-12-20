@@ -24,7 +24,7 @@ window.onload=function(){
         }
 
         if( errores == '' == false){
-            document.getElementById('formEnviar').setAttribute('action', 'javascript:void(0);');
+            document.getElementById('my-form').setAttribute('action', 'javascript:void(0);');
             var cont = document.getElementById('contacto');
             var MensajeModal = '<div class="modal_wrap" id="modal_wrap">' +
                                 '<div class="mensaje_modal">'+
@@ -38,9 +38,10 @@ window.onload=function(){
             /*Cerrar mensaje de error */
             document.getElementById("btn_close").addEventListener('click', function(e){
                 document.getElementById('modal_wrap').remove();
-                document.getElementById('formEnviar').setAttribute('action', '');
+                
             });
-        }
+        }else
+            document.getElementById('my-form').setAttribute('action', 'https://formspree.io/f/xoqppvje');
 
     });
 }
