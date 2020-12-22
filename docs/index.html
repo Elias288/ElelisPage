@@ -11,12 +11,13 @@
             <div class="container">
                 <div class="icon-laptop"></div>
                 <h1> Eleli'sPage</h1>
-                <input type="checkbox" id="menu-bar" checked> 
+                <input type="checkbox" id="menu-bar"> 
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <label class="menu-items" id="label1" for="radio1">HOME</label>
-                    <label class="menu-items" id="label2" for="radio2">ABOUT</label>
-                    <label class="menu-items" id="label3" for="radio4">CONTACT</label>
+                    <label for="radio1" class="menu-items" id="label1">HOME</label>
+                    <label for="radio2" class="menu-items" id="label2">ABOUT</label>
+                    <label for="radio3" class="menu-items" id="label3">GAMES</label>
+                    <label for="radio4" class="menu-items" id="label4">CONTACT</label>
                     <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
                     
                 </nav>
@@ -24,7 +25,7 @@
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio1">
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -280,6 +281,15 @@
                 </div>
             </section>
 
+            <!--/////////////////GAMES///////////////////-->
+            <input type="radio" name="radio" id="radio3" checked>
+            <section id="games" class="tab3">
+                <!--<div class="info">-->
+                    <canvas id="juegocanvas">hola</canvas>
+                <!--</div>-->
+            </section>
+            <script src="../js/snake.js"></script>
+
             <!--//////////////////CONTACTO//////////////////-->
             <input type="radio" name="radio" id="radio4">
             <section id="contacto" class="tab4">
@@ -301,8 +311,9 @@
                     <div id="status"></div>
                 </div>
             </section>
+            
+            <script src="../js/verificador.js"></script>
+            <script src="../js/inicio.js"></script>
         </main>
     </body>
-    <script src="../js/verificador.js"></script>
-    <script src="../js/inicio.js"></script>
 </html>

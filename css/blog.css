@@ -66,6 +66,12 @@ section p, section a, section label{
     padding: 40px 60px ;
 }
 
+#juegocanvas{
+    width: 800px;
+    height: 800px;
+    background: #838383;
+}
+
 
 /*Modo pc*/
 @media (min-width:1024px){
@@ -110,4 +116,8 @@ section p, section a, section label{
         flex-shrink: 0;
     }
 
+    #juegocanvas{
+        width: 500px;
+        height: 500px;
+    }
 }
