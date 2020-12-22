@@ -14,9 +14,10 @@
                 <input type="checkbox" id="menu-bar"> 
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
                 <nav class="menu">
-                    <label id="menu-items" class="label1" for="radio1">HOME</label>
-                    <label id="menu-items" class="label2" for="radio2">ABOUT</label>
-                    <label id="menu-items" class="label3" for="radio4">CONTACT</label>
+                    <label for="radio1" class="menu-items" id="label1">HOME</label>
+                    <label for="radio2" class="menu-items" id="label2">ABOUT</label>
+                    <label for="radio3" class="menu-items" id="label3">GAMES</label>
+                    <label for="radio4" class="menu-items" id="label4">CONTACT</label>
                     <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
                     
                 </nav>
@@ -24,7 +25,7 @@
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio1" >
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -106,6 +107,16 @@
                         <label class="foot-item icon-envelope" for="radio4"> Contacto</label>
                     </div>
                     
+                </div>
+            </section>
+
+            <!--//////////////////GAMES//////////////////-->
+            <input type="radio" name="radio" id="radio3" checked>
+            <section id="contacto" class="tab3">
+                <div class="info">
+                    <canvas id="juegocanvas">
+
+                    </canvas>
                 </div>
             </section>
 
