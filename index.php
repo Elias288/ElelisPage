@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Eleli'sPage</title>
+        <link rel="icon" href="files/laptop-png-icon-0.jpg" type="image/icon type">
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
