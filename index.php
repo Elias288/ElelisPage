@@ -16,16 +16,16 @@
                 <nav class="menu">
                     <label for="radio1" class="menu-items" id="label1">HOME</label>
                     <label for="radio2" class="menu-items" id="label2">ABOUT</label>
-                    <label for="radio3" class="menu-items" id="label3">GAMES</label>
+                    <!--<label for="radio3" class="menu-items" id="label3">GAMES</label>-->
                     <label for="radio4" class="menu-items" id="label4">CONTACT</label>
-                    <!--<a class="tablinks" href="contacto.php">CONTACT</a>-->
+                    
                     
                 </nav>
             </div>
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1" >
+            <input type="radio" name="radio" id="radio1" checked>
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -111,7 +111,7 @@
             </section>
 
             <!--//////////////////GAMES//////////////////-->
-            <input type="radio" name="radio" id="radio3" checked>
+            <input type="radio" name="radio" id="radio3">
             <section id="contacto" class="tab3">
                 <div class="info">
                     <canvas id="juegocanvas">

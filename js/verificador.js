@@ -10,12 +10,20 @@ window.onload=function(){
         }else{
             document.getElementById('name').style.borderBottomColor = "black";
         }
+
+        var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+        var valido = expReg.test(document.getElementById("mail").value);
         if(document.getElementById("mail").value == ''){
             errores += '<p>Ingrese su correo</p>';
             document.getElementById('mail').style.borderBottomColor = "#F14B4B";
-        }else{
-            document.getElementById('mail').style.borderBottomColor = "black";
+        }else if(valido == false){
+            errores += '<p>Correo Invalido</p>';
+            document.getElementById('mail').style.borderBottomColor = "#F14B4B";
         }
+        else
+            document.getElementById('mail').style.borderBottomColor = "black";
+        
+
         if(document.getElementById("mensaje").value == ''){
             errores += '<p>Escriba un mensaje</p>';
             document.getElementById('mensaje').style.borderBottom = "2px solid #F14B4B";
