@@ -1,17 +1,19 @@
 <?php
 
 if(isset($_POST['enviar'])){
-    if( !empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['message']) ){
+    if( !empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['message']) && !empty($_POST['phone'])){
         $name = $_POST['name'];
         $mail = $_POST['mail'];
         $message = $_POST['message'];
         $asunto = $_POST['asunto'];
+        $phone = $_POST['phone'];
 
         $header = "From: noreply@examen.com" . "\r\n";
         $header .= "Reply-To: noreply@example.com" . "\r\n";
         $header .= "X-Mailer: PHP/" .phpversion();
 
         $message = "Este mensaje fue enviado por: " . $name . "\r\n";
+        $message = "Su telefono es: " . $phone . "\r\n";
         $message .= "Su e-mail es: " . $mail . "\r\n";
         $message .= "Mensaje: " . $_POST['message'] . "\r\n";
         $message .= "Enviado el: " . date('d/m/Y', time());

@@ -92,7 +92,7 @@
                     <div class="links">
                         <a href="https://www.facebook.com/bianchi.elias" class="icon-facebook-square"></a>
                         <a href="https://twitter.com/BianchiEliass" class="icon-twitter-square"></a>
-                        <a href="https://www.instagram.com/elelibian/" class="icon-instagrem"></a>
+                        <a href="https://www.linkedin.com/in/elias-bianchi-3a5012183/" class="icon-linkedin-square"></a>
                         <a href="https://github.com/Elias288" class="icon-github"></a>
                         <!--<a href="" class="icon-paypal"></a>-->
                     </div>
@@ -132,6 +132,7 @@
                     <form action="" method="post" id="formEnviar">
                         <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
                         <input type="text" name="mail" id="mail" class="inf" placeholder="CORREO"require>
+                        <input type="text" name="phone" id="phone" class="inf" placeholder="TELEFONO"require>
                         <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
                         <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
                         <div class="con-md-8">

@@ -11,6 +11,14 @@ window.onload=function(){
             document.getElementById('name').style.borderBottomColor = "black";
         }
 
+        if(document.getElementById("phone").value == ''){
+            errores += '<p>Escriba un telefono</p>';
+            document.getElementById('phone').style.borderBottomColor = "#F14B4B";
+        }else{
+            document.getElementById('phone').style.borderBottomColor = "black";
+        }
+
+
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
         var valido = expReg.test(document.getElementById("mail").value);
         if(document.getElementById("mail").value == ''){
