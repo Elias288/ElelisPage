@@ -26,7 +26,7 @@
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio1">
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -79,7 +79,13 @@
             </section>
             
             <!--//////////////////ABOUT//////////////////-->
-            <input type="radio" name="radio" id="radio2" >
+            <input type="radio" name="radio" id="radio2" checked>
+            <!--<div class="modal_wrap" id="modal_wrap">
+                <div class="mensaje_modal_QR">
+                    <img id="QR_Code" src="img/QRcryptos.jpg" alt="">
+                    <span id="btn_close">Cerrar</span>
+                </div> 
+            </div>-->
             <section id="about"  class="tab2">
                 <div class="card">
                     <h2>Elias Bianchi</h2>
@@ -106,14 +112,17 @@
                     <div class="info-foot">
                         <a href="files/Curriculum Vitae(2020).pdf" class="foot-item" target="_blank">Descargar CV</a>
                         <label class="foot-item icon-envelope" for="radio4"> Contacto</label>
+                        <!--
+                            BOTON CRYPTO (SIN TERMINAR)
+                            <a href="#" id="cryptos" class="foot-item">Apoyar con cryptos</a>
+                        -->
                     </div>
-                    
                 </div>
             </section>
 
             <!--//////////////////GAMES//////////////////-->
             <input type="radio" name="radio" id="radio3">
-            <section id="contacto" class="tab3">
+            <section id="" class="tab3">
                 <div class="info">
                     <canvas id="juegocanvas">
 
@@ -145,4 +154,5 @@
         </main>
     </body>
     <script src="js/verificador.js"></script>
+    <script src="js/inicio.js"></script>
 </html>

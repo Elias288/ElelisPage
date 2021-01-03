@@ -39,11 +39,9 @@ section p, section a, section label{
 
 .info-foot{
     margin-top: 200px;
-    display: -webkit-inline-box;
-}
-
-.info-foot a{
-    margin-right: 30px;
+    /*display: -webkit-inline-box;*/
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #Gdrive{

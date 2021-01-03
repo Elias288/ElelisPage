@@ -41,6 +41,35 @@
     color: #fff;
     background: rgb(4, 61, 75);
     padding: 3px 10px;
+    margin-right: 30px;
+    white-space: nowrap;
+}
+
+/*Codigo QR*/
+.mensaje_modal_QR{
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    width: 800px;
+    padding: 30px 20px 15px;
+}
+
+.mensaje_modal_QR #QR_Code{
+    width: 760px;
+}
+
+.mensaje_modal_QR #btn_close{
+    display: inline-block;
+    padding: 3px 10px;
+
+    background: #E25151;
+    color: #fff;
+    border: 2px solid #B14141;
+    cursor: pointer;
+    float: right;
+    /*
+    margin-top: 50px;
+    */
+    font-size: 40px;
 }
 
 @media(min-width: 1024px){
@@ -72,5 +101,18 @@
     .links a{
         margin: 0 10px 0;
         font-size: 50px;
+    }
+
+    .mensaje_modal_QR{
+        width: 400px;
+    }
+
+    .mensaje_modal_QR #QR_Code{
+        width: 360px;
+    }
+
+    .mensaje_modal_QR #btn_close{
+        margin-top: 20px;
+        font-size: 15px;
     }
 }
