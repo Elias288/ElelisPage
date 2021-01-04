@@ -26,7 +26,7 @@
         </header>
         <main>
             <!--//////////////////BIENVENIDA//////////////////-->
-            <input type="radio" name="radio" id="radio1">
+            <input type="radio" name="radio" id="radio1" checked>
             <section id="home" class="tab1">
                 <div class="info">
                     <div class="submenu">
@@ -79,7 +79,7 @@
             </section>
             
             <!--//////////////////ABOUT//////////////////-->
-            <input type="radio" name="radio" id="radio2" checked>
+            <input type="radio" name="radio" id="radio2">
             <!--<div class="modal_wrap" id="modal_wrap">
                 <div class="mensaje_modal_QR">
                     <img id="QR_Code" src="img/QRcryptos.jpg" alt="">
