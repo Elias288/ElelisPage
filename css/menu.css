@@ -18,13 +18,16 @@ header .volver{
     text-decoration: none;
 }
 
-header #menu-ico {
+header #menu-ico, #menu-ico2{
     float: right;
     font-size: 70px;
     margin: 75px 30px;
     cursor: pointer;
 }
 
+header #menu-ico2{
+    display: none;
+}
 
 header h1, .icon-laptop{  
     margin: 60 0;
@@ -49,7 +52,7 @@ header .icon-laptop{
     height: 100vh;
     background: rgba(0, 50, 50, 0.9);
     transition: all 0.55s;
-    transform: translateX(-100%);
+    transform: translateX(200%);
     cursor: pointer;
 }
 
@@ -71,11 +74,14 @@ header .icon-laptop{
 #menu-bar:checked ~ .menu{
     transform: translateX(0%);
 }
-/*
-.tablinks.active{
-    background-color: rgb(2, 34, 43);
+
+#menu-bar:checked ~ #menu-ico{
+    display: none;
 }
-*/
+
+#menu-bar:checked ~ #menu-ico2{
+    display: block;
+}
 
 /*SUBMENU HOME*/
 .tab1 .info .submenu{
@@ -217,8 +223,8 @@ header .icon-laptop{
         margin-top: 6px;
     }
 
-    header #menu-ico{
-        display: none;
+    header #menu-ico, #menu-ico2{
+        display: none !important;
     }
 
     header .volver{

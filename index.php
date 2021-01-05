@@ -14,6 +14,7 @@
                 <h1> Eleli'sPage</h1>
                 <input type="checkbox" id="menu-bar"> 
                 <label id="menu-ico" class="icon-list" for="menu-bar"></label>
+                <label id="menu-ico2" class="icon-times" for="menu-bar"></label>
                 <nav class="menu">
                     <label for="radio1" class="menu-items" id="label1">HOME</label>
                     <label for="radio2" class="menu-items" id="label2">ABOUT</label>
