@@ -16,8 +16,7 @@
     margin: 0 100px 100px;
 }
 
-
-section h2{
+section h1{
     font-size: 60px;
 }
 section p, section a, section label{
@@ -69,23 +68,50 @@ section p, section a, section label{
     padding: 40px 60px ;
 }
 
-#juegocanvas{
-    width: 800px;
-    height: 800px;
-    background: #838383;
+.proy{
+    padding: 90px 1px 1px;
+}
+
+.proyecto{
+    width: 95%;
+    padding: 10px;
+    text-align: initial;
+    margin: auto auto 40px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+/*.proyecto p, .proyecto a{
+    font-size: 30;
+}*/
+
+.proyecto .logo{
+    margin: auto;
+}
+
+.proyecto .logo img{
+    width:150px;
+}
+
+.proyecto .content{
+    padding: 30px;
+}
+
+.contenedor{
+    margin-top: 100px;
 }
 
 
 /*Modo pc*/
 @media (min-width:1024px){
-    .tab3, .tab4{
+    .tab1, .tab4{
         overflow: hidden;
     }
     .tab1, .tab2, .tab3, .tab4{
         margin-top: 50px;
         margin-bottom: 25px;
     }
-    section h2{
+    section h1{
         font-size: 30px;
     }
     section p, section a, section label{
@@ -119,8 +145,20 @@ section p, section a, section label{
         flex-shrink: 0;
     }
 
-    #juegocanvas{
-        width: 500px;
-        height: 500px;
+    .proy{
+        padding: 50px 0px 1px;
+    }
+
+    .contenedor{
+        margin-top: 50px;
+    }
+
+    .proyecto .logo img{
+        width: 150px; 
+        margin: 25% 0;
+    }
+
+    .proyecto .content{
+        padding: 50px;
     }
 }
