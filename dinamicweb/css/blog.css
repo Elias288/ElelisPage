@@ -17,7 +17,7 @@
 }
 
 
-section h2{
+section h1{
     font-size: 60px;
 }
 section p, section a, section label{
@@ -64,9 +64,33 @@ section p, section a, section label{
     padding: 40px 60px ;
 }
 
-#juegocanvas{
-    width: 800px;
-    height: 800px;
+.proy{
+    padding: 90px 1px 1px;
+}
+
+.proyecto{
+    width: 95%;
+    padding: 10px;
+    text-align: initial;
+    margin: auto auto 40px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.proyecto .logo{
+    margin: auto;
+}
+
+.proyecto .logo img{
+    width:150px;
+}
+
+.proyecto .content{
+    padding: 30px;
+}
+
+.contenedor{
+    margin-top: 100px;
 }
 
 
@@ -79,7 +103,7 @@ section p, section a, section label{
         margin-top: 50px;
         margin-bottom: 25px;
     }
-    section h2{
+    section h1{
         font-size: 30px;
     }
     section p, section a, section label{
@@ -111,6 +135,23 @@ section p, section a, section label{
         background-color: rebeccapurple;
         width: 100%;
         flex-shrink: 0;
+    }
+
+    .proy{
+        padding: 50px 0px 1px;
+    }
+
+    .contenedor{
+        margin-top: 50px;
+    }
+
+    .proyecto .logo img{
+        width: 150px; 
+        margin: 25% 0;
+    }
+
+    .proyecto .content{
+        padding: 50px;
     }
 
 }

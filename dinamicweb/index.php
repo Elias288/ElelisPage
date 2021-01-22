@@ -18,7 +18,7 @@
                 <nav class="menu">
                     <label for="radio1" class="menu-items" id="label1">HOME</label>
                     <label for="radio2" class="menu-items" id="label2">ABOUT</label>
-                    <!--<label for="radio3" class="menu-items" id="label3">GAMES</label>-->
+                    <label for="radio3" class="menu-items" id="label3">PROYECTS</label>
                     <label for="radio4" class="menu-items" id="label4">CONTACT</label>
                     
                     
@@ -55,7 +55,7 @@
                     <!--BIENVENIDA-->
                     <input type="radio" name="radio1" id="radio1-1" checked>
                     <section id="bienvenida"  class="tab1-1">
-                        <h2>Bienvenido a mi Pagina</h2>
+                        <h1>Bienvenido a mi Pagina</h1>
                         <p>Mi pagina personal, donde pruebo cosas y trabajo</p>
                     </section>
                     <!--LINUX-->
@@ -121,13 +121,32 @@
                 </div>
             </section>
 
-            <!--//////////////////GAMES//////////////////-->
+            <!--/////////////////PROYECTS///////////////////-->
             <input type="radio" name="radio" id="radio3">
-            <section id="" class="tab3">
-                <div class="info">
-                    <canvas id="juegocanvas">
-
-                    </canvas>
+            <section id="proyects" class="tab3">
+                <div class="info proy">
+                    <h1>My proyects</h1>
+                    <div class="contenedor">
+                        <div class="proyecto">
+                            <div class="logo">
+                                <img src="img/Weather_Scraping.png">
+                            </div>
+                            <div class="content">
+                                <h3>WeatherWebScraping</h3>
+                                <p>Este proyecto consiste en scrapear la web (extraer datos de la web) utilizando Python y mostrarlo en pantalla</p>
+                                <a href="https://github.com/Elias288/WeatherWebScraping">Ver aquí</a>
+                            </div>
+                        </div>
+                        <!--<div class="proyecto">
+                            <div class="logo">
+                                logo
+                            </div>
+                            <div class="content">
+                                <h1>Titulo</h1>
+                                <p>descripcion</p>
+                            </div>
+                        </div>-->
+                    </div>
                 </div>
             </section>
 
