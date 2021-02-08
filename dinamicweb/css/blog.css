@@ -1,27 +1,52 @@
 .tab1, .tab2, .tab3, .tab4{
+    margin-top: 50px;
+    margin-bottom: 25px;
+
     width: 100%;
     height: 100vh;
     overflow: scroll;
-    margin-bottom: 200px;
-    margin-top: 200px;
-    /*text-align: center;
-    visibility: hidden;
-    opacity: 0;*/
     transition: all 0.55s;
     transform: translateY(100vh);
     position: absolute;
+}
+
+.tab3, .tab4{
+    overflow: hidden;
 }
 
 .tab1 .info section{
     margin: 0 100px 100px;
 }
 
+.tab1 .tab1-1, 
+.tab1 .tab1-4,
+.tab3, 
+.tab4{
+    text-align: center;
+}
+
+.tabs{
+    overflow: hidden;
+}
+
+.tabs .tab-container{
+    display: flex;
+    flex-wrap: nowrap;
+    transform: translateX(0);
+    transition: all 0.2s ease-in;
+}
+
+.tabs .tab-container .tab{
+    background-color: rebeccapurple;
+    width: 100%;
+    flex-shrink: 0;
+}
 
 section h1{
-    font-size: 60px;
+    font-size: 30px;
 }
 section p, section a, section label{
-    font-size: 40px;
+    font-size: 17px;
 }
 
 .info{
@@ -33,28 +58,21 @@ section p, section a, section label{
     padding: 1px;
 }
 
-.info section{
-    display: none;
-}
-
 .info-foot{
-    margin-top: 200px;
-    /*display: -webkit-inline-box;*/
+    margin: 40px auto 200px;
+    width: 1000px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.info section{
+    display: none;
 }
 
 #Gdrive{
     width:80%; 
     height:75vh; 
     border:1;
-}
-
-.tab1 .tab1-1, 
-.tab1 .tab1-4,
-.tab3, 
-.tab4{
-    text-align: center;
 }
 
 .card{
@@ -65,7 +83,7 @@ section p, section a, section label{
 }
 
 .proy{
-    padding: 90px 1px 1px;
+    padding: 50px 0px 1px;
 }
 
 .proyecto{
@@ -82,76 +100,56 @@ section p, section a, section label{
 }
 
 .proyecto .logo img{
-    width:150px;
+    width: 150px; 
+    margin: 25% 0;
 }
 
 .proyecto .content{
-    padding: 30px;
+    padding: 50px;
 }
 
 .contenedor{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 
 /*Modo pc*/
-@media (min-width:1024px){
-    .tab3, .tab4{
-        overflow: hidden;
-    }
+@media (max-width:1024px){
     .tab1, .tab2, .tab3, .tab4{
-        margin-top: 50px;
-        margin-bottom: 25px;
+        margin-bottom: 200px;
+        margin-top: 200px;
     }
+    
     section h1{
-        font-size: 30px;
+        font-size: 60px;
     }
     section p, section a, section label{
-        font-size: 17px;
+        font-size: 40px;
     }
 
     .info{
-        /*padding: 90px 100px;*/
-        margin: 40px auto 200px;
-        width: 1000px;
+        margin-top: 200px;
     }
 
     .info-foot{
         margin-top: 50px;
     }
-
-    .tabs{
-        overflow: hidden;
-    }
-
-    .tabs .tab-container{
-        display: flex;
-        flex-wrap: nowrap;
-        transform: translateX(0);
-        transition: all 0.2s ease-in;
-    }
-
-    .tabs .tab-container .tab{
-        background-color: rebeccapurple;
-        width: 100%;
-        flex-shrink: 0;
-    }
+    
 
     .proy{
-        padding: 50px 0px 1px;
-    }
-
-    .contenedor{
-        margin-top: 50px;
+        padding: 90px 1px 1px;
     }
 
     .proyecto .logo img{
-        width: 150px; 
-        margin: 25% 0;
+        width:150px;
     }
 
     .proyecto .content{
-        padding: 50px;
+        padding: 30px;
+    }
+    
+    .contenedor{
+        margin-top: 100px;
     }
 
 }
