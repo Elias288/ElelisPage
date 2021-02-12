@@ -50,10 +50,11 @@ section p, section a, section label{
 }
 
 .info{
-    width: 90%;
+    width: 1000px;
+    margin: 40px auto 200px;
+    
     justify-content: center;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    margin: 20px auto 500px;
     background: #fff;
     padding: 1px;
 }
@@ -123,12 +124,14 @@ section p, section a, section label{
     section h1{
         font-size: 60px;
     }
-    section p, section a, section label{
+    section p, section a, section label, h2{
         font-size: 40px;
     }
 
     .info{
-        margin-top: 200px;
+        /*margin-top: 200px;*/
+        margin: 20px auto 500px;
+        width: 90%;
     }
 
     .info-foot{
