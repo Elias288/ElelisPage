@@ -174,5 +174,5 @@
         </main>
     </body>
     <script src="js/verificador.js"></script>
-    <script src="js/inicio.js"></script>
+    <!--<script src="js/inicio.js"></script>-->
 </html>
