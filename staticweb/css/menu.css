@@ -18,7 +18,7 @@ header h1, .icon-laptop{
 }
 
 header .icon-laptop{
-    margin: 6px 5px 0 0;
+    padding: 7px;
 }
 
 header .volver{
@@ -41,7 +41,7 @@ header #menu-ico2{
     display: none;
 }*/
 
-#menu-bar, #submenu-bar{
+#menu-bar, #submenu-bar, #submenu-bar2{
     display: none;
 }
 
@@ -53,7 +53,6 @@ header #menu-ico2{
     background:rgb(4, 61, 75);
     display: flex;
 
-    top: 200;
     left: 0;
     float: right;
 }
@@ -79,58 +78,6 @@ header #menu-ico2{
 
 #menu-bar:checked ~ #menu-ico{
     display: none;
-}
-
-#menu-bar:checked ~ #menu-ico2{
-    display: block;
-}
-
-/*SUBMENU HOME*/
-.tab1 .info .submenu{
-    width: 100%;
-    float: left;    
-    height: 100px;
-}
-
-.tab1 .info ul{
-    font-size: 30px;
-    list-style: none;
-}
-
-.tab1 .info #nav > li{
-    float: left;
-}
-
-.tab1 #submenu-ico{
-    text-decoration: none;
-    padding: 10px 12px;
-    display: block;
-    color: #fff;
-}
-
-
-.submenu-ul{
-    width: 1000px;
-    font-size: 30px;
-    display: flex;
-
-    padding: 0 250px;
-    background-color: rgba(4, 61, 75, 0.9);
-    color: #fff;
-    transition: all 0.55s;
-    transform: translateX(-150%);
-    position: absolute;
-    min-width: 140px;
-}
-
-.submenu-ul .li{
-    padding: 0 50px 10px;
-    border-right: 1px solid;
-    border-left: 1px solid;
-}
-
-.submenu-ul .li:hover{
-    background: rgba(255, 255, 255, 0.3);
 }
 
 /*BOTONES*/
@@ -159,12 +106,45 @@ header #menu-ico2{
     display: block;
 }
 
-#submenu-bar:checked ~ .submenu-ul{
+/*SUBMENU*/
+.submenu{
+    width: 100%;
+    float: left;
+    height: 100px;
+}
+
+.submenu .submenu-back{
+    width: 1000px;
+    font-size: 30px;
+    padding: 0 250px;
+    display: flex;
+    background-color: rgba(4, 61, 75, 0.9);
+    color: #fff;
+    transition: all 0.55s;
+    transform: translateX(-150%);
+    min-width: 140px;
+}
+
+.submenu .submenu-back label{
+    padding: 10px 50px;
+    border-right: 1px solid;
+    border-left: 1px solid;
+}
+
+.submenu #submenu-ico{
+    float: left;
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+    color: #fff;
+}
+
+#submenu-bar:checked ~ .submenu-back{
     transform: translateX(0%);
 }
 
-#submenu-bar:checked ~ .submenu-ico{
-    background-color: rgba(2, 34, 43, 0.9);
+#submenu-bar:checked ~ #submenu-ico{
+    background: rgba(2, 34, 43, 0.9);
     color: #fff;
 }
 
@@ -173,17 +153,17 @@ header #menu-ico2{
 @media (max-width:1024px){
 
     header{
-        height: 200px;
+        height: 70px;
     }
 
     header h1, .icon-laptop{
-        margin: 60 0;
-        font-size: 70px;
+        margin: 18px 0;
+        font-size: 25px;
         font-weight: 5 ;
     }
 
     header .icon-laptop{
-        margin-top: 70px;
+        padding: 5px 2px 0 0;
     }
 
     header .volver{
@@ -194,8 +174,8 @@ header #menu-ico2{
     header #menu-ico, #menu-ico2{
         display: block;
         float: right;
-        font-size: 70px;
-        margin: 75px 30px;
+        font-size: 25px;
+        margin: 25px 10px;
         cursor: pointer;
     }
 
@@ -213,6 +193,7 @@ header #menu-ico2{
         
         transition: all 0.55s;
         cursor: pointer;
+        top: 70;
 
     }
 
@@ -220,26 +201,28 @@ header #menu-ico2{
         display: block;
         border-bottom: 1px solid rgba(255, 255, 255, 0.9);
         border-top: 1px solid rgba(255, 255, 255, 0.9);
-        font-size: 50px;
-        height: 100px;
+        font-size: 25;
+        height: 70px;
 
     }
 
-    .tab1 .info ul{
-        font-size: 50px;
+    #menu-bar:checked ~ #menu-ico2{
+        display: block;
     }
 
-    .submenu-ul{
-        width: 90%;
+    /*submenu2*/
+    .submenu .submenu-back{
+        width: 100%;
         display: block;
         padding: 0 0;
+        font-size: 50px;
+        margin-top: 40px;
     }
 
-    .submenu-ul .li{
-        padding: 40px;
+    .submenu .submenu-back label{
+        padding: 40px !important;
+        display: block;
         border-bottom: 1px solid;
-
     }
-
     
 }

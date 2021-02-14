@@ -119,14 +119,14 @@ section p, section a, section label{
 @media (max-width:1024px){
     .tab1, .tab2, .tab3, .tab4{
         margin-bottom: 200px;
-        margin-top: 200px;
+        margin-top: 60px;
     }
     
     section h1{
         font-size: 60px;
     }
     section p, section a, section label, h3{
-        font-size: 40px;
+        font-size: 20px;
     }
 
     .info{

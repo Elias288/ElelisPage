@@ -3,6 +3,8 @@
         <title class="icon-laptop">Eleli'sPage</title>
         <link rel="icon" href="../files/laptop-png-icon-0.jpg" type="image/icon type">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
         <link rel="stylesheet" href="../css/style.css">
         <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="css/fonts.css">-->
@@ -30,28 +32,16 @@
             <input type="radio" name="radio" id="radio1" checked>
             <section id="home" class="tab1">
                 <div class="info">
-                    <div class="submenu">
-                        <ul id="nav">
-                            <li>
-                                <input type="checkbox" id="submenu-bar"> 
-                                <label id="submenu-ico" class="submenu-ico icon-list" for="submenu-bar"></label>
-                                <ul class="submenu-ul">
-                                    <li class="li li-inicio">
-                                        <label for="radio1-1" class="submenuitem">Inicio</label>
-                                    </li>
-                                    <li class="li li-linux">
-                                        <label for="radio1-2" class="submenuitem">Linux</label>
-                                    </li>
-                                    <!--<li class="li li-tip">
-                                        <label for="radio1-3" class="submenuitem">TIP</label>
-                                    </li>-->
-                                    <li class="li li-biblioteca">
-                                        <label for="radio1-4" class="submenuitem">Biblioteca</label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <nav class="submenu">
+                        <input type="checkbox" id="submenu-bar"> 
+                        <label id="submenu-ico" class="submenu-ico icon-list" for="submenu-bar"></label>
+                        <div class="submenu-back">
+                            <label for="radio1-1" class="submenuitem">Inicio</label>
+                            <label for="radio1-2" class="submenuitem">Linux</label>
+                            <label for="radio1-4" class="submenuitem">Biblioteca</label>
+                        </div>
+                        
+                    </nav>
                     <!--BIENVENIDA-->
                     <input type="radio" name="radio1" id="radio1-1" checked>
                     <section id="bienvenida"  class="tab1-1">
