@@ -27,6 +27,23 @@ td{
     padding: 5px;
 }
 
+.transition-fade{
+    opacity: 1;
+    transition: 500ms;
+    transform: translateX(0);
+    transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+    opacity: 1;   
+    transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+    opacity: 0;
+}
+
+
 @media (max-width:1024px){
    
     .container{
