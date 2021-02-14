@@ -8,6 +8,7 @@
     transition: all 0.55s;
     transform: translateY(100vh);
     position: absolute;
+    opacity: 0;
 }
 
 .tab3, .tab4{
@@ -124,7 +125,7 @@ section p, section a, section label{
     section h1{
         font-size: 60px;
     }
-    section p, section a, section label, h2{
+    section p, section a, section label, h3{
         font-size: 40px;
     }
 
