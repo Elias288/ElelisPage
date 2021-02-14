@@ -1,57 +1,22 @@
 .tab1, .tab2, .tab3, .tab4{
+    margin-top: 50px;
+    margin-bottom: 25px;
+
     width: 100%;
     height: 100vh;
     overflow: scroll;
-    margin-bottom: 200px;
-    margin-top: 200px;
     transition: all 0.55s;
-    transform: translateY(-150%);
-    /*text-align: center;
-    visibility: hidden;
-    opacity: 0;*/
+    transform: translateY(100vh);
     position: absolute;
+    opacity: 0;
+}
+
+.tab3, .tab4{
+    overflow: hidden;
 }
 
 .tab1 .info section{
     margin: 0 100px 100px;
-}
-
-section h1{
-    font-size: 60px;
-}
-section p, section a, section label{
-    font-size: 40px;
-}
-
-.info{
-    width: 90%;
-    justify-content: center;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    margin: 20px auto 500px;
-    background: #fff;
-    padding: 1px;
-}
-
-.info section{
-    display: none;
-}
-
-.info-foot{
-    margin-top: 200px;
-    /*display: -webkit-inline-box;*/
-    display: flex;
-    flex-wrap: wrap;
-    
-}
-
-.info-foot a{
-    margin-right: 30px;
-}
-
-#Gdrive{
-    width:80%; 
-    height:75vh; 
-    border:1;
 }
 
 .tab1 .tab1-1, 
@@ -59,6 +24,57 @@ section p, section a, section label{
 .tab3, 
 .tab4{
     text-align: center;
+}
+
+.tabs{
+    overflow: hidden;
+}
+
+.tabs .tab-container{
+    display: flex;
+    flex-wrap: nowrap;
+    transform: translateX(0);
+    transition: all 0.2s ease-in;
+}
+
+.tabs .tab-container .tab{
+    background-color: rebeccapurple;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+section h1{
+    font-size: 30px;
+}
+section p, section a, section label{
+    font-size: 17px;
+}
+
+.info{
+    width: 1000px;
+    margin: 40px auto 200px;
+    
+    justify-content: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    padding: 1px;
+}
+
+.info-foot{
+    margin: 40px auto 200px;
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info section{
+    display: none;
+}
+
+#Gdrive{
+    width:80%; 
+    height:75vh; 
+    border:1;
 }
 
 .card{
@@ -69,7 +85,7 @@ section p, section a, section label{
 }
 
 .proy{
-    padding: 90px 1px 1px;
+    padding: 50px 0px 1px;
 }
 
 .proyecto{
@@ -81,84 +97,63 @@ section p, section a, section label{
     display: flex;
 }
 
-/*.proyecto p, .proyecto a{
-    font-size: 30;
-}*/
-
 .proyecto .logo{
     margin: auto;
 }
 
 .proyecto .logo img{
-    width:150px;
+    width: 150px; 
+    margin: 25% 0;
 }
 
 .proyecto .content{
-    padding: 30px;
+    padding: 50px;
 }
 
 .contenedor{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 
 /*Modo pc*/
-@media (min-width:1024px){
-    .tab1, .tab4{
-        overflow: hidden;
-    }
+@media (max-width:1024px){
     .tab1, .tab2, .tab3, .tab4{
-        margin-top: 50px;
-        margin-bottom: 25px;
+        margin-bottom: 200px;
+        margin-top: 200px;
     }
+    
     section h1{
-        font-size: 30px;
+        font-size: 60px;
     }
-    section p, section a, section label{
-        font-size: 17px;
+    section p, section a, section label, h3{
+        font-size: 40px;
     }
 
     .info{
-        /*padding: 90px 100px;*/
-        margin: 40px auto 200px;
-        width: 1000px;
+        /*margin-top: 200px;*/
+        margin: 20px auto 500px;
+        width: 90%;
     }
 
     .info-foot{
         margin-top: 50px;
     }
-
-    .tabs{
-        overflow: hidden;
-    }
-
-    .tabs .tab-container{
-        display: flex;
-        flex-wrap: nowrap;
-        transform: translateX(0);
-        transition: all 0.2s ease-in;
-    }
-
-    .tabs .tab-container .tab{
-        background-color: rebeccapurple;
-        width: 100%;
-        flex-shrink: 0;
-    }
+    
 
     .proy{
-        padding: 50px 0px 1px;
-    }
-
-    .contenedor{
-        margin-top: 50px;
+        padding: 90px 1px 1px;
     }
 
     .proyecto .logo img{
-        width: 150px; 
-        margin: 25% 0;
+        width:150px;
     }
 
     .proyecto .content{
-        padding: 50px;
+        padding: 30px;
     }
+    
+    .contenedor{
+        margin-top: 100px;
+    }
+
 }

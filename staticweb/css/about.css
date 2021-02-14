@@ -1,37 +1,42 @@
 
 .tab2 .card{
-    padding-bottom: 200px;
+    border: none;
+    padding-bottom: 100px;
 }
 
 .tab2 .info{
-    margin-top: -190px;
-    padding: 300px 40px;
+    margin-top: 20px;
+    padding: 90px 100px;
+    width: 1000px;
 }
 
 .cirular_portrait{
+    width: 150px;
+    height: 150px;
+    margin: -75px auto;
+
     position: relative;
-    margin: -180 auto;
-    width: 400px;
-    height: 400px;
     overflow: hidden;
     border-radius: 50%;
 }
 
 .cirular_portrait img{
+    margin-top: -60px;
+
     width: 100%;
     height: auto;
-    margin-top: -130px;
 }
 
 .links{
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .links a{
-    margin: 0 30px 0;
+    margin: 0 10px 0;
+    font-size: 50px;
+
     text-decoration: none;
-    font-size: 100px;
     color: #838383;
 }
 
@@ -45,34 +50,72 @@
     white-space: nowrap;
 }
 
-@media(min-width: 1024px){
+/*Codigo QR*/
+.mensaje_modal_QR{
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    width: 800px;
+    padding: 30px 20px 15px;
+}
+
+.mensaje_modal_QR #QR_Code{
+    width: 760px;
+}
+
+.mensaje_modal_QR #btn_close{
+    display: inline-block;
+    padding: 3px 10px;
+
+    background: #E25151;
+    color: #fff;
+    border: 2px solid #B14141;
+    cursor: pointer;
+    float: right;
+    /*
+    margin-top: 50px;
+    */
+    font-size: 40px;
+}
+
+@media(max-width: 1024px){
     .tab2 .card{
-        border: none;
-        padding-bottom: 100px;
+        padding-bottom: 200px;
     }
 
     .tab2 .info{
-        padding: 90px 100px;
-        margin-top: 20px;
-        width: 1000px;
+        margin-top: -190px;
+        padding: 300px 40px;
     }
 
     .cirular_portrait{
-        width: 150px;
-        height: 150px;
-        margin: -75px auto;
+        width: 400px;
+        height: 400px;
+        margin: -180 auto;
     }
 
     .cirular_portrait img{
-        margin-top: -60px;
+        margin-top: -130px;
     }
 
     .links{
-        margin-bottom: 30px;
+        margin-bottom: 100px;
     }
 
     .links a{
-        margin: 0 10px 0;
-        font-size: 50px;
+        margin: 0 30px 0;
+        font-size: 100px;
+    }
+
+    .mensaje_modal_QR{
+        width: 400px;
+    }
+
+    .mensaje_modal_QR #QR_Code{
+        width: 360px;
+    }
+
+    .mensaje_modal_QR #btn_close{
+        margin-top: 20px;
+        font-size: 15px;
     }
 }

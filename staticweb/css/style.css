@@ -19,25 +19,17 @@ body, pre{
 }
 
 .container{
-    width: 98%;
+    width: 1000px;
     margin: auto;
-}
-
-header .container{
-    display: table;
-
 }
 
 td{
     padding: 5px;
 }
 
-@media (min-width:1024px){
-    header{
-        height: 50px;
-        
-    }
+@media (max-width:1024px){
+   
     .container{
-        width: 1000px;
+        width: 98%;
     }
 }
