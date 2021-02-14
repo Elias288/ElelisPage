@@ -36,10 +36,6 @@ header #menu-ico, #menu-ico2{
 header .container{
     display: table;
 }
-/*
-header #menu-ico2{
-    display: none;
-}*/
 
 #menu-bar, #submenu-bar{
     display: none;
@@ -107,7 +103,6 @@ header #menu-ico2{
     display: block;
     color: #fff;
 }
-
 
 .submenu-ul{
     width: 1000px;
@@ -198,7 +193,7 @@ header #menu-ico2{
         margin: 75px 30px;
         cursor: pointer;
     }
-
+    
     header #menu-ico2{
         display: none;
     }
@@ -240,6 +235,4 @@ header #menu-ico2{
         border-bottom: 1px solid;
 
     }
-
-    
 }
