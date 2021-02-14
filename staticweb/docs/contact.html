@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        
+        <script defer src="/node_modules/swup/dist/swup.min.js"></script>
+        <script defer src="/staticweb/js/script.js"></script>
+        
+        <link rel="icon" href="../files/laptop-png-icon-0.jpg" type="image/icon type">
+        <link href="https://file.myfontastic.com/L3kkxtQTjFsu2uLh9qHZuF/icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <title class="icon-laptop">Eleli'sPage | CONTACT</title>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="icon-laptop"></div>
+                <h1> Eleli'sPage</h1>
+                <input type="checkbox" id="menu-bar"> 
+                <label id="menu-ico" class="icon-list" for="menu-bar"></label>
+                <label id="menu-ico2" class="icon-times" for="menu-bar"></label>
+                <nav class="menu">
+                    <label id="label1"><a href="/staticweb/docs/index.html" class="menu-items">HOME</a></label>
+                    <label id="label2"><a href="/staticweb/docs/about.html"class="menu-items">ABOUT</a></label>
+                    <label id="label3"><a href="/staticweb/docs/proyects.html" class="menu-items">PROYECTS</a></label>
+                    <label id="label4"><a href="/staticweb/docs/contact.html" class="menu-items">CONTACT</a></label>
+                    
+                </nav>
+            </div>
+        </header>
+        <main id="swup" class="transition-fade">
+            <section id="contacto" class="tab4">
+                <div class="card">
+                    <h2 class="icon-envelope"> Contacto</h2>
+                    <p>Enviame un mensaje</p>
+                </div>
+                <div class="formulario">
+                    <form action="" method="post" id="my-form">
+                        <input type="text" name="name" id="name" class="inf" placeholder="NOMRE" require>
+                        <input type="email" name="mail" id="mail" class="inf" placeholder="CORREO"require>
+                        <input type="text" name="asunto" id="asunto" class="inf" placeholder="ASUNTO">
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="mensaje" require></textarea>
+                        <div class="con-md-8">
+                            <input type="submit" id="btn_send" class="enviar" value="ENVIAR" name="enviar">
+                        </div>
+                    </form>
+                    <!--<?php include("enviar.php");?>-->
+                    <div id="status"></div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

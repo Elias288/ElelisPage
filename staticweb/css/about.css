@@ -79,31 +79,32 @@
 
 @media(max-width: 1024px){
     .tab2 .card{
-        padding-bottom: 200px;
+        padding-bottom: 70px;
     }
 
     .tab2 .info{
-        margin-top: -190px;
-        padding: 300px 40px;
+        width: 90%;
+        margin-top: 0px;
+        padding: 100px 20px;
     }
 
     .cirular_portrait{
-        width: 400px;
-        height: 400px;
-        margin: -180 auto;
+        width: 150px;
+        height: 150px;
+        margin: -70px auto;
     }
 
     .cirular_portrait img{
-        margin-top: -130px;
+        margin-top: -50px;
     }
 
     .links{
-        margin-bottom: 100px;
+        margin-bottom: 30px;
     }
 
     .links a{
-        margin: 0 30px 0;
-        font-size: 100px;
+        margin: 0px 10px 0px 0px;
+        font-size: 40px;
     }
 
     .mensaje_modal_QR{
