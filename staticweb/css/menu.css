@@ -29,7 +29,7 @@ header .volver{
     text-decoration: none;
 }
 
-header #menu-ico, #menu-ico2{
+header #menuToggle{
     display: none;
 }
 
@@ -68,16 +68,12 @@ header .container{
     padding-top: 15px;
 }
 
-.menu-items:hover{
+.menu-items:hover, .submenuitem:hover{
     background: rgba(255, 255, 255, 0.3);
 }
 
-#menu-bar:checked ~ .menu{
+.menuToggle.active ~ .menu{
     transform: translateX(0%);
-}
-
-#menu-bar:checked ~ #menu-ico{
-    display: none;
 }
 
 /*BOTONES*/
@@ -161,16 +157,27 @@ header .container{
         margin: 75px 30px;
     }
 
-    header #menu-ico, #menu-ico2{
+    header .menuToggle{
+        width: 30px;
+        height: 30px;
+        
+        background: url('../img/menu.png');
         display: block;
         float: right;
-        font-size: 25px;
-        margin: 25px 10px;
+        margin: 20px 10px;
         cursor: pointer;
+        
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
-    header #menu-ico2{
-        display: none;
+    header .menuToggle.active{
+        background: url('../img/close.png');
+        z-index: 1000;
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .menu{
@@ -191,14 +198,11 @@ header .container{
         display: block;
         border-bottom: 1px solid rgba(255, 255, 255, 0.9);
         border-top: 1px solid rgba(255, 255, 255, 0.9);
-        font-size: 50px;
-        height: 100px;
+        font-size: 30px;
+        height: 70px;
 
     }
 
-    #menu-bar:checked ~ #menu-ico2{
-        display: block;
-    }
 
     /*submenu2*/
     .submenu{
