@@ -12,24 +12,24 @@
 
 body{
     background-color:rgb(238, 238, 238);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body, pre{
     font-family: 'JetBrains Mono', monospace ;
-    overflow: hidden;
 }
 
 td{
     padding: 5px;
 }
 
-.transition-fade{
-    animation: transitionIn 0.75s;
-}
-
 input{
     display: none;
+}
+
+/*
+.transition-fade{
+    animation: transitionIn 0.75s;
 }
 
 @keyframes transitionIn{
@@ -43,9 +43,6 @@ input{
         transform: translateX(0);
     }
 }
-
+*/
 @media (min-width:1024px){
-    header{
-        width: 98%;
-    }
 }
