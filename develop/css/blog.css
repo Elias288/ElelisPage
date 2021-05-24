@@ -31,16 +31,15 @@ main > section{
     overflow: scroll;
     position: absolute;
     height: 100%;
+}
+
+main > section:not(:first-child){
     display: none;
-    transform: translateX(100%);
-    transition: all 0.55s;
 }
 
 main > section:target{
-    margin-top: 70px;
     display: initial;
     position: fixed;
-    transform: translateX(0%)
 }
 
 section a, p, label, h3{
