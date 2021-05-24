@@ -11,230 +11,263 @@
 
         <script src="js/script.js"></script>
 
-        <title class="icon-laptop">Eleli'sPage | HOME</title>
+        <title class="icon-laptop">Eleli'sPage</title>
     </head>
     <body>
         <header>
-        <div class="container">
-                <div class="icon-laptop"></div>
+            <div id="container">
+                <label for="" class="icon-laptop"></label>
                 <h1> Eleli'sPage</h1>
-                <div class="menuToggle" onclick="ToggleMenu();"></div>
-                <nav class="menu">
-                    <label id="label1"><a href="index.html" class="menu-items">HOME</a></label>
-                    <label id="label2"><a href="about.html"class="menu-items">ABOUT</a></label>
-                    <label id="label3"><a href="proyects.html" class="menu-items">PROYECTS</a></label>
-                    <!--<label id="label4"><a href="contact.html" class="menu-items">CONTACT</a></label>-->
-                    
+                <input type="checkbox" name="chmenu" id="chmenu">
+                <label for="chmenu" id="menuToggle"></label>
+                <nav id="menu">
+                    <label for=""><a href="#home">INICIO</a></label>
+                    <label for=""><a href="#about">SOBRE MI</a></label>
+                    <label for=""><a href="#portfolio">PORTAFOLIO</a></label>
                 </nav>
             </div>
         </header>
-        <main id="swup" class="transition-fade">
-            <section id="home" class="tab1">
+        <main id="swup" >
+            <section id="home" class="transition-fade">
                 <div class="card">
                     <h2>Bienvenido a mi Portafolio</h2>
                 </div>
-                <div class="info">
-                    <nav class="submenu">
-                        <input type="checkbox" id="submenu-bar"> 
-                        <label id="submenu-ico" class="submenu-ico icon-list" for="submenu-bar"></label>
-                        <div class="submenu-back">
-                            <label for="radio1-1" class="submenuitem">Inicio</label>
-                            <label for="radio1-2" class="submenuitem">Linux</label>
-                            <label for="radio1-4" class="submenuitem">Biblioteca</label>
-                        </div>
-                        
+                <div class="blog">
+                    <input type="checkbox" id="chSubmenu"> 
+                    <label id="submenu-ico" class="submenu-ico icon-list" for="chSubmenu"></label>
+                    <nav id="submenu">
+                        <label for="chBienvenida">Inicio</label>
+                        <label for="chLinux">Linux</label>
+                        <label for="chLibrary">Biblioteca</label>
                     </nav>
                     <!--BIENVENIDA-->
-                    <input type="radio" name="radio1" id="radio1-1" checked>
-                    <section id="bienvenida"  class="tab1-1">
+                    <input type="radio" name="rdHome" id="chBienvenida" checked>
+                    <section id="bienvenida">
                         <h3>Hola, soy Elias Bianchi.</h3>
                         <p>Soy programador de aplicaciones, programador web y diseñador grafico.</p>
                     </section>
-
                     <!--LINUX-->
-                    <input type="radio" name="radio1" id="radio1-2">
-                    <section id="linux"  class="tab1-2">
+                    <input type="radio" name="rdHome" id="chLinux">
+                    <section id="linux">
                         <h2>Comandos linux</h2>
                         <br>
-                        <h3>Basicos</h3><br>
-                        <pre><b>pwd</b>                                 Muestra directorio corriente</pre><hr>
-                        <pre><b>ps</b>                                  visualiza procesos en ejecucion</pre><hr>
-                        <pre><b>ls</b>                                  Muestra contenido de directorio corriente</pre><hr>
-                        <pre><b>ls -l *nombre archivo*</b>              Muestra los permisos del archivo</pre><hr>
-                        <pre><b>ls -la</b>                              Muestra mas informacion de los archivos 
-                                                            incluyendo archivos ocultos</pre><hr>
-                        <pre><b>ls -lhR</b>                             Se mete en directorios y subdirectorios</pre><hr>
-                        <pre><b>ls *direccion* | grep *letras*</b>      Busca en la direccion cualquier cosa con las 
-                                                            letras dadas</pre><hr>
-                        <pre><b>Zombie</b>                              Finaliza su ejecucion pero queda rastos 
-                                                            en el kernel</pre><hr>
-                        <pre><b>qrenconde -o 'name' String</b>          genera un qr</pre><hr>
-                        <pre><b>curl -F file=@*foto*.jpg -H 'Host:*hostname*' https:ip -k -u 'usuario'</b>
-                                                            envia un archivo a la pagina</pre><hr>
-                        <pre><b>ssh usuario@numIp</b>                   conecta a un servidor</pre><hr>
-                        <pre><b>ssh MV@ip</b>                           entra al equipo MV de la ip</pre><hr>
-                        <pre><b>shutdown now</b>                        apaga linux (en root)</pre><hr>
-                        <pre><b>shutdown -r now</b>                     reinicia linux (en root)</pre><hr>
-                        <pre><b>Ready</b>                               Listo para ser ejecutado</pre><hr>
-                        <pre><b>Run</b>                                 Proceso en ejecucion</pre><hr>
-                        <pre><b>Blocked</b>                             Proceso bloqueado</pre><hr>
-                        <pre><b>echo -e "\e[92m texto \e[0m"</b>        cambia de color texto en terminal</pre><hr>
-                        <pre><b>leafpad</b>                             abre el editor de texto</pre><hr>
-                        <pre><b>xterm</b>                               abre la terminal</pre><hr>
-                        <pre><b>pcmanfm</b>                             abre el explorador de archivos</pre><hr>
-                        <pre><b>kill -term</b>                          obliga a cerrar</pre><hr>
-                        <pre><b>kill -stop</b>                          detiene la ejecucion</pre><hr>
-                        <pre><b>kill -kill</b>                          cierra de una</pre><hr>
-                        <pre><b>kill -cont</b>                          cambia señal para que proceso continue su 
-                                                            operacion´</pre><hr>
-                        <pre><b>ncat -l -p 5000</b>                     abre el puerto 5000 como servidor</pre><hr>
-                        <pre><b>echo hola | ncat ip_servidor 5000</b>   envia al servidor hola</pre><hr>
-                        <br>
-                        <h3>Comandos Archivos</h3><br><hr>
+                        <div>
+                            <h3>Basicos</h3>
+                            <br><hr>
+                            <p><b>pwd</b> Muestra directorio corriente</p><hr>
+                            <p><b>ps</b> visualiza procesos en ejecucion</p><hr>
+                            <p><b>ls</b> Muestra contenido de directorio corriente</p><hr>
+                            <p><b>ls -l *nombre archivo*</b> Muestra los permisos del archivo</p><hr>
+                            <p><b>ls -la</b>  Muestra mas informacion de los archivos incluyendo archivos ocultos</p><hr>
+                            <p><b>ls -lhR</b> Se mete en directorios y subdirectorios</p><hr>
+                            <p><b>ls *direccion* | grep *letras*</b> Busca en la direccion cualquier cosa con las letras dadas</p><hr>
+                            <p><b>Zombie</b> Finaliza su ejecucion pero queda rastos en el kernel</p><hr>
+                            <p><b>qrenconde -o 'name' String</b>   genera un qr</p><hr>
+                            <p><b>curl -F file=@*foto*.jpg -H 'Host:*hostname*' https:ip -k -u 'usuario'</b> envia un archivo a la pagina</p><hr>
+                            <p><b>ssh usuario@numIp</b> conecta a un servidor</p><hr>
+                            <p><b>ssh MV@ip</b> entra al equipo MV de la ip</p><hr>
+                            <p><b>shutdown now</b> apaga linux (en root)</p><hr>
+                            <p><b>shutdown -r now</b> reinicia linux (en root)</p><hr>
+                            <p><b>Ready</b>  Listo para ser ejecutado</p><hr>
+                            <p><b>Run</b> Proceso en ejecucion</p><hr>
+                            <p><b>Blocked</b> Proceso bloqueado</p><hr>
+                            <p><b>echo -e "\e[92m texto \e[0m"</b>  cambia de color texto en terminal</p><hr>
+                            <p><b>leafpad</b> abre el editor de texto</p><hr>
+                            <p><b>xterm</b> abre la terminal</p><hr>
+                            <p><b>pcmanfm</b> abre el explorador de archivos</p><hr>
+                            <p><b>kill -term</b> obliga a cerrar</p><hr>
+                            <p><b>kill -stop</b> detiene la ejecucion</p><hr>
+                            <p><b>kill -kill</b> cierra de una</p><hr>
+                            <p><b>kill -cont</b> cambia señal para que proceso continue su operacion</p><hr>
+                            <p><b>ncat -l -p 5000</b> abre el puerto 5000 como servidor</p><hr>
+                            <p><b>echo hola | ncat ip_servidor 5000</b> envia al servidor hola</p><hr>
+                        </div>
+                        <div>
+                            <h3>Comandos Archivos</h3>
+                            <br><hr>
+                            <p><b>gcc nomArchivo -o nomArchivo.exe</b> recrea el archivo a ejecutable</p><hr>
+                            <p><b>./</b> ejecutar archivo</p><hr>
+                            <p><b>activate</b> cargar archivos en el sistema</p><hr>
+                            <p><b>mv file destino</b> mueve y renombra</p><hr>
+                            <p><b>mv -t destino `ls | grep text`</b> mueve archivos similares</p><hr>
+                            <p><b>cp archivoOrg archivoDes</b> copia el archivoOrg a archivoDes</p><hr>
+                            <p><b>scp archivoOrg archivoDes</b> copia el archivoOrg a archivoDes a traves de ssh (de windows a linux)</p>
+                            <p><b>ejemplo</b> (scp /home/putoelquelolea so-equipo4@192.168.0.2:/home/so-equipo4)</p><hr>
+                            <p><b>pscp archivoOrg archivoDes</b> copia el archivoOrg a archivoDes a traves de ssh (de linux a windows)</p><hr>
+                            <p><b>mkdir/.../nombredir</b> crea directorios</p><hr>
+                            <p><b>cat</b> muestra contenido</p><hr>
+                            <p><b>tar -cJvf dest/ origen.tar.rz</b> comprime archivos en rz</p><hr>
+                            <p><b>tar -czvf dest/ origen.tar.gz</b> comprime archivos en gz</p><hr>
+                            <p><b>rm 'archivo'</b> Elimina el archivo</p><hr>
+                            <p><b>rm *.algo</b> Elimina todos los archivos con .algo</p><hr>
+                            <p><b>rm -r 'fichero'</b> Elimina  ficheros</p><hr>
+                            <p><b>mpg123 'archivo.mp3'</b> reproduce audio</p><hr>
+                            <p><b>tail --follow /archivo</b> mirar archivo en vivo</p><hr>
+                            <p><b>tail -f Nombre archivo</b> permite ver en vivo la modificacion de archivo en servidor</p><hr>
+                        </div>
+                        <div>
+                            <h3>Vi</h3>
+                            <br><hr>
+                            <p><b>vi nombre</b> crea un editor de texto desde terminal</p><hr>
+                            <p><b>"esc"</b> modo comando</p><hr>
+                            <p><b>:q!</b> salir sin guardar</p><hr>
+                            <p><b>:w</b> guarda</p><hr>
+                            <p>:wq</p> guardar y salir<hr>
+                            <p><b>ZZ</b> guarda cambios y sale</p><hr>
+                            <p><b>$</b> final de la linea actual</p><hr>
+                            <p><b>+</b> comienzo de la linea</p><hr>
+                            <p><b>e</b> comienzo de la palabra</p><hr>
+                            <p><b>w</b> fin de la palabra</p><hr>
+                            <p><b>x</b> borrar caracter</p><hr>
+                            <p><b>o</b> inserta una linea debajo del cursor</p><hr>
+                            <p><b>a</b> inserta caracter detras de la posicion del cursor</p><hr>
+                            <p><b>i</b> inserta caracter delante de la posicion del cursor</p><hr>
+                            <p><b>u</b> deshace/rehace el ultimo cambio</p><hr>
 
-                        <pre><b>tail -f Nombre archivo</b>              permite ver en vivo la modificacion de 
-                                                            archivo en servidor</pre><hr>
-                        <pre><b>gcc nomArchivo -o nomArchivo.exe</b>    recrea el archivo a ejecutable</pre><hr>
-                        <pre><b>./ </b>                                 ejecutar archivo</pre><hr>
-                        <pre><b>activate</b>                            cargar archivos en el sistema</pre><hr>
-                        <pre><b>mv file destino</b>                     mueve y renombra</pre><hr>
-                        <pre><b>mv -t destino `ls | grep text`</b>      mueve archivos similares</pre><hr>
-                        <pre><b>cp archivoOrg archivoDes</b>            copia el archivoOrg a archivoDes</pre> <hr>
-                        <pre><b>scp archivoOrg archivoDes</b>           copia el archivoOrg a archivoDes a traves 
-                                                            de ssh (de windows a linux)</pre>
-                        <pre><b>ejemplo</b> (scp /home/putoelquelolea so-equipo4@192.168.0.2:/home/so-equipo4)</pre><hr>
-                        <pre><b>pscp archivoOrg archivoDes</b>          copia el archivoOrg a archivoDes a 
-                                                            traves de ssh (de linux a windows)</pre><hr>
-                        <pre><b>mkdir/.../nombredir</b>                 crea directorios</pre><hr>
-                        <pre><b>cat</b>                                 muestra contenido</pre><hr>
-                        <pre><b>tar -cJvf dest/ origen.tar.rz</b>       comprime archivos en rz</pre><hr>
-                        <pre><b>tar -czvf dest/ origen.tar.gz</b>       comprime archivos en gz</pre><hr>
-                        <pre><b>rm 'archivo'</b>                        Elimina el archivo</pre><hr>
-                        <pre><b>rm *.algo</b>                           Elimina todos los archivos con .algo</pre><hr>
-                        <pre><b>rm -r 'fichero'</b>                     Elimina  ficheros</pre><hr>
-                        <pre><b>mpg123 'archivo.mp3'</b>                reproduce audio</pre><hr>
-                        <pre><b>tail --follow /archivo</b>              mirar archivo en vivo</pre><hr>
-                        <br>
-                        <h3>Vi</h3>
-                        <br><hr>
-                        <pre><b>vi nombre</b>                           crea un editor de texto desde terminal</pre><hr>
-                        <pre><b>"esc"</b>                               modo comando</pre><hr>
-                        <pre><b>:q!</b>                                 salir sin guardar</pre><hr>
-                        <pre><b>:w</b>                                  guarda</pre><hr>
-                        <pre><b>:wq
-                        ZZ</b>                                  guardar y salir</pre><hr>
-                        <br>
-                        <b>Moverse</b>
-                        <br><hr>
-                        <pre><b>$</b>                                   final de la linea actual</pre><hr>
-                        <pre><b>+</b>                                   comienzo de la linea</pre><hr>
-                        <pre><b>e</b>                                   comienzo de la palabra</pre><hr>
-                        <pre><b>w</b>                                   fin de la palabra</pre><hr>
-                        <pre><b>x</b>                                   borrar caracter</pre><hr>
-
-                        <br>
-                        <b>Escribir</b>
-                        <br><hr>
-
-                        <pre><b>o</b>                                   inserta una linea debajo del cursor</pre><hr>
-                        <pre><b>a</b>                                   inserta caracter detras de la posicion del 
-                                                            cursor</pre><hr>
-                        <pre><b>i</b>                                   inserta caracter delante de la posicion del 
-                                                            cursor</pre><hr>
-                        <pre><b>u</b>                                   deshace/rehace el ultimo cambio </pre><hr>
-                        <pre><b>yy</b>                                  copia linea</pre><hr>
-                        <pre><b>yw</b>                                  copia palabra</pre><hr>
-                        <pre><b>P</b>                                   pega antes del cursor</pre><hr>
-                        <pre><b>p</b>                                   pega despues del cursor</pre><hr>
-                        <pre><b>(numero de lineas)dd</b>                borrar linea</pre><hr>
-                        <pre><b>d$</b>                                  borra desde la posicion actual hasta el final 
-                                                            de la linea</pre><hr>
-                        <pre><b>d^</b>                                  borra desde la posicion actual hasta el inico 
-                                                            de la linea</pre><hr>
-                        <pre><b>dw</b>                                  borra desde la posicion actual hasta el final 
-                                                            de la palabra</pre><hr>
-                        <pre><b>D</b>                                   elimina hasta final de la linea</pre><hr>
-                        <pre><b>(numero)G</b>                           te lleva al numero de linea</pre><hr>
-                        <pre><b>f(letra)</b>                            busca las letra de la linea</pre><hr>
-                        <pre><b>T(letra)</b>                            va al caracter posterior a la letra</pre><hr>
-                        <pre><b>t(letra)</b>                            va al caracter anterior a la letra</pre><hr>
-                            <br>
-                        <h3>Keylogger</h3>
-                        <br><hr>
-                        <pre><b>logkeys --start --output</b>            inicia capturador de teclado</pre><hr>
-                        <pre><b>logkeys --kill</b>                     detiene capturador de teclado</pre><hr>
-                        <br>
-
-                        <h3>Permisos</h3>
-                        <br><hr>
-                        <pre><b>chmod</b> usuario, grupo, otros, archivo</pre>
-                        <pre><b>chmod</b> u + rwx, g + rwx ,o + rwx</pre>
-                        <pre><b>chmod</b> 777</pre>
-
-                        <table border="1px">
-                            <tr >
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>r</td>
-                                <td>w</td>
-                                <td>x</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>r</td>
-                                <td>w</td>
-                                <td>-</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td>r</td>
-                                <td>-</td>
-                                <td>x</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>r</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>w</td>
-                                <td>x</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>w</td>
-                                <td>-</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>x</td>
-                                <td>1</td>
-                            </tr>
-                        </table>
-
-                        <pre><b>r</b> = lectura</pre>
-                        <pre><b>w</b> = escritura</pre>
-                        <pre><b>x</b> = ejecucion</pre>
-
+                            <p><b>yy</b> copia linea</p><hr>
+                            <p><b>yw</b> copia palabra</p><hr>
+                            <p><b>P</b>pega antes del cursor </p><hr>
+                            <p><b>p</b> pega despues del cursor</p><hr>
+                            <p><b>(numero de lineas)dd</b> borrar linea</p><hr>
+                            <p><b>d$</b> borra desde la posicion actual hasta el final de la linea</p><hr>
+                            <p><b>d^</b> borra desde la posicion actual hasta el inico de la linea</p><hr>
+                            <p><b>dw</b> borra desde la posicion actual hasta el final de la palabra</p><hr>
+                            <p><b>D</b> elimina hasta final de la linea</p><hr>
+                            <p><b>(numero)G</b> te lleva al numero de linea</p><hr>
+                            <p><b>f(letra)</b> busca las letra de la linea</p><hr>
+                            <p><b>T(letra)</b> va al caracter posterior a la letra</p><hr>
+                            <p><b>t(letra)</b> va al caracter anterior a la letra</p><hr>
+                        </div>
+                        <div>
+                            <h3>Keylogger</h3>
+                            <br><hr>
+                            <p><b>logkeys --start --output</b> inicia capturador de teclado</p><hr>
+                            <p><b>logkeys --kill</b> detiene capturador de teclado</p><hr>
+                        </div>
+                        <div>
+                            <h3>Permisos</h3> 
+                            <br><hr>
+                            <p><b>chmod</b> usuario, grupo, otros, archivo</p><hr>
+                            <p><b>chmod</b> u + rwx, g + rwx ,o + rwx</p><hr>
+                            <p><b>chmod</b> 777</p><hr>
+                            <table border="1px">
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>r</td>
+                                    <td>w</td>
+                                    <td>x</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>r</td>
+                                    <td>w</td>
+                                    <td>-</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>r</td>
+                                    <td>-</td>
+                                    <td>x</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>r</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>w</td>
+                                    <td>x</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>w</td>
+                                    <td>-</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>x</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                            <p><b>r</b> = lectura</p><hr>
+                            <p><b>w</b> = escritura</p><hr>
+                            <p><b>x</b> = ejecucion</p><hr>
+                        </div>
                     </section>
                     <!--Biblioteca-->
-                    <input type="radio" name="radio1" id="radio1-4">
-                    <section id="library"  class="tab1-4">
+                    <input type="radio" name="rdHome" id="chLibrary">
+                    <section id="library">
                         <h2><strong>Librería</strong></h2>
                         <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
                     </section>
+                </div>
+            </section>
+            <section id="about"  class="transition-fade">
+                <div class="card">
+                    <h2>Elias Bianchi</h2>
+                    <p>Programador</p>
+                </div>
+                <div id="cirular_portrait">
+                    <img src="img/Elias.png" alt="programador">
+                </div>
+                <div class="blog">
+                    <nav id="links">
+                        <a href="https://www.facebook.com/bianchi.elias" class="icon-facebook-square"></a>
+                        <a href="https://twitter.com/BianchiEliass" class="icon-twitter-square"></a>
+                        <a href="https://www.instagram.com/elelibian/" class="icon-instagrem"></a>
+                        <a href="https://github.com/Elias288" class="icon-github"></a>
+                    </nav>
+                    <p>Soy un estudiante de la carrera de Tecnologo en Informatica de Uruguay, 
+                        programar es mi pasión dentro de la informática, conozo los 
+                        principales lenguajes como java, c++/c y visual studio; 
+                        ademas de desarrollo web con HTML, css, php y javascript.
+                        Linux es mi sistema operativo favorito, en donde me he especializado 
+                        en servidores web.
+                    </p>
+                    <div id="info-foot">
+                        <a href="files/Curriculum Vitae(2020).pdf" class="foot-item" target="_blank">Descargar CV</a>
+                        <!--<label class="foot-item icon-envelope" for="radio4"> Contacto</label>-->
+                    </div>
                     
                 </div>
+            </section>
+            <section id="portfolio" class="transition-fade">
+                <div class="card">
+                    <h1>Mis Proyectos</h1>
+                </div>
+                <div class="proyecto">
+                    <div class="logo">
+                        <img src="img/Weather_Scraping.png">
+                    </div>
+                    <div class="content">
+                        <h3>WeatherWebScraping</h3>
+                        <p>Este proyecto consiste en scrapear la web (extraer datos de la web) utilizando Python y mostrarlo en pantalla</p>
+                        <a href="https://github.com/Elias288/WeatherWebScraping">Ver aquí</a>
+                    </div>
+                </div>
+                <!--
+                <div class="proyecto">
+                    <div class="logo">
+                        <img src="img/Weather_Scraping.png">
+                    </div>
+                    <div class="content">
+                        <h3>WeatherWebScraping</h3>
+                        <p>Este proyecto consiste en scrapear la web (extraer datos de la web) utilizando Python y mostrarlo en pantalla</p>
+                        <a href="https://github.com/Elias288/WeatherWebScraping">Ver aquí</a>
+                    </div>
+                </div>
+                -->
             </section>
         </main>
     </body>

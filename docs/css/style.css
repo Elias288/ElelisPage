@@ -9,25 +9,25 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
 body{
     background-color:rgb(238, 238, 238);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body, pre{
     font-family: 'JetBrains Mono', monospace ;
-    overflow: hidden;
-}
-
-.container{
-    width: 1000px;
-    margin: auto;
 }
 
 td{
     padding: 5px;
 }
 
+input{
+    display: none;
+}
+
+/*
 .transition-fade{
     animation: transitionIn 0.75s;
 }
@@ -43,9 +43,6 @@ td{
         transform: translateX(0);
     }
 }
-
-@media (max-width:1024px){
-    .container{
-        width: 98%;
-    }
+*/
+@media (min-width:1024px){
 }

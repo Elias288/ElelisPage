@@ -1,226 +1,132 @@
-header{
+#menu{
+    position: absolute;
     width: 100%;
-    height: 50px;
-    background:rgb(4, 61, 75);
-    color: #fff;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-
-header h1, .icon-laptop{  
-    margin-top: 0 ;
-    margin-bottom: 0 ;
-    font-size: 36px ;
-    float: left;
-}
-
-header .icon-laptop{
-    padding: 7px;
-}
-
-header .volver{
-    float: right;
-    margin: 10px auto;
-    font-size: 30px;
-    color: #fff;
-    text-decoration: none;
-}
-
-header #menuToggle{
-    display: none;
-}
-
-header .container{
-    display: table;
-}
-
-#menu-bar, #submenu-bar, #submenu-bar2{
-    display: none;
-}
-
-.menu{
-    position: static;
-    width: auto;
-    height: auto;
-    transform: translateX(0%);
-    background:rgb(4, 61, 75);
-    display: flex;
-
-    left: 0;
-    float: right;
-}
-
-.menu-items{
-    color: #fff;
-    text-decoration: none;
-
-    border: none;
-    font-size: 14px;
-    height: 50px;
+    height: 100vh;
+    transform: translateX(200%);
+    background:rgb(4, 61, 75, 0.9);
+    display: block;
+    
+    transition: all 0.55s;
     cursor: pointer;
-    padding: 15px 15px;
+    top: 70px;
+
 }
 
-.menu label{
-    padding-top: 15px;
+#menu a{
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    font-size: 30px;
+    height: 70px;
+    padding: 15px;
+
+    color: #fff;
+    text-decoration: none;
 }
 
-.menu-items:hover, .submenuitem:hover{
+#menu a:hover, #submenu label:hover{
     background: rgba(255, 255, 255, 0.3);
 }
 
-.menuToggle.active ~ .menu{
+#menuToggle{
+    width: 30px;
+    height: 30px;
+    
+    background: url('../img/menu.png');
+    display: block;
+    float: right;
+    margin: 20px 10px;
+    cursor: pointer;
+    
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#chmenu:checked ~ #menu{
     transform: translateX(0%);
 }
 
-/*BOTONES*/
-
-#radio1-1, #radio1-2, #radio1-3, #radio1-4{
-    display: none;
+#chmenu:checked ~ #menuToggle{
+    background: url('../img/close.png');
+    z-index: 1000;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-#radio1-1:checked ~ .tab1-1,
-#radio1-2:checked ~ .tab1-2,
-#radio1-3:checked ~ .tab1-3,
-#radio1-4:checked ~ .tab1-4
-{
-    display: block;
-}
-
-/*SUBMENU*/
-.submenu{
-    width: 100%;
+#submenu{
+    width: 90%;
     float: left;
-    height: 80px;
-}
-
-.submenu .submenu-back{
-    width: 1000px;
-    font-size: 30px;
-    padding: 0 250px;
-    display: flex;
-    background-color: rgba(4, 61, 75, 0.9);
-    color: #fff;
+    position: absolute;
+    background:rgb(4, 61, 75, 0.9);
     transition: all 0.55s;
     transform: translateX(-150%);
-    min-width: 140px;
-    opacity: 0;
 }
 
-.submenu .submenu-back label{
-    padding: 10px 50px;
-    border-right: 1px solid;
-    border-left: 1px solid;
-}
-
-.submenu #submenu-ico{
-    float: left;
+#submenu-ico{
+    width: 41px;
     text-decoration: none;
     padding: 10px 12px;
     display: block;
     color: #fff;
 }
 
-#submenu-bar:checked ~ .submenu-back{
-    transform: translateX(0%);
-    opacity: 1;
+#submenu label{
+    padding: 40px;
+    display: block;
+    border-bottom: 1px solid;
+    color: #fff;
 }
 
-#submenu-bar:checked ~ #submenu-ico{
+#chSubmenu:checked ~ #submenu{
+    transform: translateX(0%);
+}
+
+#chSubmenu:checked ~ #submenu-ico{
     background: rgba(2, 34, 43, 0.9);
     color: #fff;
 }
 
+#chBienvenida:checked ~ #bienvenida, 
+#chLinux:checked ~ #linux,
+#chLibrary:checked ~ #library{
+    display: block;
+}
 
-/*Modo PC*/
-@media (max-width:1024px){
-
-    header{
-        height: 70px;
-    }
-
-    header h1, .icon-laptop{
-        margin: 18px 0;
-        font-size: 25px;
-        font-weight: 5 ;
-    }
-
-    header .icon-laptop{
-        padding: 5px 2px 0 0;
-    }
-
-    header .volver{
-        font-size: 70px;
-        margin: 75px 30px;
-    }
-
-    header .menuToggle{
-        width: 30px;
-        height: 30px;
-        
-        background: url('../img/menu.png');
-        display: block;
+@media (min-width:1024px){
+    #menu{
+        transform: translateX(0%);
+        left: 0;
         float: right;
-        margin: 20px 10px;
+        width: auto;
+        height: auto;
+        position: static;
+        display: flex;
+    }
+
+    #menu a{
+        padding-top: 15px;
+        border: none;
+        font-size: 14px;
+        height: 50px;
         cursor: pointer;
-        
-        background-size: 30px;
-        background-repeat: no-repeat;
-        background-position: center;
+        padding: 15px 15px;
     }
 
-    header .menuToggle.active{
-        background: url('../img/close.png');
-        z-index: 1000;
-        background-size: 40px;
-        background-repeat: no-repeat;
-        background-position: center;
+    #menuToggle{
+        display: none;
     }
 
-    .menu{
-        position: absolute;
+    #submenu{
         width: 100%;
-        height: 100vh;
-        transform: translateX(200%);
-        background: rgba(0, 50, 50, 0.9);
-        display: block;
-        
-        transition: all 0.55s;
-        cursor: pointer;
-        top: 70px;
-
+        display: flex;
+        position: relative;
     }
 
-    .menu-items{
-        display: block;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-        border-top: 1px solid rgba(255, 255, 255, 0.9);
-        font-size: 30px;
-        height: 70px;
-
+    #submenu label{
+        padding: 10px 50px;
+        margin: auto;
+        border-bottom: 0px;
     }
-
-
-    /*submenu2*/
-    .submenu{
-        height: 40px;
-    }
-
-    .submenu .submenu-back{
-        width: 100%;
-        display: block;
-        padding: 0 0;
-        font-size: 50px;
-        margin-top: 37px;
-    }
-
-    .submenu .submenu-back label{
-        padding: 40px !important;
-        display: block;
-        border-bottom: 1px solid;
-    }
-    
 }
