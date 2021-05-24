@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "pagina-web";
+    src:url("../fonts/pagina-web.eot");
+    src:url("../fonts/pagina-web.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/pagina-web.woff") format("woff"),
+      url("../fonts/pagina-web.ttf") format("truetype"),
+      url("../fonts/pagina-web.svg#pagina-web") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  
+  }

@@ -1,0 +1,140 @@
+header{
+    width: 100%;
+    margin: auto;
+    height: 50px;
+    background:rgb(4, 61, 75);
+    color: #fff;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: table;
+}
+
+header h1, .icon-laptop{
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 5 ;
+    float: left;
+}
+
+header .icon-laptop{
+    margin-top: 24px;
+    margin-left: 5px;
+}
+
+
+#menu{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(200%);
+    background: rgba(0, 50, 50, 0.9);
+    display: block;
+    
+    transition: all 0.55s;
+    cursor: pointer;
+    top: 70px;
+
+}
+
+#menu a{
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    font-size: 30px;
+    height: 70px;
+    padding: 15px;
+
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu a:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#menuToggle{
+    width: 30px;
+    height: 30px;
+    
+    background: url('../img/menu.png');
+    display: block;
+    float: right;
+    margin: 20px 10px;
+    cursor: pointer;
+    
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#chmenu:checked ~ #menu{
+    transform: translateX(0%);
+}
+
+#chmenu:checked ~ #menuToggle{
+    background: url('../img/close.png');
+    z-index: 1000;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#submenu{
+    height: 40px;
+    width: 100%;
+    float: left;
+    margin-top: -40px;
+    padding-top: 40px;
+}
+
+#submenu-ico{
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+    color: #fff;
+}
+
+#submenu label{
+    padding: 40px;
+    display: block;
+    border-bottom: 1px solid;
+    background-color: rgba(4, 61, 75, 0.9);
+    color: #fff;
+
+    transition: all 0.55s;
+    transform: translateX(-150%);
+}
+
+#submenu a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#chSubmenu:checked ~ #submenu > label{
+    transform: translateX(0%);
+}
+
+
+@media (min-width:1024px){
+    header h1, .icon-laptop{  
+        margin-top: 0 ;
+        margin-bottom: 0 ;
+        font-size: 36px ;
+    }
+    #menu a{
+        padding-top: 15px;
+        border: none;
+        font-size: 14px;
+        height: 50px;
+        cursor: pointer;
+        padding: 15px 15px;
+    }
+
+    
+    #menuToggle{
+        display: none;
+    }
+}
