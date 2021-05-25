@@ -66,7 +66,7 @@
     width: 90%;
     float: left;
     position: absolute;
-    background:rgb(4, 61, 75, 0.9);
+    background: var(--color-frente-transparente);
     transition: all 0.55s;
     transform: translateX(-150%);
 }
@@ -91,7 +91,7 @@
 }
 
 #chSubmenu:checked ~ #submenu-ico{
-    background: rgba(2, 34, 43, 0.9);
+    background: var(--color-frente-transparente);
     color: #fff;
 }
 
