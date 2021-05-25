@@ -21,14 +21,15 @@
                 <input type="checkbox" name="chmenu" id="chmenu">
                 <label for="chmenu" id="menuToggle"></label>
                 <nav id="menu">
-                    <label for=""><a href="#home">INICIO</a></label>
-                    <label for=""><a href="#about">SOBRE MI</a></label>
-                    <label for=""><a href="#portfolio">PORTAFOLIO</a></label>
+                    <label for="rdHome">INICIO</label>
+                    <label for="rdAbout">SOBRE MI</label>
+                    <label for="rdPorfolio">PORTAFOLIO</label>
                 </nav>
             </div>
         </header>
         <main id="swup" >
             <!--¿QUE ESTAS HACIENDO ACA?-->
+            <input type="radio" name="rdsection" id="rdHome" checked>
             <section id="home" class="transition-fade">
                 <div class="card">
                     <h2>Bienvenido a mi Portafolio</h2>
@@ -42,13 +43,13 @@
                         <label for="chLibrary">Biblioteca</label>
                     </nav>
                     <!--BIENVENIDA-->
-                    <input type="radio" name="rdHome" id="chBienvenida" checked>
+                    <input type="radio" name="rdSubHome" id="chBienvenida" checked>
                     <section id="bienvenida">
                         <h3>Hola, soy Elias Bianchi.</h3>
                         <p>Soy programador de aplicaciones, programador web y diseñador grafico.</p>
                     </section>
                     <!--LINUX-->
-                    <input type="radio" name="rdHome" id="chLinux">
+                    <input type="radio" name="rdSubHome" id="chLinux">
                     <section id="linux">
                         <h2>Comandos linux</h2>
                         <br>
@@ -207,13 +208,14 @@
                         </div>
                     </section>
                     <!--Biblioteca-->
-                    <input type="radio" name="rdHome" id="chLibrary">
+                    <input type="radio" name="rdSubHome" id="chLibrary">
                     <section id="library">
                         <h2><strong>Librería</strong></h2>
                         <iframe id="Gdrive" src="https://drive.google.com/embeddedfolderview?id=194dnHNzYuuHYACuZ6gVKysgAxM5HFEBw#list"></iframe>
                     </section>
                 </div>
             </section>
+            <input type="radio" name="rdsection" id="rdAbout">
             <section id="about"  class="transition-fade">
                 <div class="card">
                     <h2>Elias Bianchi</h2>
@@ -243,6 +245,7 @@
                     
                 </div>
             </section>
+            <input type="radio" name="rdsection" id="rdPorfolio">
             <section id="portfolio" class="transition-fade">
                 <div class="card">
                     <h1>Mis Proyectos</h1>

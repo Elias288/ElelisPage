@@ -12,7 +12,7 @@
 
 }
 
-#menu a{
+#menu label{
     display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
     border-top: 1px solid rgba(255, 255, 255, 0.9);
@@ -24,9 +24,16 @@
     text-decoration: none;
 }
 
-#menu a:hover, #submenu label:hover{
+#menu label:hover, #submenu label:hover{
     background: rgba(255, 255, 255, 0.3);
 }
+
+#rdHome:checked ~ #home, 
+#rdAbout:checked ~ #about,
+#rdPorfolio:checked ~ #portfolio{
+    display: block;
+}
+
 
 #menuToggle{
     width: 30px;
@@ -105,7 +112,7 @@
         display: flex;
     }
 
-    #menu a{
+    #menu label{
         padding-top: 15px;
         border: none;
         font-size: 14px;
