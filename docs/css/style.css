@@ -329,6 +329,10 @@ p {
     padding: 0 20px;
 }
 
+.proyectos .content .workBx .textBx a {
+    color: #fff;
+}
+
 .contacto {
     display: flex;
     justify-content: flex-start;
