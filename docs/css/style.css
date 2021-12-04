@@ -45,8 +45,6 @@ body {
     align-items: center;
     z-index: 99;
 
-    background-color: #000714;
-    border: 1px solid #000;
     border-radius: 10px;
     opacity: .95;
     text-transform: uppercase;
@@ -158,4 +156,11 @@ nav ul li:hover {
     bottom: 0;
     padding: 10px 40px;
     text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .container{
+        background-color: #000714;
+        border: 1px solid #000;
+    }
 }
