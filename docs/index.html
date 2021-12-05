@@ -6,79 +6,97 @@
     <title>Eleli'sPage</title>
     
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Literata">
     <link href="css/all.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="particles-js"></div>
     
-    <header class="container">
-        <h1>Elías Bianchi</h1>
+    <header>
+        <div class="container">
+            <h1>Elías Bianchi</h1>
+            <nav>
+                <ul >
+                    <li><a id="sobreMibtn" href="#/sobreMi">sobre mi</a></li>
+                    <li><a id="proyectosbtn" href="#/proyectos">proyectos</a></li>
+                    <li><a href="./files/Curriculum Vitae(2021).pdf" class="Curriculum">cv</a></li>
+                </ul>
+            </nav>
 
-        <div class="imgBx">
-            <img src="./img/elias.jpg" alt="">
-        </div>
-        
-        <nav>
-            <ul >
-                <li><a href="#">sobre mi</a></li>
-                <li><a href="#">proyectos</a></li>
-                <li><a href="./files/Curriculum Vitae(2021).pdf" class="Curriculum">cv</a></li>
-            </ul>
-        </nav>
-
-        <div class="socialMedia">
-            <h4>Redes sociales</h4>
-            <ul>
-                <li><a href="https://www.facebook.com/bianchi.elias/"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/elias-bianchi-3a5012183/"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://www.instagram.com/elelibian/"><i class="fab fa-instagram-square"></i></a></li>
-                <li><a href="https://github.com/Elias288"><i class="fab fa-github-square"></i></a></li>
-            </ul>
-            <hr />
-        </div>
-
-
-        <div class="habilidades">
-            <h4>habilidades</h4>
-            <ul>
-                <li><i class="fab fa-js-square"></i></li>
-                <li><i class="fab fa-java"></i></li>
-                <li><i class="fab fa-python"></i></li>
-                
-                <li><i class="fab fa-node"></i></li>
-                <li><i class="fab fa-react"></i></li>
-                <li><i class="fab fa-html5"></i></li>
-                <li><i class="fab fa-php"></i></li>
-                <li><i class="fab fa-css3-alt"></i></li>
-                <li><i class="fas fa-database"></i></li>
-            </ul>
-        </div>
-        
-        <!-- <section class="sobreMi adjust" id="sobreMi">
-            <div class="titulo">
-                <h2>Sobre Mi</h2>
+            <div class="habilidades">
+                <h2>habilidades</h2>
+                <ul>
+                    <li><i class="fab fa-js-square"></i></li>
+                    <li><i class="fab fa-java"></i></li>
+                    <li><i class="fab fa-python"></i></li>
+                    <li><i class="fab fa-node"></i></li>
+                    <li><i class="fab fa-react"></i></li>
+                    <li><i class="fab fa-html5"></i></li>
+                    <li><i class="fab fa-php"></i></li>
+                    <li><i class="fab fa-css3-alt"></i></li>
+                    <li><i class="fas fa-database"></i></li>
+                </ul>
             </div>
-            <div class="content">
-                <div class="textBx">
-                    <p>Tecnologo en informática, desarrollador web y de aplicaciones</p>
-                    <p>Estudiante de informática, actualmente cursando la carrera de Tecnólogo en informática. Buena experiencia en desarrollo de aplicaciones y buscando siempre aprender nuevos lenguajes de programación.</p>
-                    <br>
-                    <p>Experiencia practica en c++/c, java, python, SQL, PHP, Git/Github, HTML, Css, JavaScript, uso de frameworks de PHP y creacion de servidores web en linux.</p>
-                    <br>
-                    <h4>Lenguajes</h4>
-                    <p>Español: Nativo.</p>
-                    <p>Ingles: Intermedio.</p>
-                </div>
-                <div class="imgBx">
-                </div>
-            </div>
-        </section> -->
-    </header>
 
-    <div class="copyright">
-        <p>&copy;2021 - ElelisPage</p>
-    </div>
+            <div class="RedesSociales">
+                <h4>Redes sociales</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/bianchi.elias/"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/elias-bianchi-3a5012183/"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.instagram.com/elelibian/"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a href="https://github.com/Elias288"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="main">
+                <article id="sobreMi" class=" ">
+                    <a id="closeSobremi" class="close" href="#/"><i class="fas fa-times"></i></a>
+                    <h1 class="major">Sobre Mí</h2>
+                    <div class="imgBx">
+                        <img src="./img/elias.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="textBx">
+                            <p>Tecnologo en informática, desarrollador web y de aplicaciones.</p>
+                            <p>Estudiante de informática, actualmente cursando la carrera de Tecnólogo en informática. Buena experiencia en desarrollo de aplicaciones y buscando siempre aprender nuevos lenguajes de programación.</p>
+                            <br>
+                            <h3 class="major">Educación</h3>
+                            <h5>UNIVERSIDAD DE LA REPÚBLICA (UDELAR) Y UTEC (2018 - actualidad)</h5>
+                            <ul><li>Tecnólogo en Informática</li></ul>
+                            <br>
+                            <h3 class="major">Experiencia practica</h3>
+                            <ul>
+                                <li>C/C++</li>
+                                <li>Java</li>
+                                <li>Python</li>
+                                <li>SQL</li>
+                                <li>PHP</li>
+                                <li>Git/Github</li>
+                                <li>HTML</li>
+                                <li>Css</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <br>
+                            
+                            <h3 class="major">Lenguajes</h3>
+                            <p>Español: Nativo.</p>
+                            <p>Ingles: Intermedio.</p>
+                        </div>
+                    </div>
+                </article>
+                <article id="proyectos" class=" ">
+                    <a id="closeProyectos" class="close" href="#/"><i class="fas fa-times"></i></a>
+                    <h1 class="major">Proyectos</h1>
+                    <p><i class="fas fa-exclamation-triangle"></i> En construcción.</p>
+                </article>
+        </div>
+        <div class="copyright">
+            <p>&copy;2021 - ElelisPage</p>
+        </div> 
+    </header> 
+
+    
 
     <script src="js/particles.min.js"></script>
     <script src="js/main.js"></script>

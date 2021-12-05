@@ -1,3 +1,31 @@
+const inicio = document.querySelector('.container');
+const sobreMi = document.querySelector('#sobreMi');
+const proyectos = document.querySelector('#proyectos');
+
+const sobremiBtn = document.querySelector('#sobreMibtn');
+const proyectosBtn = document.querySelector('#proyectosbtn');
+const sobreMiClose = document.querySelector('#closeSobremi');
+const proyectosCloes = document.querySelector('#closeProyectos')
+
+sobremiBtn.addEventListener('click', () => {
+    inicio.style.display='none'
+    sobreMi.classList.toggle('activo')
+});
+
+proyectosBtn.addEventListener('click', () => {
+    inicio.style.display='none'
+    proyectos.classList.toggle('activo')
+});
+
+sobreMiClose.addEventListener('click', () => {
+    inicio.style.display='flex'
+    sobreMi.classList.remove(...sobreMi.classList)
+});
+proyectosCloes.addEventListener('click', () => {
+    inicio.style.display='flex'
+    proyectos.classList.remove(...proyectos.classList)
+});
+
 particlesJS(
     {
         "particles": {
@@ -76,7 +104,7 @@ particlesJS(
                     "mode": "repulse"
                 },
                 "onclick": {
-                    "enable": true,
+                    "enable": false,
                     "mode": "push"
                 },
                 "resize": true
