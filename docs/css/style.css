@@ -60,11 +60,6 @@ header{
     margin-top: 50px;
 }
 
-header > * {
-    background-color: var(--verydarkblue);
-    opacity: .85;
-}
-
 .imgBx{
     /* width: 200px; */
     height: 200px;
@@ -80,6 +75,12 @@ header > * {
     left: 0;
 }
 
+nav{
+    width: 90%;
+    background-color: var(--verydarkblue);
+    opacity: .85;
+}
+
 nav ul{
     display: flex;
     flex-direction: column;
@@ -93,11 +94,12 @@ nav ul li{
 }
 
 nav ul li a{
+    width: 100%;
     text-decoration: none;
     color: var(--white);
     display: inline-block;
     min-width: 120px;
-    padding: 10px 0;
+    padding: 30px 0;
 }
 
 nav ul li a:hover{
@@ -204,19 +206,32 @@ header article.activo.timeout {
     padding: 30px 50px;
 }
 
-@media only screen and (min-width: 400px){
-    /* Tablets */
+@media only screen and (min-width: 520px) {
+    nav{
+        width: max-content;
+    }
     nav ul{
         flex-direction: row;
     }
+
+    nav ul li a{
+        padding: 10px 0;
+    }
+
     .imgBx{
         width: 200px;
         margin: auto;
     }
+    
+    header > * {
+        background-color: var(--verydarkblue);
+        opacity: .85;
+    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 800px) {
     /* Desktops */
+
     .imgBx{
         width: 200px;
         height: 200px;
