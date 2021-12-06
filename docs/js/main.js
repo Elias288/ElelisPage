@@ -1,30 +1,41 @@
-const inicio = document.querySelector('.container');
-const sobreMi = document.querySelector('#sobreMi');
-const proyectos = document.querySelector('#proyectos');
 
-const sobremiBtn = document.querySelector('#sobreMibtn');
-const proyectosBtn = document.querySelector('#proyectosbtn');
-const sobreMiClose = document.querySelector('#closeSobremi');
-const proyectosCloes = document.querySelector('#closeProyectos')
+const router = (route) => {
+    switch (route) {
+        case "":
+        case "#/":
+            topFunction();
+            document.getElementById('inicio').classList.add('activo')
+            document.getElementById('sobreMi').classList.remove('activo')
+            document.getElementById('proyectos').classList.remove('activo')
+            break;
+        case '#/sobreMi':
+            topFunction();
+            document.getElementById('inicio').classList.remove('activo')
+            document.getElementById('sobreMi').classList.add('activo')
+            document.getElementById('proyectos').classList.remove('activo')
+            break;
+        case '#/proyectos':
+            topFunction();
+            document.getElementById('inicio').classList.remove('activo')
+            document.getElementById('sobreMi').classList.remove('activo')
+            document.getElementById('proyectos').classList.add('activo')
+            break;
+        default:
+            return console.log('404')
+    }
+};
 
-sobremiBtn.addEventListener('click', () => {
-    inicio.style.display='none'
-    sobreMi.classList.toggle('activo')
+router(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+    router(window.location.hash)
 });
 
-proyectosBtn.addEventListener('click', () => {
-    inicio.style.display='none'
-    proyectos.classList.toggle('activo')
-});
 
-sobreMiClose.addEventListener('click', () => {
-    inicio.style.display='flex'
-    sobreMi.classList.remove(...sobreMi.classList)
-});
-proyectosCloes.addEventListener('click', () => {
-    inicio.style.display='flex'
-    proyectos.classList.remove(...proyectos.classList)
-});
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 
 particlesJS(
     {
@@ -32,7 +43,7 @@ particlesJS(
             "number": {
                 "value": 80,
                 "density": {
-                    "enable": true,
+                    "enable": false,
                     "value_area": 800
                 }
             },

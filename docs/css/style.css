@@ -42,13 +42,13 @@ header{
     border-radius: 10px; 
 }
 
-.activo{
+article.activo{
     display: block !important;
 }
 
 .container{
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -56,13 +56,18 @@ header{
     text-align: center; 
 }
 
+.container.activo{
+    display: flex;
+}
+
 .container > *, .main article > div{
     margin-top: 50px;
 }
 
 .imgBx{
-    /* width: 200px; */
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
     margin-top: 15px;
     overflow: hidden;
     border-radius: 10px;
@@ -119,6 +124,7 @@ nav ul li a:hover{
 
 .habilidades ul li{
     list-style: none;
+    cursor: pointer;
 }
 
 .habilidades ul li i{
@@ -203,10 +209,39 @@ header article.activo.timeout {
 
     display: none;
     transition: opacity .325s ease-in-out,transform .325s ease-in-out;
-    padding: 30px 50px;
+    padding: 50px;
+    background-color: var(--verydarkblue);
+    border: 1px solid #000;
+    opacity: .85;
+}
+
+.proyect{
+    display: flex;
+    flex-direction: column;
+}
+
+.proyect img{
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+}
+
+.proyect a{
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 5px;
+    margin-top: 1em;
+}
+
+.proyect a:hover{
+    background-color: var(--white);
+    color: var(--black);
 }
 
 @media only screen and (min-width: 520px) {
+    /* tablets */
     nav{
         width: max-content;
     }
@@ -222,10 +257,19 @@ header article.activo.timeout {
         width: 200px;
         margin: auto;
     }
-    
-    header > * {
+
+    header .container {
         background-color: var(--verydarkblue);
+        border: 1px solid #000;
         opacity: .85;
+    }
+
+
+    .proyect img{
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
     }
 }
 
@@ -248,6 +292,21 @@ header article.activo.timeout {
 
     .main{
         width: 800px;
+    }
+
+    .main article{
+        background-color: var(--verydarkblue);
+        border: 1px solid #000;
+        opacity: .85;
+    }
+
+    .main article .content{
+        background: none;
+        border: none;
+    }
+
+    .proyect{
+        margin-top: 3em;
     }
 
 }
