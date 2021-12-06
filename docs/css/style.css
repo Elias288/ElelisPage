@@ -30,25 +30,22 @@ body {
 }
 
 header{
-    height: 100vh;
-
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     z-index: 99;
-
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-article.activo{
-    display: block !important;
+header.activo{
+    opacity: 1;
 }
 
 .container{
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -56,11 +53,7 @@ article.activo{
     text-align: center; 
 }
 
-.container.activo{
-    display: flex;
-}
-
-.container > *, .main article > div{
+header .container > *, .main article > div{
     margin-top: 50px;
 }
 
@@ -194,24 +187,37 @@ h1.major, h3.major{
     margin-bottom: 1em;
 }
 
-header article.activo.timeout {
-    transform: translateY(0);
-    opacity: 1;
-}
 .main{
     width: 100%;
     min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main article{
     width: 100%;
     min-height: 100vh;
-
-    display: none;
-    transition: opacity .325s ease-in-out,transform .325s ease-in-out;
+    display: block; 
     padding: 50px;
     background-color: var(--verydarkblue);
     border: 1px solid #000;
+
+}
+
+header, .main article{
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 2s;
+
+}
+
+header:not(.activo), .main article:not(.activo){
+    /* transform: rotate(360deg) */
+    transform: scale(0.95);
+}
+
+.main article.activo{
     opacity: .85;
 }
 
@@ -238,6 +244,10 @@ header article.activo.timeout {
 .proyect a:hover{
     background-color: var(--white);
     color: var(--black);
+}
+
+.timeout{
+    display: none !important;
 }
 
 @media only screen and (min-width: 520px) {
@@ -290,11 +300,8 @@ header article.activo.timeout {
         border: 1px solid #000;
     }
 
-    .main{
-        width: 800px;
-    }
-
     .main article{
+        width: 800px;
         background-color: var(--verydarkblue);
         border: 1px solid #000;
         opacity: .85;

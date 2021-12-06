@@ -1,24 +1,56 @@
 
 const router = (route) => {
+    const header = document.querySelector('header')
+    const about = document.getElementById('sobreMi')
+    const proyectos = document.getElementById('proyectos')
     switch (route) {
         case "":
         case "#/":
+            /* HEADER */
+            window.setTimeout(() => {header.classList.remove('timeout')}, 1000);
+            window.setTimeout(() => {header.classList.add('activo')}, 1200);
+
+            /* SOBRE MI */
+            about.classList.remove('activo')
+            window.setTimeout(() => {about.classList.add('timeout')}, 1000);
+
+            /* PROYECTOS */
+            proyectos.classList.remove('activo')
+            window.setTimeout(() => {proyectos.classList.add('timeout')}, 1000);
+
             topFunction();
-            document.getElementById('inicio').classList.add('activo')
-            document.getElementById('sobreMi').classList.remove('activo')
-            document.getElementById('proyectos').classList.remove('activo')
             break;
         case '#/sobreMi':
+            /* SOBRE MI */
+            window.setTimeout(() => {about.classList.remove('timeout')}, 1000);
+            window.setTimeout(() => {about.classList.add('activo')}, 1200);
+
+            /* HEADER */
+            header.classList.remove('activo')
+            window.setTimeout(() => {header.classList.add('timeout')}, 1000);
+
+            /* PROYECTOS */
+            proyectos.classList.remove('activo')
+            window.setTimeout(() => {proyectos.classList.add('timeout')}, 1000);
+            
             topFunction();
-            document.getElementById('inicio').classList.remove('activo')
-            document.getElementById('sobreMi').classList.add('activo')
-            document.getElementById('proyectos').classList.remove('activo')
             break;
         case '#/proyectos':
-            topFunction();
-            document.getElementById('inicio').classList.remove('activo')
-            document.getElementById('sobreMi').classList.remove('activo')
-            document.getElementById('proyectos').classList.add('activo')
+
+            /* PROYECTOS */
+            window.setTimeout(() => {proyectos.classList.remove('timeout')}, 1000)
+            window.setTimeout(() => {proyectos.classList.add('activo')}, 1200)
+
+            /* HEADER */
+            header.classList.remove('activo')
+            window.setTimeout(() => { header.classList.add('timeout')}, 1000)
+
+            /* SOBRE MI */
+            about.classList.remove('activo')
+            window.setTimeout(() => { about.classList.add('timeout')}, 1000)
+            
+
+            //topFunction();
             break;
         default:
             return console.log('404')
