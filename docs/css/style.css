@@ -205,15 +205,25 @@ nav ul li a:hover{
     padding: 50px;
     background-color: var(--verydarkblue);
     border: 1px solid #000;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+
+.main article .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main article .content{
+    margin-top: 20px;
 }
 
 .imgBx{
     width: 150px;
     height: 150px;
-    margin: auto;
-    margin-top: 15px;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -234,12 +244,14 @@ h1.major, h3.major{
 /* PROYECTOS */
 
 .proyect{
+    width: 100%;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
 .proyect img{
-    object-fit: contain;
+    object-fit: cover;
     width: 50px;
     height: 50px;
 }
@@ -305,6 +317,7 @@ h1.major, h3.major{
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-height: calc(100vh - 60px);
     }
 
     header .container, .main{
@@ -329,7 +342,29 @@ h1.major, h3.major{
     }
 
     .proyect{
+        display: grid;
         margin-top: 3em;
+        grid-template-areas:
+            'header header header'
+            'left main main'
+            'yoquese yoquese footer';
+    }
+
+    .proyect h3{
+        grid-area: header;
+    }
+
+    .proyect img{
+        grid-area: left;
+    }
+
+    .proyect p{
+        grid-area: main;
+    }
+
+    .proyect a{
+        grid-area: footer;
+        width: fit-content;
     }
 
 }

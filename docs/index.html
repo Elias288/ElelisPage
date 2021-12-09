@@ -28,15 +28,15 @@
                 <div class="habilidades">
                     <h2>habilidades</h2>
                     <ul>
-                        <li><i class="fab fa-js-square"></i></li>
-                        <li><i class="fab fa-java"></i></li>
-                        <li><i class="fab fa-python"></i></li>
-                        <li><i class="fab fa-node"></i></li>
-                        <li><i class="fab fa-react"></i></li>
-                        <li><i class="fab fa-html5"></i></li>
-                        <li><i class="fab fa-php"></i></li>
-                        <li><i class="fab fa-css3-alt"></i></li>
-                        <li><i class="fas fa-database"></i></li>
+                        <li title="JavaScript"><i class="fab fa-js-square"></i></li>
+                        <li title="Java"><i class="fab fa-java"></i></li>
+                        <li title="Python"><i class="fab fa-python"></i></li>
+                        <li title="Node.js"><i class="fab fa-node"></i></li>
+                        <li title="React.js"><i class="fab fa-react"></i></li>
+                        <li title="HTML5"><i class="fab fa-html5"></i></li>
+                        <li title="PHP"><i class="fab fa-php"></i></li>
+                        <li title="CSS3"><i class="fab fa-css3-alt"></i></li>
+                        <li title="DATABASE"><i class="fas fa-database"></i></li>
                     </ul>
                 </div>
 
@@ -48,14 +48,17 @@
                         <li><a href="https://github.com/Elias288"><i class="fab fa-github-square"></i></a></li>
                         <li><a href="https://www.facebook.com/bianchi.elias/"><i class="fab fa-facebook-square"></i></a></li>
                         <li><a href="https://www.instagram.com/elelibian/"><i class="fab fa-instagram-square"></i></a></li>
+                        <li><a href="https://codepen.io/sbianchi"><i class="fab fa-codepen"></i></a></li>
                     </ul>
                 </div>
             </div>
         </header> 
         <div class="main" style="display: none;">
             <article id="sobreMi" class=" " style="display: none;">
-                <a id="closeSobremi" class="close" href="#/"><i class="fas fa-times"></i></a>
-                <h1 class="major">Sobre Mí</h2>
+                <div class="header">
+                    <h1 class="major">Sobre Mí</h2>
+                    <a id="closeSobremi" class="close" href="#/"><i class="fas fa-times"></i></a>
+                </div>
                 <div class="imgBx">
                     <img src="./img/elias.jpg" alt="">
                 </div>
@@ -89,10 +92,11 @@
                 </div>
             </article>
             <article id="proyectos" class=" " style="display: none;">
-                <a id="closeProyectos" class="close" href="#/"><i class="fas fa-times"></i></a>
-                <h1 class="major">Proyectos</h1>
-                <!-- <p><i class="fas fa-exclamation-triangle"></i> En construcción.</p> -->
+                <div class="header">
+                    <h1 class="major">Proyectos</h1>
+                    <a id="closeProyectos" class="close" href="#/"><i class="fas fa-times"></i></a>
 
+                </div>
                 <div class="proyect">
                     <h3 class="major">Weather web scraping</h3>
                     <img src="./img/Weather_Scraping.png" alt="Logo_weather_web_scraping" srcset="">
@@ -104,6 +108,27 @@
                     <img src="./img/logoArtelbianchi.png" alt="Logo_artelbianchi" />
                     <p>Una pagina web basada en JavaScript a modo de galeria digital de cuadros y pinturas de Artelbianchi.</p>
                     <a href="https://github.com/Elias288/Artelbianchi">Repositorio de Github</a>
+                </div>
+
+                <div class="proyect">
+                    <h3 class="major">Juego de la vida de Conway</h3>
+                    <img src="./img/game_of_life.png" alt="">
+                    <p>Como práctica para el lenguaje de JavaScript se implementó diseñado por el matemático británico John Horton Conway, el juego de la vida que consiste de un autómata celular.</p>
+                    <a href="https://codepen.io/sbianchi/pen/gORGZae">CodePen del juego</a>
+                </div>
+
+                <div class="proyect">
+                    <h3 class="major">Hormiga de Langton</h3>
+                    <img src="./img/hormiga_de_langton.png" alt="">
+                    <p>Como práctica para el lenguaje de JavaScript y continuación del juego de la vida de Conway se implementó la hormiga de Langton que es un una máquina de Turing bidimensional con un conjunto de reglas muy sencillo, que sin embargo da lugar a comportamientos emergentes complejos.</p>
+                    <a href="https://codepen.io/sbianchi/pen/jOwzWoQ">CodePen del juego</a>
+                </div>
+
+                <div class="proyect">
+                    <h3 class="major">Pong</h3>
+                    <img src="./img/pong.png" alt="">
+                    <p>Para la materia Videojuegos se desarrollo como primer laboratorio el juego Pong, uno de los primeros juegos de video en JavaScript.</p>
+                    <a href="https://codepen.io/sbianchi/pen/bGRwPrw">CodePen del juego</a>
                 </div>
             </article>
         </div>
