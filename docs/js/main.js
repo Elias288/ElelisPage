@@ -1,68 +1,73 @@
+const header = document.querySelector('header'),
+    main = document.querySelector('.main'),
+    about = document.getElementById('sobreMi'),
+    proyectos = document.getElementById('proyectos'),
+    aboutBtn = document.querySelector("header .container nav ul li:nth-of-type(1) a"),
+    proyectosBtn = document.querySelector("header .container nav ul li:nth-of-type(2) a"),
+    aboutClose = document.querySelector("#sobreMi a");
+    proyectosClose = document.querySelector("#proyectos a");
 
-const router = (route) => {
-    const header = document.querySelector('header')
-    const about = document.getElementById('sobreMi')
-    const proyectos = document.getElementById('proyectos')
-    switch (route) {
-        case "":
-        case "#/":
-            /* HEADER */
-            window.setTimeout(() => {header.classList.remove('timeout')}, 1000);
-            window.setTimeout(() => {header.classList.add('activo')}, 1200);
 
-            /* SOBRE MI */
-            about.classList.remove('activo')
-            window.setTimeout(() => {about.classList.add('timeout')}, 1000);
+function endListenerAbout(evt) {
+    main.style.display = "";
+    about.style.display = "";
+    header.style.display = "none";
 
-            /* PROYECTOS */
-            proyectos.classList.remove('activo')
-            window.setTimeout(() => {proyectos.classList.add('timeout')}, 1000);
+    window.setTimeout(() => {
+        topFunction();
+        main.classList.toggle("activo");
+        about.classList.toggle("activo");
+    }, 50);
+    evt.currentTarget.removeEventListener("transitionend", endListenerAbout);
+}
 
-            topFunction();
-            break;
-        case '#/sobreMi':
-            /* SOBRE MI */
-            window.setTimeout(() => {about.classList.remove('timeout')}, 1000);
-            window.setTimeout(() => {about.classList.add('activo')}, 1200);
+function endListenerInicio(evt) {
+    header.style.display = "";
+    main.style.display = "none";
+    about.style.display = "none";
+    proyectos.style.display = "none";
 
-            /* HEADER */
-            header.classList.remove('activo')
-            window.setTimeout(() => {header.classList.add('timeout')}, 1000);
+    window.setTimeout(() => {
+        topFunction();
+        header.classList.toggle("activo");
+    }, 50);
+    evt.currentTarget.removeEventListener("transitionend", endListenerInicio);
+}
 
-            /* PROYECTOS */
-            proyectos.classList.remove('activo')
-            window.setTimeout(() => {proyectos.classList.add('timeout')}, 1000);
-            
-            topFunction();
-            break;
-        case '#/proyectos':
+function endListenerProyect(evt) {
+    main.style.display = "";
+    proyectos.style.display = "";
+    header.style.display = "none";
 
-            /* PROYECTOS */
-            window.setTimeout(() => {proyectos.classList.remove('timeout')}, 1000)
-            window.setTimeout(() => {proyectos.classList.add('activo')}, 1200)
+    window.setTimeout(() => {
+        topFunction();
+        proyectos.classList.toggle("activo");
+        main.classList.toggle("activo");
+    }, 50);
+    evt.currentTarget.removeEventListener("transitionend", endListenerProyect);
+}
 
-            /* HEADER */
-            header.classList.remove('activo')
-            window.setTimeout(() => { header.classList.add('timeout')}, 1000)
-
-            /* SOBRE MI */
-            about.classList.remove('activo')
-            window.setTimeout(() => { about.classList.add('timeout')}, 1000)
-            
-
-            //topFunction();
-            break;
-        default:
-            return console.log('404')
-    }
-};
-
-router(window.location.hash);
-
-window.addEventListener('hashchange', () => {
-    router(window.location.hash)
+aboutBtn.addEventListener("click", function(){
+    header.classList.toggle("activo");
+    header.addEventListener("transitionend", endListenerAbout);
 });
 
+aboutClose.addEventListener("click", function(){
+    main.classList.toggle("activo")
+    about.classList.toggle("activo")
+    about.addEventListener("transitionend", endListenerInicio)
+});
+
+proyectosBtn.addEventListener("click", function(){
+    header.classList.toggle("activo");
+    header.addEventListener("transitionend", endListenerProyect);
+});
+
+proyectosClose.addEventListener("click", function(){
+    main.classList.toggle("activo")
+    proyectos.classList.toggle("activo")
+    proyectos.addEventListener("transitionend", endListenerInicio)
+});
 
 function topFunction() {
     document.body.scrollTop = 0;

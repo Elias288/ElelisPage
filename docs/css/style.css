@@ -1,3 +1,5 @@
+/* GENERAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,10 +18,10 @@
 
 body {
     width: 100%;
+    height: 100vh;
+
     background-color: var(--darkblue);
     color: #fff;
-    height: 100vh;
-    justify-content: space-between;
 }
 
 #particles-js{
@@ -29,48 +31,70 @@ body {
     z-index: -1;
 }
 
-header{
+#wrapper > *.activo, 
+.main > *.activo {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.9s, transform 0.9s ease-in-out;
+}
+
+#wrapper header:not(.activo),
+#wrapper .main:not(.activo), 
+.main > *:not(.activo) {
+    opacity: 0;
+    transform: scale(.98, .98);
+    transition: opacity 0.9s, transform 0.9s ease-in-out;
+}
+
+.close{
+    font-size: 2em;
+    float: right;
+    margin-top: 0;
+}
+
+.close i{
+    color: var(--white);
+}
+
+header, 
+.main,
+.main article{
+    opacity: 0;
+}
+
+.copyright {
+    margin-top: 20px;
+    text-transform: uppercase;
     position: relative;
+    bottom: 0;
+    padding: 10px 40px;
+    text-align: center;
+}
+
+/* HEADER */
+
+header{
+    display: block;
+    /*position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     z-index: 99;
-    border-radius: 10px;
-}
+    border-radius: 10px; */
+} 
 
-header.activo{
-    opacity: 1;
-}
-
-.container{
+header .container{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40px;
     text-transform: uppercase;
     text-align: center; 
 }
 
-header .container > *, .main article > div{
-    margin-top: 50px;
-}
-
-.imgBx{
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    margin-top: 15px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.imgBx img{
-    object-fit: cover;
-    width: 100%;
-    top: 0;
-    left: 0;
+header .container > *{
+    margin-top: 40px;
 }
 
 nav{
@@ -104,6 +128,7 @@ nav ul li a:hover{
     background: var(--white);
     color: var(--black);
 }
+
 
 .habilidades{
     max-width: 600px;
@@ -162,23 +187,42 @@ nav ul li a:hover{
     border-radius: 50%;
 }
 
-.copyright {
-    margin-top: 20px;
-    text-transform: uppercase;
-    position: relative;
-    bottom: 0;
-    padding: 10px 40px;
-    text-align: center;
+/* MAIN */
+
+.main{
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-.close{
-    font-size: 2em;
-    float: right;
-    margin-top: 0;
+.main article{
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px;
+    background-color: var(--verydarkblue);
+    border: 1px solid #000;
+    display: block;
+
 }
 
-.close i{
-    color: var(--white);
+.imgBx{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imgBx img{
+    object-fit: cover;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 h1.major, h3.major{
@@ -187,39 +231,7 @@ h1.major, h3.major{
     margin-bottom: 1em;
 }
 
-.main{
-    width: 100%;
-    min-width: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.main article{
-    width: 100%;
-    min-height: 100vh;
-    display: block; 
-    padding: 50px;
-    background-color: var(--verydarkblue);
-    border: 1px solid #000;
-
-}
-
-header, .main article{
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 2s;
-
-}
-
-header:not(.activo), .main article:not(.activo){
-    /* transform: rotate(360deg) */
-    transform: scale(0.95);
-}
-
-.main article.activo{
-    opacity: .85;
-}
+/* PROYECTOS */
 
 .proyect{
     display: flex;
@@ -246,9 +258,6 @@ header:not(.activo), .main article:not(.activo){
     color: var(--black);
 }
 
-.timeout{
-    display: none !important;
-}
 
 @media only screen and (min-width: 520px) {
     /* tablets */
@@ -272,6 +281,7 @@ header:not(.activo), .main article:not(.activo){
         background-color: var(--verydarkblue);
         border: 1px solid #000;
         opacity: .85;
+        padding-bottom: 40px;
     }
 
 
@@ -291,12 +301,18 @@ header:not(.activo), .main article:not(.activo){
         height: 200px;
     }
 
-    .container, .main{
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .container, .main{
         margin-top: 30px;
     }
 
-    .container{
-        width: 500px;
+    header .container{
+        width: 800px;
         border: 1px solid #000;
     }
 
