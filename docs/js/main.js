@@ -5,7 +5,7 @@ const header = document.querySelector('header'),
     aboutBtn = document.querySelector("header .container nav ul li:nth-of-type(1) a"),
     proyectosBtn = document.querySelector("header .container nav ul li:nth-of-type(2) a"),
     aboutClose = document.querySelector("#sobreMi a");
-    proyectosClose = document.querySelector("#proyectos a");
+proyectosClose = document.querySelector("#proyectos a");
 
 
 function endListenerAbout(evt) {
@@ -47,23 +47,23 @@ function endListenerProyect(evt) {
     evt.currentTarget.removeEventListener("transitionend", endListenerProyect);
 }
 
-aboutBtn.addEventListener("click", function(){
+aboutBtn.addEventListener("click", function () {
     header.classList.toggle("activo");
     header.addEventListener("transitionend", endListenerAbout);
 });
 
-aboutClose.addEventListener("click", function(){
+aboutClose.addEventListener("click", function () {
     main.classList.toggle("activo")
     about.classList.toggle("activo")
     about.addEventListener("transitionend", endListenerInicio)
 });
 
-proyectosBtn.addEventListener("click", function(){
+proyectosBtn.addEventListener("click", function () {
     header.classList.toggle("activo");
     header.addEventListener("transitionend", endListenerProyect);
 });
 
-proyectosClose.addEventListener("click", function(){
+proyectosClose.addEventListener("click", function () {
     main.classList.toggle("activo")
     proyectos.classList.toggle("activo")
     proyectos.addEventListener("transitionend", endListenerInicio)
