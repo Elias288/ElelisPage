@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createHashRouter } from 'react-router-dom'
 import AboutMe from './pages/About.page.tsx'
 import Proyects from './pages/Proyects.page.tsx'
 import Home from './pages/Home.page.tsx'
@@ -11,7 +11,7 @@ import HomeBlog from './pages/Blog/pages/HomeBlog.tsx'
 import Post from './pages/Blog/pages/Post.page.blog.tsx'
 import NotFound from './pages/Blog/components/NotFound.component.blog.tsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
