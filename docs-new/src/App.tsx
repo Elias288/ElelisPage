@@ -2,25 +2,22 @@ import { useCallback } from "react"
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 import { Container, Engine } from "tsparticles-engine";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
+    // console.log(engine);
     await loadFull(engine);
   }, [])
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    await console.log(container);
+    await container
   }, [])
 
   return (
     <>
-      <div className="w-full h-screen z-10 position: absolute text-white flex justify-center">
-        <div
-          className="w-full h-full bg-very-dark-blue/[.6] lg:w-[800px] lg:bg-very-dark-blue/[.9]"
-        >
-          <h1 className="w-full text-center uppercase text-xl">Elías Bianchi</h1>
-        </div>
+      <div className="w-full min-h-screen z-10 position: absolute text-white flex justify-center font-mono items-center">
+        <Outlet />
       </div>
 
       <Particles
