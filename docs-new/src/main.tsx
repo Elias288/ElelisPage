@@ -6,7 +6,10 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import AboutMe from './pages/About.page.tsx'
 import Proyects from './pages/Proyects.page.tsx'
 import Home from './pages/Home.page.tsx'
-import Blog from './pages/Blog.page.tsx'
+import Blog from './pages/Blog/Blog.tsx'
+import HomeBlog from './pages/Blog/pages/HomeBlog.tsx'
+import Post from './pages/Blog/pages/Post.page.blog.tsx'
+import NotFound from './pages/Blog/components/NotFound.component.blog.tsx'
 
 const router = createBrowserRouter([
   {
@@ -18,18 +21,33 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/about",
+        path: "about",
         element: <AboutMe />
       },
       {
-        path: "/proyects",
+        path: "proyects",
         element: <Proyects />
       },
     ]
   },
   {
     path: "/blog",
-    element: <Blog />
+    element: <Blog />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <HomeBlog />
+      },
+      {
+        path: 'post/:id',
+        element: <Post />,
+      },
+      {
+        path: '404',
+        element: <NotFound />
+      },
+    ]
   },
 ])
 

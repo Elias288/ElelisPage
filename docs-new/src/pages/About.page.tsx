@@ -15,7 +15,8 @@ function AboutMe() {
             </div>
 
             <div className="desc px-4 w-full">
-                Computer technologist, web and application developer. I am a student of computer science, currently studying the career of computer technologist in Paysandú and working in Sofka.<br /> I have good experience in application development and web development. I am always looking to learn new programming languages and develop my programming skills.
+                <p>Computer technologist, web and application developer. I am a student of computer science, currently studying the career of computer technologist in Paysandú and working in Sofka.</p>
+                <p>I have good experience in application development and web development. I am always looking to learn new programming languages and develop my programming skills.</p>
             </div>
 
             <div className="education px-4 w-full">
@@ -26,14 +27,16 @@ function AboutMe() {
                 </ul>
             </div>
 
-            <div className="experience px-4 w-full">
+            {/* <div className="experience px-4 w-full">
                 <h2 className="underline font-bold text-lg">Work Experience</h2>
-            </div>
+            </div> */}
 
             <div className="languages px-4 w-full">
                 <h2 className="underline font-bold text-lg">Languages</h2>
-                <p>Spanish: Native.</p>
-                <p>Inglish: Intermediate.</p>
+                <ul>
+                    <li>Spanish: Native.</li>
+                    <li>Inglish: Intermediate.</li>
+                </ul>
             </div>
             <hr />
 
