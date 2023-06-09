@@ -2,6 +2,7 @@ import { Navigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout.component.blog";
 import postList from "../../../post.json";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useEffect } from "react";
 
 interface Post {
     id: string
@@ -15,9 +16,9 @@ function Post() {
     const { id } = useParams()
     const fechedPost: Post = { id: '', title: '', content: '' }
 
-    if (!id) {
-        return <Navigate to="/blog/404" />
-    }
+    useEffect(() => {
+        document.title = `Blog-${fechedPost.id}`;
+    });
 
     postList.forEach((post: Post) => {
         if (id === post.id) {
@@ -29,12 +30,18 @@ function Post() {
         }
     })
 
+    if (!id) {
+        return <Navigate to="/blog/404" />
+    }
+
+    
+
     return (
         <Layout>
             <div className="flex justify-center">
                 <div className="px-4 w-[800px]">
                     <h1 className="py-2 font-bold uppercase">{fechedPost.title}</h1>
-                    <small>Creado el: {fechedPost.date}</small>
+                    <small>Fecha: {fechedPost.date}</small>
                     <hr />
                     <ReactMarkdown children={fechedPost.content} className="pt-5 pb-2 px-2 bg-white lg:px-4" />
                 </div>

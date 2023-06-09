@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 function Proyects() {
+    useEffect(() => {
+        document.title = 'Proyectos';
+    }, []);
+    
     return (
         <div className="proyects w-full min-h-screen flex flex-col pb-4 gap-10 bg-dark-blue/[.9] lg:w-[800px] lg:min-h-0 lg:h-min">
 
