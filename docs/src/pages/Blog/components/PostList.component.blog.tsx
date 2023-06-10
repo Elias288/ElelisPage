@@ -9,8 +9,8 @@ function PostListBlog() {
                     return (
                         <div key={i} className="post-card w-full mb-4 border-solid border-2 max-w-[800px] bg-white">
                             <Link to={`post/${post.id}`}>
-                                <div className="title bg-dark-blue text-white px-4 py-2 hover:bg-light-blue">
-                                    <h1>{post.title}</h1>
+                                <div className="title bg-dark-blue text-white px-4 hover:bg-light-blue">
+                                    <h1 className="py-0 my-0">{post.title}</h1>
                                 </div>
                             </Link>
 

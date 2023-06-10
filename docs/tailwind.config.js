@@ -23,18 +23,7 @@ export default {
         'h1': { fontSize: theme('fontSize.2xl') },
         'h2': { fontSize: theme('fontSize.xl') },
         'h3': { fontSize: theme('fontSize.lg') },
-      }),
-        addComponents({
-          'p': {
-            padding: '1rem 0 .3rem'
-          },
-          'a': {
-            color: '#545ff4',
-            '&:hover': {
-              color: '#949cff'
-            }
-          }
-        })
+      })
     }),
 
   ],

@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+    line-height: 1.5;
+    padding-bottom: 5px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 1rem 0 .5rem;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+    color: #545ff4;
+}
+
+a:hover {
+    color: #949cff;
+}
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
+
+code {
+    overflow-x: auto;
+    font-size: 0.8rem;
+    color: #607cd2;
+    padding: 0.065em 0.4em;
+    border-radius: 6px;
+    background-color: #f3f6ff;
+}
+
+blockquote {
+    color: #3b3b3b;
+    margin: 22px 0;
+    padding: 1px 23px;
+    border-left: 0.5em #eee solid;
+}
