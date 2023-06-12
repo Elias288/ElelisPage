@@ -8,8 +8,9 @@ import Proyects from './Portfolio/pages/Proyects.page.tsx'
 import Home from './Portfolio/Home.page.tsx'
 import Blog from './Blog/Blog.tsx'
 import HomeBlog from './Blog/pages/HomeBlog.tsx'
-import Post from './Blog/pages/Post.page.blog.tsx'
-import NotFound from './Blog/components/NotFound.component.blog.tsx'
+import PostPage from './Blog/pages/Post.page.blog.tsx'
+import NotFoundBlog from './Blog/components/NotFound.component.blog.tsx'
+import NotFound from './Portfolio/components/NotFound.component.tsx'
 
 const router = createHashRouter([
   {
@@ -28,12 +29,16 @@ const router = createHashRouter([
         path: "proyects",
         element: <Proyects />
       },
+      {
+        path: '*',
+        element: <NotFound />
+      },
     ]
   },
   {
     path: "/blog",
     element: <Blog />,
-    errorElement: <NotFound />,
+    errorElement: <NotFoundBlog />,
     children: [
       {
         index: true,
@@ -41,11 +46,11 @@ const router = createHashRouter([
       },
       {
         path: 'post/:id',
-        element: <Post />,
+        element: <PostPage />,
       },
       {
-        path: '404',
-        element: <NotFound />
+        path: '*',
+        element: <NotFoundBlog />
       },
     ]
   },

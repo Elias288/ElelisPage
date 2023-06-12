@@ -1,18 +1,20 @@
-import { useRouteError } from "react-router-dom";
 import Layout from "./Layout.component.blog";
+import { useEffect } from "react";
 
-function NotFound() {
-    const error = useRouteError();
-    console.log(error);
+function NotFoundBlog() {
+    
+    useEffect(() => {
+        document.title = `Blog-404`;
+    }, [])
     
     return (
         <Layout>
-            <>
-                <p>Page Not Found</p>
+            <div className="notFound text-center">
+                <h1>Page not Found</h1>
                 <h3>404</h3>
-            </>
+            </div>
         </Layout>
     );
 }
 
-export default NotFound;
+export default NotFoundBlog;
