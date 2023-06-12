@@ -8,21 +8,25 @@ let postlist = []
 
 const getPosts = () => {
     fs.readdir(dirPath, (err, files) => {
-        console.log(files);
+
         if (err) {
             return console.log("Failed to list contents of directory: " + err);
         }
+        
         files.forEach((file, i) => {
             let obj = {}
 
             fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
+                if (err) {
+                    return console.log("Failed to list contents of directory: " + err);
+                }
+
                 const lines = contents.split("\n")
                 const metadataIndices = lines.reduce(getMetadataIndices, [])
                 const metadata = parseMetadata({ lines, metadataIndices }, obj)
                 const content = parseContent({ lines, metadataIndices })
                 const date = new Date(metadata.date)
                 const timestamp = date.getTime() / 1000
-                console.log(`${metadata.id} ${timestamp}`);
 
                 const post = {
                     id: metadata.id ? metadata.id.replace(/\r/g, '') : `Untitled-${timestamp}`,
@@ -34,16 +38,24 @@ const getPosts = () => {
                     content: content ? content : "No content given"
                 }
 
+                /* console.log(`${i} - ${post.timestamp} - "${post.title}"`); */
                 postlist.push(post)
 
                 if (i === files.length - 1) {
                     const sortedList = postlist.sort((a, b) => {
-                        return a.id > b.id ? 1 : -1
+                        return a.timestamp < b.timestamp ? 1 : -1
                     })
-                    let data = JSON.stringify(sortedList)
-                    fs.writeFileSync("src/post.json", data)
+                    if (sortedList.length === files.length) {
+                        let data = JSON.stringify(sortedList)
+                        fs.writeFileSync("src/post.json", data)
+                        console.log('done');
+                    } else {
+                        fs.writeFileSync("src/post.json", "")
+                        console.log('Error');
+                    }
                 }
             })
+            
         })
     })
     return postlist

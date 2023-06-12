@@ -3,8 +3,10 @@ id: primera_publicacion
 title: Primera Publicación
 description: Primera publicación en el blog, descripción de intenciones y propósitos.
 date: June 09, 2023 09:30:00
-modified_date: June 09, 2023 09:30:00
+modified_date: June 12, 2023 11:56:00
 ---
+
+# Primera Publicación
 
 Este *"blog"* está orientado a llevar un registro de desarrollo, investigaciones personales de tecnología, curiosidades y más.
 

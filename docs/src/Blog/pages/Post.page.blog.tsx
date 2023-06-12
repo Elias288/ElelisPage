@@ -1,6 +1,6 @@
 import { Navigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout.component.blog";
-import postList from "../../../post.json";
+import postList from "../../post.json";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -20,7 +20,8 @@ function Post() {
 
     useEffect(() => {
         document.title = `Blog-${fechedPost.id}`;
-    });
+        window.scroll(0, 0)
+    }, [id]);
 
     postList.forEach((post: Post) => {
         if (id === post.id) {
@@ -40,12 +41,8 @@ function Post() {
         <Layout>
             <div className="flex justify-center">
                 <div className="px-4 w-full lg:w-[800px]">
-                    <h1 className="py-2 font-bold uppercase">{fechedPost.title}</h1>
-                    <small>Fecha: {fechedPost.date}</small>
-                    <hr />
                     <ReactMarkdown
-                        linkTarget='_blank'
-                        className="pt-5 pb-2 px-2 bg-white lg:px-4"
+                        className="block content px-2 pt-1 pb-4 bg-white lg:px-4"
                         skipHtml={true}
                         components={{
                             code({ node, inline, className, style, children, ...props }) {
@@ -67,6 +64,10 @@ function Post() {
                     >
                         {fechedPost.content}
                     </ReactMarkdown>
+                    <hr />
+                    <small className="block pb-2 pt-1 text-right">
+                        Fecha: {fechedPost.date} {fechedPost.modified_date !== '' && (<>- Modificado el {fechedPost.modified_date}</>)}
+                    </small>
                 </div>
             </div>
         </Layout>

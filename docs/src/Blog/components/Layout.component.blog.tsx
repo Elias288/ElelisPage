@@ -6,13 +6,13 @@ interface Props {
     children: JSX.Element | string
 }
 
-function Layout({children}: Props) {
+function Layout({ children }: Props) {
     return (
         <div className="home w-full min-h-screen flex flex-col justify-between font-mono">
-            <HeaderBlog />   
+            <HeaderBlog />
             <Navbar />
             <div className="flex-1">
-            {children}
+                {children}
             </div>
             <FooterBlog />
         </div>

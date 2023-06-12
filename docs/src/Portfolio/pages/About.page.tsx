@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import eliasImg from "../assets/elias.jpg";
+import eliasImg from "../../assets/elias.jpg";
 
 function AboutMe() {
     

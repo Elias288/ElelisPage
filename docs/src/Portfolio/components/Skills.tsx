@@ -15,6 +15,7 @@ function Skills() {
     return (
         <>
             <div className="flex flex-col items-center">
+                <hr className="w-full text-white" />
                 <h1 className="text-center font-bold text-xl uppercase">
                     Habilidades
                 </h1>
@@ -32,9 +33,9 @@ function Skills() {
                 </div>
             </div>
 
-            <hr />
 
             <div className="flex flex-col items-center">
+                <hr className="w-full text-white" />
                 <h1 className="text-center font-bold text-xl uppercase">
                     Frameworks
                 </h1>
