@@ -8,7 +8,7 @@ date: June 10, 2023 18:00:00
 
 # WordleToy Frontend
 
-![Alt text](../../src/assets/wordle.jpg)
+![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle.jpg?raw=true)
 
 
 <br>
@@ -17,7 +17,7 @@ date: June 10, 2023 18:00:00
 
 ## Introducción
 
-El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleBackend).
+El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleFrontend).
 
 En este post se explicará el desarrollo del Frontend del juego usando el framwork Vite + React con typescript que se conectará al [backend](#/blog/post/wordletoy_-_backend) que se construyó para el juego.
 
@@ -356,7 +356,7 @@ export default Wordle;
 
 Resultado del Frontend, un juego terminado:
 
-![Alt text](../../src/assets/WordleFrontend.png)
+![WorleFrontend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/WordleFrontend.png?raw=true)
 
 <br>
 

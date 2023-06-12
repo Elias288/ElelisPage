@@ -9,7 +9,8 @@ date: June 10, 2023 10:17:00
 
 # WordleToy Backend
 
-![Alt text](../../src/assets/wordle.jpg)
+![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle.jpg?raw=true)
+
 
 <br>
 
@@ -430,7 +431,7 @@ export class WordController {
 
 Resultado de llamar a la función `findRandomOne`
 
-![Alt text](../../src/assets/WordleBackend.png)
+![WordleBackend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/WordleBackend.png?raw=true)
 
 ## Siguiente paso
 
