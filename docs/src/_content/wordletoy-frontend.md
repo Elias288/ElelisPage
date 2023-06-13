@@ -78,7 +78,7 @@ export const getRandomWordRequest = () => fetch(`${API}/word/random`)
 
 // Función de envió de palabra a la API
 export const postWordRequest = (updatedWord: SendWord) =>
-  fetch(`${API}/game/requestWord`, {
+  fetch(`${API}/word/requestWord`, {
     method: 'POST',
     body: JSON.stringify(updatedWord),
     headers: {
