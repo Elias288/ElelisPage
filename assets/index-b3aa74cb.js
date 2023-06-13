@@ -180,7 +180,7 @@ Error generating stack: `+i.message+`
 
 ## Introducción
 
-El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleBackend).
+El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleFrontend).
 
 En este post se explicará el desarrollo del Frontend del juego usando el framwork Vite + React con typescript que se conectará al [backend](#/blog/post/wordletoy_-_backend) que se construyó para el juego.
 
@@ -241,7 +241,7 @@ export const getRandomWordRequest = () => fetch(\`\${API}/word/random\`)
 
 // Función de envió de palabra a la API
 export const postWordRequest = (updatedWord: SendWord) =>
-  fetch(\`\${API}/game/requestWord\`, {
+  fetch(\`\${API}/word/requestWord\`, {
     method: 'POST',
     body: JSON.stringify(updatedWord),
     headers: {
@@ -792,51 +792,47 @@ La palabra ingresada y la que se debe adivinar se divide por letra y se las reco
 \`\`\`ts
 // word.service.ts
 async requestWord(consult: requestWord): Promise<responseWord> {
-  const wordToGuess = await this.wordService.findOne(consult.wordId);
-  const arr = [...consult.updatedWord.split('')];
-  const wordToGuessArr = [...wordToGuess.word];
-  if (arr.length !== wordToGuessArr.length) {
-    throw new Error('Los arrays deben tener la misma longitud');
-  }
+    const wordToGuess = await this.findOne(consult.wordId);
+    const arr = [...consult.updatedWord.split('')];
+    const wordToGuessArr = [...wordToGuess.word];
 
-  let gameStatus = true;
-  const resultado = [];
-  const wordToGuessArrCopy = wordToGuessArr.slice();
-
-  for (let i = 0; i < arr.length; i++) {
-    const caracter = arr[i];
-    let estado = 0;
-    const caracterIndex = wordToGuessArrCopy.indexOf(caracter);
-
-    if (caracterIndex !== -1) {
-      if (caracterIndex === i) {
-        estado = 1;
-      } else {
-        estado = 2;
-      }
-
-      wordToGuessArrCopy[caracterIndex] = null;
-    } else if (arr.indexOf(caracter) < i) {
-      estado = 0;
+    if (arr.length !== wordToGuessArr.length) {
+      throw new Error('Los arrays deben tener la misma longitud');
     }
 
-    resultado.push({
-      letter: caracter,
-      status: estado,
+    let gameStatus = true;
+    const resultado = [];
+    const wordToGuessArrCopy = wordToGuessArr.slice();
+
+    arr.forEach((caracter, i) => {
+      let estado = 0;
+      const caracterIndex = wordToGuessArrCopy.indexOf(caracter); // obtiene el indice del caracter
+
+      if (caracterIndex !== -1) {
+        estado = caracterIndex === i ? 1 : 2;
+        wordToGuessArrCopy[caracterIndex] = null; // lo elimina
+      } else {
+        estado = 0;
+      }
+
+      resultado.push({
+        letter: caracter,
+        status: estado,
+      });
     });
+
+    gameStatus =
+      !resultado.some((letter) => letter.status === 0 || letter.status === 2) ||
+      consult.attempts === 0;
+
+    return {
+      wordId: consult.wordId,
+      letters: resultado,
+      attempts: consult.attempts,
+      attemptsCount: consult.attemptsCount,
+      done: gameStatus,
+    };
   }
-
-  gameStatus =
-    !resultado.some((letter) => letter.status === 0 || letter.status === 2) || consult.attempts === 0;
-
-  return {
-    wordId: consult.wordId,
-    letters: resultado,
-    attempts: consult.attempts,
-    attemptsCount: consult.attemptsCount,
-    done: gameStatus,
-  };
-}
 \`\`\`
 
 El resultado final de está función es una objeto con todos los datos necesarios que indicarán al jugador si acertó o no.
