@@ -3,7 +3,7 @@ import postList from "../../post.json";
 
 function PostListBlog() {
     return (
-        <div className="postList w-full flex flex-col items-center gap-10 px-2 lg:px-0">
+        <div className="postList w-full flex flex-col items-center gap-10 px-2 mt-8 lg:px-0">
             {postList.length &&
                 postList.map((post, i) => {
                     return (

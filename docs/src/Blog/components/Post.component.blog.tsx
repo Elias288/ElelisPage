@@ -39,7 +39,7 @@ function PostComponent({ post }: Props) {
     };
 
     return (
-        <div className="flex justify-center">
+        <div className="postComponent flex justify-center mt-8">
             <div className="px-4 w-full lg:w-[800px]">
                 <ReactMarkdown
                     className="block content px-2 pt-1 pb-4 bg-white lg:px-4"
