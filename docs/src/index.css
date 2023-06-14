@@ -81,9 +81,3 @@ blockquote {
     padding: 1px 23px;
     border-left: 0.5em #eee solid;
 }
-
-@media screen and (max-width: 768px) {
-    .navbarBlog.menuNotShow {
-        display: none;
-    }
-}

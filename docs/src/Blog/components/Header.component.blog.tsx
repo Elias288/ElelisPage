@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 function HeaderBlog() {
     const [toggleMenu, setToggleMenu] = useState(false)
@@ -8,6 +9,20 @@ function HeaderBlog() {
     const showMenu = () => {
         setToggleMenu(!toggleMenu)
     }
+
+    useEffect(() => {
+        const handleResize = () => {
+            setToggleMenu(window.innerWidth >= 768);
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        handleResize()
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    },[])
 
     return (
         <>
@@ -19,12 +34,25 @@ function HeaderBlog() {
                     <IoMenu className="w-[50px] h-[50px] text-white" onClick={showMenu}></IoMenu>
                 </div>
             </div>
-            <div className={`navbarBlog ${!toggleMenu ? 'menuNotShow' : ''} md:w-max md:absolute md:top-0 md:right-0 md:h-[64px]`}>
-                <div className="w-full flex flex-col justify-around bg-dark-blue gap-2 md:flex-row md:gap-8 md:h-full">
-                    <Link to="/blog" className="w-full text-white px-10 hover:bg-very-dark-blue/[.4] hover:text-gray-400 bg-light-blue/[.3] py-6 md:max-w-max md:h-full md:py-0 md:leading-[64px]">Inicio</Link>
-                    <Link to="/" className="w-full text-white px-10 hover:bg-very-dark-blue/[.4] hover:text-gray-400 bg-light-blue/[.3] py-6 md:max-w-max md:h-full md:py-0 md:leading-[64px]">Portafolio</Link>
-                </div>
-            </div>
+
+            <AnimatePresence>
+                {
+                    toggleMenu && (
+                        <motion.div
+                            className={`navbarBlog md:w-max md:absolute md:top-0 md:right-0 md:h-[64px]`}
+                            initial={{ opacity: 0, x: '100%' }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: '100%' }}
+                            transition={{ bounce: 0 }}
+                        >
+                            <div className="w-full flex flex-col justify-around bg-dark-blue gap-2 md:flex-row md:gap-8 md:h-full">
+                                <Link to="/blog" className="w-full text-white px-10 hover:bg-very-dark-blue/[.4] hover:text-gray-400 bg-light-blue/[.3] py-6 md:max-w-max md:h-full md:py-0 md:leading-[64px]">Inicio</Link>
+                                <Link to="/" className="w-full text-white px-10 hover:bg-very-dark-blue/[.4] hover:text-gray-400 bg-light-blue/[.3] py-6 md:max-w-max md:h-full md:py-0 md:leading-[64px]">Portafolio</Link>
+                            </div>
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence>
         </>
     );
 }
