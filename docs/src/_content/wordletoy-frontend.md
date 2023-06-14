@@ -3,6 +3,7 @@ id: wordletoy_-_frontend
 title: WordleToy - Frontend
 description: En esta publicación contaré el proceso de desarrollo de una pequeña recreación del famoso juego "Wordle" dividido en backend y frontend
 Las teconologías que se usaron fueron Next, MongoDB, React y Tailwindcss.
+categories: ['DEV', 'PROG', 'REACT', 'TYPESCRIPT', 'WORDLE', 'TAILWIND']
 date: June 10, 2023 18:00:00
 ---
 

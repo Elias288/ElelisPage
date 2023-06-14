@@ -2,8 +2,9 @@
 id: wordletoy_-_backend
 title: WordleToy - Backend
 description: En esta publicación contaré el proceso de desarrollo de una pequeña recreación del famoso juego "Wordle" dividido en backend y frontend
-Las teconologías que se usaron fueron Next, MongoDB, React y Tailwindcss.
+.
 [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleBackend)
+categories: ['DEV', 'PROG', 'NEST', 'MONGO', 'TYPESCRIPT', 'WORDLE']
 date: June 10, 2023 10:17:00
 ---
 
@@ -65,7 +66,7 @@ Al acertar una letra de la palabra en la posición correcta está se marcará de
 
 ## Ambiente de desarrollo
 
-Ya con eso en mente empecé la construcción del backend usando el framework *NextJs* haciendo uso de un ambiente de desarrollo en fedora construido en un contenedor de podman y así no tener que instalar los binarios del framework. El contenedor se generó con las siguientes instrucciones:
+Ya con eso en mente empecé la construcción del backend usando el framework *NestJs* haciendo uso de un ambiente de desarrollo en fedora construido en un contenedor de podman y así no tener que instalar los binarios del framework. El contenedor se generó con las siguientes instrucciones:
 
 ```yaml
 # Containerfile

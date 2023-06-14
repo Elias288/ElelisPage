@@ -1,0 +1,12 @@
+{
+    "INFO": "Informativa",
+    "DEV": "Desarrollo",
+    "PROG": "Programación",
+    "WELLCOME": "Bienvenida",
+    "NEST": "Nest",
+    "REACT": "React",
+    "MONGO": "MongoDB",
+    "TYPESCRIPT": "Typescript",
+    "WORDLE": "Wordle",
+    "TAILWIND": "Tailwindcss"
+}

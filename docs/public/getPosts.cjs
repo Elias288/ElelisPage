@@ -35,6 +35,7 @@ const getPosts = () => {
                     description: metadata.description ? metadata.description : "",
                     date: metadata.date ? metadata.date : "",
                     modified_date: metadata.modified_date ? metadata.modified_date : "",
+                    categories: metadata.categories ? JSON.parse(metadata.categories.replace(/'/g, '"')) : [],
                     content: content ? content : "No content given"
                 }
 

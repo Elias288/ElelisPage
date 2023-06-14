@@ -2,6 +2,7 @@
 id: primera_publicacion
 title: Primera Publicación
 description: Primera publicación en el blog, descripción de intenciones y propósitos.
+categories: ['WELLCOME', 'INFO']
 date: June 09, 2023 09:30:00
 modified_date: June 12, 2023 18:38:00
 ---
