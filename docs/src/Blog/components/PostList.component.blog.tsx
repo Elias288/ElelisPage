@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Loading from "./Loading.component.blog";
 import PostInfo from "./PostInfo.component.blog";
+import SideBar from "./SideBar.component.blog";
 
 function PostListBlog() {
 
@@ -14,19 +15,22 @@ function PostListBlog() {
 
     return (
         <Loading>
-            <motion.div
-                className="postList w-full flex flex-col items-center gap-10 px-2 mt-8 lg:px-0"
-                initial={{ y: "100vh" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                {
-                    postList.length &&
-                    postList.map((post, i) =>
-                        <PostInfo post={post} key={i} />
-                    )
-                }
-            </motion.div>
+            <div className="lg:flex ">
+                <motion.div
+                    className="postList w-full flex flex-col items-center gap-10 mt-8 lg:px-0"
+                    initial={{ y: "100vh" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    {
+                        postList.length &&
+                        postList.map((post, i) =>
+                            <PostInfo post={post} key={i} />
+                        )
+                    }
+                </motion.div>
+                <SideBar />
+            </div>
         </Loading>
     );
 }

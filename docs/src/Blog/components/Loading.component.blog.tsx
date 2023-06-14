@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FadeLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 
 interface Props {
     children: React.ReactNode
@@ -19,7 +19,7 @@ const Loading: React.FC<Props> = ({ children }) => {
             {
                 isLoading ? (
                     <div className="spinner w-full flex justify-center pt-[200px]" >
-                        <FadeLoader />
+                        <BeatLoader />
                     </div>
                 ) : (
                     <>
