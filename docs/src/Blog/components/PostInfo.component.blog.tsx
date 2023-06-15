@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import Post from "../../Utils/Post.interface";
 import categories from "../../Utils/Categories.json";
+import usePostFilter from "../context/usePostFilter";
 
 interface Props {
     post: Post
 }
 
 function PostInfo({ post }: Props) {
+    const { categoriesToFilter, addCategory } = usePostFilter()
 
     const getCategory = (key: string): string | undefined => {
         return (categories as { [key: string]: string })[key]
     }
 
     return (
-        <div className="post-card w-full max-w-[800px] mt-0 text-black">
+        <div className="post-card mt-0 text-black">
             <div className=" border-solid border-2 rounded-lg bg-white drop-shadow-lg">
 
                 <Link to={`post/${post.id}`} className="title block bg-dark-blue py-1 px-4 rounded-t-lg hover:bg-light-blue z-10">
@@ -23,9 +25,23 @@ function PostInfo({ post }: Props) {
                 <div className="tags flex flex-wrap gap-2 px-2 py-1">
                     {
                         post.categories && post.categories.map((category, i) => {
+                            if (categoriesToFilter.some(CTF => category === CTF)){
+                                return (
+                                    <button
+                                        className="category bg-green-259544 px-2 py-1 cursor-pointer text-white rounded-md border-b-4 border-b-light-blue hover:border-b-transparent hover:bg-green-259544 md:hover:bg-light-blue"
+                                        onClick={() => addCategory(category)}
+                                        key={i}
+                                    >
+                                        {getCategory(category)}
+                                    </button>
+                                )
+                            }
+
                             return (
-                                <button key={i}
-                                    className="category bg-light-blue/[.7] px-2 py-1 text-white rounded-md border-b-4 border-b-light-blue hover:border-b-transparent hover:bg-light-blue"
+                                <button
+                                    className="category bg-light-blue/[.7] px-2 py-1 cursor-pointer text-white rounded-md border-b-4 border-b-light-blue hover:border-b-transparent hover:bg-light-blue md:hover:bg-green-259544"
+                                    onClick={() => addCategory(category)}
+                                    key={i}
                                 >
                                     {getCategory(category)}
                                 </button>
