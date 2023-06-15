@@ -18,8 +18,6 @@ function PostListBlog() {
             <div className="postList md:flex md:justify-center">
                 <div className="md:flex md:justify-center md:w-10/12">
 
-                    <SideBar />
-
                     <motion.div
                         className="postList w-full flex flex-col gap-10 mt-10 md:px-0 md:max-w-[800px] md:gap-4"
                         initial={{ y: "100vh" }}
@@ -32,6 +30,8 @@ function PostListBlog() {
                             )
                         }
                     </motion.div>
+
+                    <SideBar />
                     
                 </div>
             </div>

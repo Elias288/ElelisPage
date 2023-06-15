@@ -10,7 +10,7 @@ function SideBar() {
     }
 
     return (
-        <div className="sideNav h-max flex-1 w-full flex flex-col items-center mt-10 rounded-md drop-shadow-lg mr-4 md:min-w-[250px] md:max-w-[300px]">
+        <div className="sideNav h-max flex-1 w-full flex flex-col items-center mt-10 rounded-md drop-shadow-lg md:mx-4 md:min-w-[250px] md:max-w-[300px]">
             <div className="w-full h-full px-2 bg-white border-solid border-2 rounded-lg group-hover:drop-shadow-none">
 
                 <div className="">
