@@ -15,21 +15,26 @@ function PostListBlog() {
 
     return (
         <Loading>
-            <div className="lg:flex ">
-                <motion.div
-                    className="postList w-full flex flex-col items-center gap-10 mt-8 lg:px-0"
-                    initial={{ y: "100vh" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {
-                        postList.length &&
-                        postList.map((post, i) =>
-                            <PostInfo post={post} key={i} />
-                        )
-                    }
-                </motion.div>
-                <SideBar />
+            <div className="postList md:flex md:justify-center">
+                <div className="md:flex md:justify-center md:w-10/12">
+
+                    <SideBar />
+
+                    <motion.div
+                        className="postList w-full flex flex-col items-center gap-10 mt-10 lg:px-0"
+                        initial={{ y: "100vh" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {
+                            postList.length &&
+                            postList.map((post, i) =>
+                                <PostInfo post={post} key={i} />
+                            )
+                        }
+                    </motion.div>
+                    
+                </div>
             </div>
         </Loading>
     );

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Post from "../../Utils/Post.interface";
-import data from "../../Utils/Categories.json";
+import categories from "../../Utils/Categories.json";
 
 interface Props {
     post: Post
@@ -9,26 +9,26 @@ interface Props {
 function PostInfo({ post }: Props) {
 
     const getCategory = (key: string): string | undefined => {
-        return (data as { [key: string]: string })[key]
+        return (categories as { [key: string]: string })[key]
     }
 
     return (
-        <Link to={`post/${post.id}`} className="post-card w-full max-w-[800px] mt-0 text-black group">
-            <div className=" border-solid border-2 rounded-lg bg-white drop-shadow-lg group-hover:drop-shadow-none">
+        <div className="post-card w-full max-w-[800px] mt-0 text-black">
+            <div className=" border-solid border-2 rounded-lg bg-white drop-shadow-lg">
 
-                <div className="title bg-dark-blue pt-1 px-4 rounded-t-lg group-hover:bg-light-blue z-10">
-                    <h1 className="py-0 my-0 text-white truncate">{post.title}</h1>
-                </div>
+                <Link to={`post/${post.id}`} className="title block bg-dark-blue py-1 px-4 rounded-t-lg hover:bg-light-blue z-10">
+                    <h2 className="py-0 my-0 text-white truncate">{post.title}</h2>
+                </Link>
 
                 <div className="tags flex flex-wrap gap-2 px-2 py-1">
                     {
                         post.categories && post.categories.map((category, i) => {
                             return (
-                                <div key={i}
-                                    className="category bg-light-blue/[.7] px-2 py-1 text-white rounded-md border-b-4 border-b-light-blue"
+                                <button key={i}
+                                    className="category bg-light-blue/[.7] px-2 py-1 text-white rounded-md border-b-4 border-b-light-blue hover:border-b-transparent hover:bg-light-blue"
                                 >
                                     {getCategory(category)}
-                                </div>
+                                </button>
                             )
                         })
                     }
@@ -48,7 +48,7 @@ function PostInfo({ post }: Props) {
 
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
 
