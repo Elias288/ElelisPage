@@ -11,7 +11,6 @@ function PostPage() {
 
     useEffect(() => {
         document.title = `Blog-${id}`;
-        window.scroll(0, 0)
     });
 
     if(!fechedPost || !id) {
