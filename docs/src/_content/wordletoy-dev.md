@@ -1,17 +1,14 @@
 ---
 id: wordletoy_-_dev
 title: WordleToy - Dev
-description: En esta publicación contaré el proceso de desarrollo de una pequeña recreación del famoso juego "Wordle" dividido en backend y frontend
-.
-[WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleBackend)
-categories: ['DEV', 'PROG', 'NEST', 'MONGO', 'TYPESCRIPT', 'WORDLE', 'CONTAINER', 'PODMAN', 'REACT', 'TAILWIND']
+description: En esta publicación contaré el proceso de desarrollo de una pequeña recreación del famoso juego "Wordle" dividido en backend y frontend.
+categories: ['DEV', 'PROG', 'NEST', 'MONGO', 'TYPESCRIPT', 'WORDLE', 'CONTAINER', 'PODMAN', 'REACT', 'TAILWIND', 'TUTO']
 date: June 10, 2023 10:17:00
 ---
 
 # WordleToy Backend
 
-![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle.jpg?raw=true)
-
+![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle/wordle.jpg?raw=true)
 
 <br>
 
@@ -428,7 +425,7 @@ export class WordController {
 
 Resultado de llamar a la función `findRandomOne`
 
-![WordleBackend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/WordleBackend.png?raw=true)
+![WordleBackend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle/WordleBackend.png?raw=true)
 
 ## Siguiente paso
 
@@ -440,7 +437,7 @@ En el siguiente publicación se explica el [desarrollo del frontend de WordleToy
 
 # WordleToy Frontend
 
-![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle.jpg?raw=true)
+![Wordle](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle/wordle.jpg?raw=true)
 
 <br>
 
@@ -448,9 +445,9 @@ En el siguiente publicación se explica el [desarrollo del frontend de WordleToy
 
 ## Introducción
 
-El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordleFrontend).
+El siguiente post se hará una explicacion del proceso de desarrollo del proyecto [WordleToy](https://github.com/Elias288/WordleToy/tree/master/wordle/wordleFrontend).
 
-En este post se explicará el desarrollo del Frontend del juego usando el framwork Vite + React con typescript que se conectará al [backend](#/blog/post/wordletoy_-_backend) que se construyó para el juego.
+En este post se explicará el desarrollo del Frontend del juego usando el framwork Vite + React con typescript que se conectará al backend que se construyó para el juego.
 
 Para este proyecto se usó este árbol de directorios
 
@@ -789,7 +786,7 @@ export default Wordle;
 
 Resultado del Frontend, un juego terminado:
 
-![WorleFrontend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/WordleFrontend.png?raw=true)
+![WorleFrontend](https://github.com/Elias288/ElelisPage/blob/main/docs/src/assets/wordle/WordleFrontend.png?raw=true)
 
 <br>
 
