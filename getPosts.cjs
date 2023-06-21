@@ -4,6 +4,7 @@ const path = require("path")
 const fs = require("fs")
 
 const dirPath = path.join(__dirname, "../src/_content")
+// const dirPath = path.join(__dirname, "../src/_contentTest")
 let postlist = []
 
 const getPosts = () => {
@@ -14,8 +15,6 @@ const getPosts = () => {
         }
 
         files.forEach(file => {
-            let obj = {}
-
             fs.readFile(`${dirPath}/${file}`, "utf8", (err, contents) => {
                 if (err) {
                     return console.log("Failed to list contents of directory: " + err);
@@ -23,8 +22,11 @@ const getPosts = () => {
 
                 const lines = contents.split("\n")
                 const metadataIndices = lines.reduce(getMetadataIndices, [])
-                const metadata = parseMetadata({ lines, metadataIndices }, obj)
-                const content = parseContent({ lines, metadataIndices })
+                const metadata = parseMetadata({ lines, metadataIndices })
+                
+                const pagesIndices = lines.reduce(getPageIndices, [])
+                const content = parseContent({ lines, pagesIndices, metadataIndices })
+
                 const date = new Date(metadata.date)
                 const timestamp = date.getTime() / 1000
 
@@ -36,7 +38,7 @@ const getPosts = () => {
                     date: metadata.date ? metadata.date : "",
                     modified_date: metadata.modified_date ? metadata.modified_date : "",
                     categories: metadata.categories ? JSON.parse(metadata.categories.replace(/'/g, '"')) : [],
-                    content: content ? content : "No content given"
+                    contents: content ? content : "No content given"
                 }
 
                 postlist.push(post)
@@ -64,21 +66,41 @@ const getMetadataIndices = (acc, elem, i) => {
     return acc
 }
 
-const parseMetadata = ({ lines, metadataIndices }, obj) => {
+const getPageIndices = (acc, elem, i) => {
+    if (/^---Page/.test(elem)){
+        acc.push(i)
+    }
+    return acc
+}
+
+const parseContent = ({ lines, pagesIndices, metadataIndices }) => {
     if (metadataIndices.length > 0) {
+        lines = lines.slice(metadataIndices[1] + 1, lines.length)
+    }
+    lines.join("\n")
+
+    let start = 0, parts = []
+    
+    pagesIndices.forEach((cont) => {
+        const cont2 = cont - (metadataIndices[1] + 1)
+        parts.push(lines.slice(start, cont2).join("\n"))
+        start = cont2 + 1
+    })
+
+    parts.push(lines.slice(start).join("\n"))
+    return parts
+}
+
+const parseMetadata = ({ lines, metadataIndices}) => {
+    if (metadataIndices.length > 0) {
+        let obj = {}
         let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1])
+
         metadata.forEach(line => {
             obj[line.split(': ')[0]] = line.split(": ")[1]
         })
         return obj
     }
-}
-
-const parseContent = ({ lines, metadataIndices }) => {
-    if (metadataIndices.length > 0) {
-        lines = lines.slice(metadataIndices[1] + 1, lines.length)
-    }
-    return lines.join("\n")
 }
 
 getPosts()
