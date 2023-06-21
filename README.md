@@ -32,6 +32,12 @@ Las categorias en la cabecera deben estar registradas en `src/utils/Categories.j
 }
 ```
 
+### Páginas
+
+Para que un post tenga varias paginas se debe agregar `---Page` en el documento *Markdown* la cantidad de paginas que se desean donde debe hacer la división.
+
+![navButtons](docs/src/assets/navButtons.png)
+
 ### Función de cargar contenido
 
 Al tener la publicación terminada ejecutar el comando cargará la publicación en el blog:
