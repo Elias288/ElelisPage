@@ -8,5 +8,8 @@
     "MONGO": "MongoDB",
     "TYPESCRIPT": "Typescript",
     "WORDLE": "Wordle",
-    "TAILWIND": "Tailwindcss"
+    "TAILWIND": "Tailwindcss",
+    "CONTAINER": "Container",
+    "PODMAN": "Podman",
+    "TUTO": "Tutorial"
 }
