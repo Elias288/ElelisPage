@@ -6,41 +6,51 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { IoArrowUpCircleSharp, IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
 import { ImLast, ImFirst } from "react-icons/im";
+import { useSearchParams } from "react-router-dom";
 
 interface Props {
     data: Post
 }
 
 function PostPaginator({ data }: Props) {
-    const [currentPage, setCurrentPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams();
+    const cantPages = data.contents.length;
+    const currentPage: number = parseInt(searchParams.get('page') ?? '1') || 1
+
     const [showTopBtn, setShowTopBtn] = useState(false);
-    const cantPages = data.contents.length
+
+    const handlePage = (pageNumber: string) => {
+        window.scroll(0, 0)
+        const newSearchParams = new URLSearchParams(searchParams)
+        newSearchParams.set('page', pageNumber)
+        setSearchParams(newSearchParams)
+    }
 
     const handleNextPage = () => {
         if (currentPage < cantPages) {
-            window.scroll(0, 0)
-            setCurrentPage(currentPage + 1);
+            const newPage = currentPage + 1
+            handlePage(newPage.toString())
         }
     };
 
     const handlePrevPage = () => {
         if (currentPage !== 0) {
-            window.scroll(0, 0)
-            setCurrentPage(currentPage - 1);
+            const newPage = currentPage - 1
+            handlePage(newPage.toString())
         }
     };
 
     const handleLastPage = () => {
         if (currentPage < cantPages) {
-            window.scroll(0, 0)
-            setCurrentPage(cantPages);
+            const newPage = cantPages
+            handlePage(newPage.toString())
         }
     };
 
     const handleFirstPage = () => {
         if (currentPage !== 0) {
-            window.scroll(0, 0)
-            setCurrentPage(1);
+            const newPage = 1
+            handlePage(newPage.toString())
         }
     };
 
@@ -53,13 +63,29 @@ function PostPaginator({ data }: Props) {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 400) {
-                setShowTopBtn(true);
-            } else {
-                setShowTopBtn(false);
-            }
+            window.scrollY > 400
+                ? setShowTopBtn(true)
+                : setShowTopBtn(false);
         });
-    }, [])
+        
+        const newSearchParams = new URLSearchParams(searchParams)
+
+        if (cantPages > 1) {
+            newSearchParams.set('page', currentPage.toString())
+            setSearchParams(newSearchParams)
+        }
+
+        if(currentPage <= 0) {
+            newSearchParams.set('page', "1")
+            setSearchParams(newSearchParams)
+        }
+
+        if (currentPage > cantPages) {
+            newSearchParams.set('page', cantPages.toString())
+            setSearchParams(newSearchParams)
+        }
+
+    }, [currentPage, cantPages, searchParams, setSearchParams])
 
     return (
         <>
