@@ -90,7 +90,7 @@ function PostPaginator({ data }: Props) {
     return (
         <>
             <ReactMarkdown
-                className="block content px-2 pt-1 pb-4 bg-white lg:px-4"
+                className="block content px-4 pt-1 pb-4 bg-white lg:px-8"
                 // skipHtml={true}
                 rehypePlugins={[rehypeRaw]}
                 components={{

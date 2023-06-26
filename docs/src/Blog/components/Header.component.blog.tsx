@@ -22,14 +22,16 @@ function HeaderBlog() {
         return () => {
             window.removeEventListener('resize', handleResize)
         }
-    },[])
+    }, [])
 
     return (
         <>
             <div className="header w-full h-[64px] flex bg-dark-blue text-white px-4 py-2">
-                <h1 className="m-0 p-0">
-                    Eleli's Blog
-                </h1>
+                <Link to="/blog" className="text-white hover:bg-very-dark-blue/[.4] hover:text-gray-400">
+                    <h1 className="m-0 p-0">
+                        Eleli's Blog
+                    </h1>
+                </Link>
                 <div className="menu absolute top-0 right-0 h-[64px] p-2 cursor-pointer bg-black md:hidden">
                     <IoMenu className="w-[50px] h-[50px] text-white" onClick={showMenu}></IoMenu>
                 </div>

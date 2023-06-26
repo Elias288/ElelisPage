@@ -6,7 +6,7 @@ import SideBar from "./SideBar.component.blog";
 import usePostFilter from "../context/usePostFilter";
 
 function PostListBlog() {
-    const {posts} = usePostFilter()
+    const { posts } = usePostFilter()
 
     useEffect(() => {
         document.title = 'Blog-Inicio';
@@ -25,6 +25,17 @@ function PostListBlog() {
                         transition={{ duration: 0.5 }}
                     >
                         {
+                            posts.length === 0 && (
+                                <div className="post-card mt-0">
+                                    <div className=" border-solid border-2 rounded-lg bg-white drop-shadow-lg">
+                                        <div className="title block bg-dark-blue py-1 px-4 rounded-lg z-10">
+                                            <h2 className="text-white">Posts no encontrados</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        {
                             posts.map((post, i) =>
                                 <PostInfo post={post} key={i} />
                             )
@@ -32,7 +43,6 @@ function PostListBlog() {
                     </motion.div>
 
                     <SideBar />
-                    
                 </div>
             </div>
         </Loading>

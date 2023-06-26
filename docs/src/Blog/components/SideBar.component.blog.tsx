@@ -51,20 +51,23 @@ function SideBar() {
                         }
                     </ul>
 
-                    <div className="formFilter flex gap-2 h-[36px] mt-2">
-                        <button
-                            onClick={() => clearCategories()}
-                            className="btnClear flex-1 text-2xl bg-red-800 rounded-md flex justify-center cursor-pointer text-center disabled:cursor-auto disabled:bg-red-800/[.7]"
-                            disabled={categoriesToFilter.length === 0}
-                        >
-                            <IoTrash
-                            className="text-white h-[36px] w-[36px] py-2"
-                            >
-                                Clear
-                            </IoTrash>
+                    {
+                        categoriesToFilter.length !== 0 && (
+                            <div className="formFilter flex gap-2 h-[36px] mt-2">
+                                <button
+                                    onClick={() => clearCategories()}
+                                    className="btnClear flex-1 text-2xl bg-red-800 rounded-md flex justify-center cursor-pointer text-center disabled:cursor-auto disabled:bg-red-800/[.7]"
+                                >
+                                    <IoTrash
+                                        className="text-white h-[36px] w-[36px] py-2"
+                                    >
+                                        Clear
+                                    </IoTrash>
 
-                        </button>
-                    </div>
+                                </button>
+                            </div>
+                        )
+                    }
                 </div>
 
                 <hr />

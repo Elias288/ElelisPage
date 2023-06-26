@@ -16,7 +16,7 @@ function PostSingleComponent({ post }: Props) {
     return (
         <Loading>
             <div className="postComponent flex justify-center mt-8">
-                <div className="px-4 w-full lg:w-[800px]">
+                <div className="w-full lg:w-[80%]">
 
                     <PostPaginator data={post}/>
 
