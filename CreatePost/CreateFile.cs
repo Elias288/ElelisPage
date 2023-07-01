@@ -12,9 +12,8 @@ using System.Windows.Forms;
 namespace CreatePost
 {
     public partial class CreateFile : Form
-    {
-        private readonly string projectFolderPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\ElelisPage\docs\src\_content");
-        private string pathFile = "";
+    {   
+        private string fileName = "", fileId = "";
 
         public CreateFile()
         {
@@ -23,7 +22,7 @@ namespace CreatePost
 
         private void CreateFile_Load(object sender, EventArgs e)
         {
-
+            txFileName.Focus();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -31,25 +30,11 @@ namespace CreatePost
             string fileText = txFileName.Text.Trim();
             if (!string.IsNullOrEmpty(fileText) )
             {
-                string fileName = fileText.Replace(" ", "_");
-                pathFile = Path.Combine(projectFolderPath, $"{fileName}.md");
+                fileName = fileText;
+                fileId = fileText.Replace(" ", "_");
 
-                try
-                {
-                    using (StreamWriter writer = new StreamWriter(pathFile))
-                    {
-                        writer.WriteLine($"# {fileText}");
-                    }
-
-                    MessageBox.Show("Archivo creado en: " + pathFile);
-
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
@@ -57,9 +42,14 @@ namespace CreatePost
             }
         }
 
-        public string ObtenerPath()
+        public string ObtenerFileName()
         {
-            return pathFile;
+            return fileName;
+        }
+
+        public string ObtenerFileId()
+        {
+            return fileId;
         }
     }
 }

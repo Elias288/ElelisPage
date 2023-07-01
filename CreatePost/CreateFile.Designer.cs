@@ -35,27 +35,30 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(428, 96);
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Location = new System.Drawing.Point(448, 100);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 41);
+            this.btn_save.Size = new System.Drawing.Size(100, 40);
             this.btn_save.TabIndex = 0;
-            this.btn_save.Text = "Guardar";
+            this.btn_save.Text = "Crear";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // txFileName
             // 
-            this.txFileName.Location = new System.Drawing.Point(156, 44);
+            this.txFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txFileName.Location = new System.Drawing.Point(187, 48);
             this.txFileName.Name = "txFileName";
-            this.txFileName.Size = new System.Drawing.Size(347, 22);
+            this.txFileName.Size = new System.Drawing.Size(361, 27);
             this.txFileName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 47);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre del Post";
             // 
@@ -63,10 +66,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 163);
+            this.ClientSize = new System.Drawing.Size(582, 166);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txFileName);
             this.Controls.Add(this.btn_save);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateFile";
             this.Text = "CreateFile";
             this.Load += new System.EventHandler(this.CreateFile_Load);
