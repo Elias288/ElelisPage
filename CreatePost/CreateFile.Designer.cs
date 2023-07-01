@@ -73,7 +73,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateFile";
             this.Text = "CreateFile";
-            this.Load += new System.EventHandler(this.CreateFile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

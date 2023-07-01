@@ -8,27 +8,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CreatePost
 {
     public partial class CreateFile : Form
-    {   
+    {
         private string fileName = "", fileId = "";
 
         public CreateFile()
         {
             InitializeComponent();
+            txFileName.KeyPress += TextBox1_KeyPress;
+            Shown += Formulario_Shown;
         }
 
-        private void CreateFile_Load(object sender, EventArgs e)
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                createFile();
+                e.Handled = true; // Evita que se genere el sonido de Windows al presionar Enter
+            }
+        }
+        private void Formulario_Shown(object sender, EventArgs e)
         {
             txFileName.Focus();
         }
 
+
         private void btn_save_Click(object sender, EventArgs e)
         {
+            createFile();
+        }
+
+        private void createFile()
+        {
             string fileText = txFileName.Text.Trim();
-            if (!string.IsNullOrEmpty(fileText) )
+            if (!string.IsNullOrEmpty(fileText))
             {
                 fileName = fileText;
                 fileId = fileText.Replace(" ", "_");

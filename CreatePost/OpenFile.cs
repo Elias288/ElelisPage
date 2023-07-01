@@ -19,6 +19,7 @@ namespace CreatePost
         public OpenFile()
         {
             InitializeComponent();
+            comboBox1.KeyPress += comboBox1_keypress;
         }
 
         private void OpenFile_Load(object sender, EventArgs e)
@@ -57,15 +58,29 @@ namespace CreatePost
             txbSelectedFile.Text = selectedFilePath;
         }
 
+        private void comboBox1_keypress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                openFile();
+                e.Handled = true; // Evita que se genere el sonido de Windows al presionar Enter
+            }
+        }
+
         private void btn_open_Click(object sender, EventArgs e)
         {
+            openFile();
+        }
+
+        private void openFile()
+        {
             if (!string.IsNullOrEmpty(selectedFilePath))
-            { 
+            {
                 this.DialogResult = DialogResult.OK;
             }
             this.Close();
         }
-        
+
         public string ObtenerFilePath()
         {
             return selectedFilePath;
