@@ -51,6 +51,21 @@ namespace CreatePost
             }
         }
 
+        private void openFile()
+        {
+            if (!string.IsNullOrEmpty(selectedFilePath))
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            this.Close();
+        }
+
+        public string ObtenerFilePath()
+        {
+            return selectedFilePath;
+        }
+
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*selectedFilePath = $"{projectFolderPath}\\{comboBox1.SelectedItem?.ToString()}";*/
@@ -72,18 +87,9 @@ namespace CreatePost
             openFile();
         }
 
-        private void openFile()
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedFilePath))
-            {
-                this.DialogResult = DialogResult.OK;
-            }
             this.Close();
-        }
-
-        public string ObtenerFilePath()
-        {
-            return selectedFilePath;
         }
     }
 }

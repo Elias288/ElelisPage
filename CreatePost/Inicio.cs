@@ -34,6 +34,121 @@ namespace CreatePost
             cBox_fontSize.SelectedItem = 10;
         }
 
+        private void CreatePost()
+        {
+            CreateFile createFileWindow = new CreateFile();
+
+            if (createFileWindow.ShowDialog() == DialogResult.OK)
+            {
+                created = true;
+                opened = false;
+                richTextBox1.Enabled = true;
+
+                string fileId = createFileWindow.fileId;
+                fileName = createFileWindow.fileName;
+                DateTime thisDay = DateTime.Now;
+                string description = createFileWindow.fileDescription;
+
+                string categories = string.Join(", ", createFileWindow.selectedCategories);
+
+                filePath = Path.Combine(projectFolderPath, $"{fileId}.md");
+                richTextBox1.Text = $"---\nid: {fileId}\ntitle: {fileName}\ndescription: {description}\ndate: {thisDay.ToString("MMMMM dd, yyyy HH:mm")}\ncategories: [{categories}]\n---\n\n# {fileName}\n\n";
+
+                richTextBox1.Focus();
+                richTextBox1.SelectionStart = richTextBox1.Text.Length;
+                richTextBox1.SelectionLength = 0;
+                richTextBox1.ScrollToCaret();
+            }
+        }
+
+        private void OpenFile()
+        {
+            OpenFile openFileWindow = new OpenFile();
+
+            if (openFileWindow.ShowDialog() == DialogResult.OK)
+            {
+                created = false;
+                opened = true;
+                richTextBox1.Enabled = true;
+
+                filePath = openFileWindow.ObtenerFilePath();
+                StreamReader stream = new StreamReader(filePath);
+                string fileData = stream.ReadToEnd();
+                richTextBox1.Text = fileData.ToString();
+
+                richTextBox1.Focus();
+                richTextBox1.SelectionStart = richTextBox1.Text.Length;
+                richTextBox1.SelectionLength = 0;
+                richTextBox1.ScrollToCaret();
+
+                stream.Close();
+            }
+        }
+
+        private void addText(string text, int textStartSelected, int textEndSelected)
+        {
+            if (!string.IsNullOrEmpty(fileName) || !string.IsNullOrEmpty(filePath))
+            {
+                int posicion = richTextBox1.SelectionStart;
+                /*richTextBox1.AppendText(text);*/
+                richTextBox1.Text = richTextBox1.Text.Insert(posicion, text);
+
+                richTextBox1.Focus();
+                richTextBox1.SelectionStart = posicion + textStartSelected;
+                richTextBox1.SelectionLength = textEndSelected;
+                richTextBox1.ScrollToCaret();
+            }
+        }
+
+        private void cSSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("css");
+        }
+
+        private void saveFile()
+        {
+            if (!string.IsNullOrEmpty(fileName) || !string.IsNullOrEmpty(filePath))
+            {
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.Write(richTextBox1.Text);
+                    }
+
+                    MessageBox.Show("Archivo guardado exitosamente!");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ningún archivo seleccionado");
+            }
+        }
+
+        private void insertCode(string languaje)
+        {
+            if (!string.IsNullOrEmpty(fileName) || !string.IsNullOrEmpty(filePath))
+            {
+                if (!string.IsNullOrEmpty(languaje))
+                {
+                    int posicion = richTextBox1.SelectionStart;
+                    string text = $"´´´{languaje}\n\n´´´\n";
+                    richTextBox1.Text = richTextBox1.Text.Insert(posicion, text);
+
+                    richTextBox1.Focus();
+                    richTextBox1.SelectionStart = posicion + 3 + languaje.Length + 1; // ´´´ + languaje length + \n
+                    richTextBox1.SelectionLength = 0;
+                    richTextBox1.ScrollToCaret();
+                }
+
+            }
+        }
+
 
         private void Inicio_KeyDown(object sender, KeyEventArgs e)
         {
@@ -99,8 +214,8 @@ namespace CreatePost
 
         private void btn_addImage_Click(object sender, EventArgs e)
         {
-            string text = "![](url)";
-            addText(text, 4, 3);
+            string text = "![](imagenUrl)";
+            addText(text, 4, 9);
         }
 
         private void btn_addCode_Click(object sender, EventArgs e)
@@ -135,90 +250,79 @@ namespace CreatePost
             this.Close();
         }
 
-        private void CreatePost()
+        private void bashToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateFile createFileWindow = new CreateFile();
-
-            if (createFileWindow.ShowDialog() == DialogResult.OK)
-            {
-                created = true;
-                opened = false;
-                richTextBox1.Enabled = true;
-
-                fileName = createFileWindow.ObtenerFileName();
-                string fileId = createFileWindow.ObtenerFileId();
-                filePath = Path.Combine(projectFolderPath, $"{fileId}.md");
-                richTextBox1.Text = $"---\nid: {fileId}\ntitle: {fileName}\ndescription: desc\ndate: Month day, year hour\ncategories: ['CAT1', 'CAT2']\nmodified_date: Month day, year hour\n---\n\n# {fileName}\n\n";
-
-                richTextBox1.Focus();
-                richTextBox1.SelectionStart = richTextBox1.Text.Length;
-                richTextBox1.SelectionLength = 0;
-                richTextBox1.ScrollToCaret();
-            }
+            insertCode("sh");
         }
 
-        private void OpenFile()
+        private void bloqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFile openFileWindow = new OpenFile();
-
-            if (openFileWindow.ShowDialog() == DialogResult.OK)
-            {
-                created = false;
-                opened = true;
-                richTextBox1.Enabled = true;
-
-                filePath = openFileWindow.ObtenerFilePath();
-                StreamReader stream = new StreamReader(filePath);
-                string fileData = stream.ReadToEnd();
-                richTextBox1.Text = fileData.ToString();
-
-                richTextBox1.Focus();
-                richTextBox1.SelectionStart = richTextBox1.Text.Length;
-                richTextBox1.SelectionLength = 0;
-                richTextBox1.ScrollToCaret();
-
-                stream.Close();
-            }
+            string text = "```Content```";
+            addText(text, 3, 7);
         }
 
-        private void addText(string text, int textStartSelected, int textEndSelected)
+        private void tituloToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(fileName) || !string.IsNullOrEmpty(filePath))
-            {
-                int posicion = richTextBox1.SelectionStart;
-                /*richTextBox1.AppendText(text);*/
-                richTextBox1.Text = richTextBox1.Text.Insert(posicion, text);
-
-                richTextBox1.Focus();
-                richTextBox1.SelectionStart = posicion + textStartSelected;
-                richTextBox1.SelectionLength = textEndSelected;
-                richTextBox1.ScrollToCaret();
-            }
+            string text = "# Titulo";
+            addText(text, 2, text.Length - 2);
         }
 
-        private void saveFile()
+        private void subTituloToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(fileName) || !string.IsNullOrEmpty(filePath))
-            {
-                try
-                {
-                    using (StreamWriter writer = new StreamWriter(filePath))
-                    {
-                        writer.Write(richTextBox1.Text);
-                    }
+            string text = "## Subtitulo";
+            addText(text, 3, text.Length - 3);
+        }
 
-                    MessageBox.Show("Archivo guardado exitosamente!");
+        private void imagenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string text = "![](imagenUrl)";
+            addText(text, 4, 9);
+        }
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay ningún archivo seleccionado");
-            }
+        private void linkToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string text = "[](url)";
+            addText(text, 3, 3);
+        }
+
+        private void paginaNuevaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addText("--Page", 6, 0);
+        }
+
+        private void javascriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("js");
+        }
+
+        private void typescriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("ts");
+        }
+
+        private void javaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("java");
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("cs");
+        }
+
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("json");
+        }
+
+        private void pytonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("py");
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertCode("html");
         }
     }
 }

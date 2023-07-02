@@ -43,19 +43,21 @@
             this.tituloToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.subTituloToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bloqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.códigoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javascriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pytonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typescriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.imagenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.linkToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.paginaNuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.códigoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.javascriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.javaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.angularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -168,11 +170,12 @@
             this.tituloToolStripMenuItem1,
             this.subTituloToolStripMenuItem1,
             this.toolStripSeparator3,
+            this.bloqueToolStripMenuItem,
+            this.códigoToolStripMenuItem,
+            this.toolStripSeparator4,
             this.imagenToolStripMenuItem1,
             this.linkToolStripMenuItem1,
-            this.paginaNuevaToolStripMenuItem,
-            this.códigoToolStripMenuItem,
-            this.bloqueToolStripMenuItem});
+            this.paginaNuevaToolStripMenuItem});
             this.insertarToolStripMenuItem1.Name = "insertarToolStripMenuItem1";
             this.insertarToolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.insertarToolStripMenuItem1.Text = "Insertar";
@@ -182,47 +185,39 @@
             this.tituloToolStripMenuItem1.Name = "tituloToolStripMenuItem1";
             this.tituloToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
             this.tituloToolStripMenuItem1.Text = "Titulo";
+            this.tituloToolStripMenuItem1.Click += new System.EventHandler(this.tituloToolStripMenuItem1_Click);
             // 
             // subTituloToolStripMenuItem1
             // 
             this.subTituloToolStripMenuItem1.Name = "subTituloToolStripMenuItem1";
             this.subTituloToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
             this.subTituloToolStripMenuItem1.Text = "SubTitulo";
+            this.subTituloToolStripMenuItem1.Click += new System.EventHandler(this.subTituloToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(165, 6);
             // 
-            // imagenToolStripMenuItem1
+            // bloqueToolStripMenuItem
             // 
-            this.imagenToolStripMenuItem1.Name = "imagenToolStripMenuItem1";
-            this.imagenToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
-            this.imagenToolStripMenuItem1.Text = "Imagen";
-            // 
-            // linkToolStripMenuItem1
-            // 
-            this.linkToolStripMenuItem1.Name = "linkToolStripMenuItem1";
-            this.linkToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
-            this.linkToolStripMenuItem1.Text = "Link";
-            // 
-            // paginaNuevaToolStripMenuItem
-            // 
-            this.paginaNuevaToolStripMenuItem.Name = "paginaNuevaToolStripMenuItem";
-            this.paginaNuevaToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.paginaNuevaToolStripMenuItem.Text = "Pagina Nueva";
+            this.bloqueToolStripMenuItem.Name = "bloqueToolStripMenuItem";
+            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.bloqueToolStripMenuItem.Text = "Bloque";
+            this.bloqueToolStripMenuItem.Click += new System.EventHandler(this.bloqueToolStripMenuItem_Click);
             // 
             // códigoToolStripMenuItem
             // 
             this.códigoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bashToolStripMenuItem,
-            this.javascriptToolStripMenuItem,
-            this.javaToolStripMenuItem,
+            this.cSSToolStripMenuItem,
             this.cToolStripMenuItem,
             this.hTMLToolStripMenuItem,
-            this.cSSToolStripMenuItem,
-            this.reactToolStripMenuItem,
-            this.angularToolStripMenuItem});
+            this.javaToolStripMenuItem,
+            this.javascriptToolStripMenuItem,
+            this.jSONToolStripMenuItem,
+            this.pytonToolStripMenuItem,
+            this.typescriptToolStripMenuItem});
             this.códigoToolStripMenuItem.Name = "códigoToolStripMenuItem";
             this.códigoToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.códigoToolStripMenuItem.Text = "Código";
@@ -230,56 +225,91 @@
             // bashToolStripMenuItem
             // 
             this.bashToolStripMenuItem.Name = "bashToolStripMenuItem";
-            this.bashToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.bashToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
             this.bashToolStripMenuItem.Text = "Bash";
-            // 
-            // javascriptToolStripMenuItem
-            // 
-            this.javascriptToolStripMenuItem.Name = "javascriptToolStripMenuItem";
-            this.javascriptToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.javascriptToolStripMenuItem.Text = "Javascript";
-            // 
-            // javaToolStripMenuItem
-            // 
-            this.javaToolStripMenuItem.Name = "javaToolStripMenuItem";
-            this.javaToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.javaToolStripMenuItem.Text = "Java";
-            // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.cToolStripMenuItem.Text = "C#";
-            // 
-            // hTMLToolStripMenuItem
-            // 
-            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
-            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.hTMLToolStripMenuItem.Text = "HTML";
+            this.bashToolStripMenuItem.Click += new System.EventHandler(this.bashToolStripMenuItem_Click);
             // 
             // cSSToolStripMenuItem
             // 
             this.cSSToolStripMenuItem.Name = "cSSToolStripMenuItem";
-            this.cSSToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.cSSToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
             this.cSSToolStripMenuItem.Text = "Css";
+            this.cSSToolStripMenuItem.Click += new System.EventHandler(this.cSSToolStripMenuItem_Click);
             // 
-            // reactToolStripMenuItem
+            // cToolStripMenuItem
             // 
-            this.reactToolStripMenuItem.Name = "reactToolStripMenuItem";
-            this.reactToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.reactToolStripMenuItem.Text = "React";
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.cToolStripMenuItem.Text = "C#";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
             // 
-            // angularToolStripMenuItem
+            // hTMLToolStripMenuItem
             // 
-            this.angularToolStripMenuItem.Name = "angularToolStripMenuItem";
-            this.angularToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
-            this.angularToolStripMenuItem.Text = "Angular";
+            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
+            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.hTMLToolStripMenuItem.Text = "HTML";
+            this.hTMLToolStripMenuItem.Click += new System.EventHandler(this.hTMLToolStripMenuItem_Click);
             // 
-            // bloqueToolStripMenuItem
+            // javaToolStripMenuItem
             // 
-            this.bloqueToolStripMenuItem.Name = "bloqueToolStripMenuItem";
-            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.bloqueToolStripMenuItem.Text = "Bloque";
+            this.javaToolStripMenuItem.Name = "javaToolStripMenuItem";
+            this.javaToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.javaToolStripMenuItem.Text = "Java";
+            this.javaToolStripMenuItem.Click += new System.EventHandler(this.javaToolStripMenuItem_Click);
+            // 
+            // javascriptToolStripMenuItem
+            // 
+            this.javascriptToolStripMenuItem.Name = "javascriptToolStripMenuItem";
+            this.javascriptToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.javascriptToolStripMenuItem.Text = "Javascript";
+            this.javascriptToolStripMenuItem.Click += new System.EventHandler(this.javascriptToolStripMenuItem_Click);
+            // 
+            // jSONToolStripMenuItem
+            // 
+            this.jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
+            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.jSONToolStripMenuItem.Text = "JSON";
+            this.jSONToolStripMenuItem.Click += new System.EventHandler(this.jSONToolStripMenuItem_Click);
+            // 
+            // pytonToolStripMenuItem
+            // 
+            this.pytonToolStripMenuItem.Name = "pytonToolStripMenuItem";
+            this.pytonToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.pytonToolStripMenuItem.Text = "Pyton";
+            this.pytonToolStripMenuItem.Click += new System.EventHandler(this.pytonToolStripMenuItem_Click);
+            // 
+            // typescriptToolStripMenuItem
+            // 
+            this.typescriptToolStripMenuItem.Name = "typescriptToolStripMenuItem";
+            this.typescriptToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.typescriptToolStripMenuItem.Text = "Typescript";
+            this.typescriptToolStripMenuItem.Click += new System.EventHandler(this.typescriptToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
+            // 
+            // imagenToolStripMenuItem1
+            // 
+            this.imagenToolStripMenuItem1.Name = "imagenToolStripMenuItem1";
+            this.imagenToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
+            this.imagenToolStripMenuItem1.Text = "Imagen";
+            this.imagenToolStripMenuItem1.Click += new System.EventHandler(this.imagenToolStripMenuItem1_Click);
+            // 
+            // linkToolStripMenuItem1
+            // 
+            this.linkToolStripMenuItem1.Name = "linkToolStripMenuItem1";
+            this.linkToolStripMenuItem1.Size = new System.Drawing.Size(168, 24);
+            this.linkToolStripMenuItem1.Text = "Link";
+            this.linkToolStripMenuItem1.Click += new System.EventHandler(this.linkToolStripMenuItem1_Click);
+            // 
+            // paginaNuevaToolStripMenuItem
+            // 
+            this.paginaNuevaToolStripMenuItem.Name = "paginaNuevaToolStripMenuItem";
+            this.paginaNuevaToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.paginaNuevaToolStripMenuItem.Text = "Pagina Nueva";
+            this.paginaNuevaToolStripMenuItem.Click += new System.EventHandler(this.paginaNuevaToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -431,7 +461,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1072, 690);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -493,9 +522,11 @@
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cSSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reactToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem angularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem typescriptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pytonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

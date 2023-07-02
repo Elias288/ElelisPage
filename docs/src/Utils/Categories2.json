@@ -1,0 +1,41 @@
+[
+    {
+        "tag": "Informativa"
+    },
+    {
+        "tag": "Desarrollo"
+    },
+    {
+        "tag": "Programación"
+    },
+    {
+        "tag": "Bienvenida"
+    },
+    {
+        "tag": "Nest"
+    },
+    {
+        "tag": "React"
+    },
+    {
+        "tag": "MongoDB"
+    },
+    {
+        "tag": "Typescript"
+    },
+    {
+        "tag": "Wordle"
+    },
+    {
+        "tag": "Tailwindcss"
+    },
+    {
+        "tag": "Container"
+    },
+    {
+        "tag": "Podman"
+    },
+    {
+        "tag": "Tutorial"
+    }
+]
