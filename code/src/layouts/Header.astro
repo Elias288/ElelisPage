@@ -1,0 +1,134 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import config from "src/utils/page_config";
+---
+
+<header>
+  <Astronav closeOnClick>
+    <h1>{config.TitlePage}</h1>
+
+    <div class="menuIcon">
+      <MenuIcon />
+    </div>
+
+    <MenuItems class="menuItems hidden">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#educacion">Educación</a></li>
+      </ul>
+    </MenuItems>
+  </Astronav>
+</header>
+
+<style>
+  header {
+    background: var(--base);
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  header h1 {
+    color: var(--primary);
+    font-size: 1.5rem;
+  }
+
+  :global(.menuIcon button) {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .menuItems.hidden {
+    display: block;
+    height: 0;
+  }
+
+  nav {
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    overflow-y: hidden;
+    transition: height 0.5s;
+  }
+
+  nav ul {
+    background-color: var(--base);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.3s;
+
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav a:hover {
+    color: var(--primary);
+  }
+
+  @media screen and (min-width: 600px) {
+    header {
+      height: auto;
+    }
+
+    .menuIcon {
+      display: none;
+    }
+
+    .menuItems,
+    .menuItems.hidden {
+      display: initial;
+      height: auto;
+    }
+
+    nav,
+    nav.hidden {
+      position: initial;
+      width: auto;
+    }
+
+    nav ul {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    nav a {
+      display: initial;
+      padding: 0.5rem 0;
+      border: none;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    nav ul {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+</style>
