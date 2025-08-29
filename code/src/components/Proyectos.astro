@@ -1,0 +1,50 @@
+<section id="proyectos">
+  <h2>Proyectos</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Proyecto 1</h3>
+      <p>Descripción breve del proyecto con tecnologías usadas.</p>
+    </div>
+    <div class="project">
+      <h3>Proyecto 2</h3>
+      <p>Descripción breve del proyecto con tecnologías usadas.</p>
+    </div>
+    <div class="project">
+      <h3>Proyecto 3</h3>
+      <p>Descripción breve del proyecto con tecnologías usadas.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .project {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s;
+  }
+
+  .project:hover {
+    transform: scale(1.02);
+    background: rgba(0, 191, 166, 0.15);
+  }
+
+  @media screen and (min-width: 600px) {
+    .projects {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .projects {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

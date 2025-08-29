@@ -1,5 +1,7 @@
 ---
 import GlobalStyles from "src/GlobalStyles.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 ---
 
 <!doctype html>
@@ -12,8 +14,11 @@ import GlobalStyles from "src/GlobalStyles.astro";
     <title>Astro Basics</title>
   </head>
   <body>
+    <Header />
+
     <slot />
 
+    <Footer />
     <GlobalStyles />
   </body>
 </html>

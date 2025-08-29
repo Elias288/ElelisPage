@@ -1,0 +1,46 @@
+<section id="habilidades">
+  <h2>Habilidades</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">Node.js</div>
+    <div class="skill">Git</div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .skill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    font-size: 0.9rem;
+  }
+
+  .skill:hover {
+    transform: translateY(-3px);
+    background: rgba(91, 192, 248, 0.15);
+  }
+
+  @media screen and (min-width: 600px) {
+    .skills {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .skills {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+</style>
