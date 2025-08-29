@@ -3,10 +3,64 @@
 ---
 
 <style is:global>
-  html,
-  body {
+  :root {
+    --base: #0d141e;
+    --background-color: linear-gradient(var(--base) 0%, #1a2432 100%);
+    --primary: #00bfa6; /* verde agua */
+    --secondary: #5bc0f8; /* azul claro */
+    --text: #eaeaea;
+    --muted: #b0b0b0;
+    --header-height: 75px;
+  }
+
+  * {
     margin: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  body {
+    background: var(--background-color);
+    color: var(--text);
+    line-height: 1.6;
+    min-width: 360px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 100px 1rem 60px;
+  }
+  section:not(:last-of-type) {
+    min-height: 100vh;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    section {
+      padding: 100px 10% 60px;
+    }
+    section:not(:last-of-type) {
+      min-height: auto;
+    }
   }
 </style>

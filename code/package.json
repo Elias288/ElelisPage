@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.5"
+    "astro": "^5.13.5",
+    "astro-navbar": "^2.4.0",
+    "typescript": "^5.9.2"
   }
 }
