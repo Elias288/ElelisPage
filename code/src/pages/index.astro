@@ -1,11 +1,40 @@
 ---
-import Welcome from "@components/Welcome.astro";
 import Layout from "@layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Contacto from "@components/Contacto.astro";
 ---
 
 <Layout>
-  <Welcome />
+  <section id="inicio">
+    <h1>Hola, soy <span>Elías Bianchi</span></h1>
+    <p>Desarrollador informático, consultor en Frame banking.</p>
+    <p>
+      Diseño y construyo aplicaciones modernas que combinan eficiencia,
+      escalabilidad y una gran experiencia de usuario.
+    </p>
+    <Contacto />
+  </section>
 </Layout>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #inicio span {
+    color: var(--primary);
+  }
+  @media screen and (min-width: 992px) {
+    section {
+      min-height: 50vh;
+    }
+  }
+</style>
