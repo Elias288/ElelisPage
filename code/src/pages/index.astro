@@ -31,7 +31,7 @@ import Contacto from "@components/Contacto.astro";
 </Layout>
 
 <style>
-  section {
+  #inicio {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,12 +44,12 @@ import Contacto from "@components/Contacto.astro";
     margin-bottom: 0.5rem;
   }
 
-  #inicio span {
+  span {
     color: var(--primary);
   }
   @media screen and (min-width: 992px) {
-    section {
-      min-height: 50vh;
+    #inicio {
+      min-height: 80vh;
     }
   }
 </style>
