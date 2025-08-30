@@ -1,16 +1,85 @@
+---
+import html from "@assets/habilidades/html-5-svgrepo-com.svg";
+import css from "@assets/habilidades/css-3-svgrepo-com.svg";
+import javascript from "@assets/habilidades/javascript-svgrepo-com.svg";
+import bash from "@assets/habilidades/bash-icon-svgrepo-com.svg";
+import python from "@assets/habilidades/python-svgrepo-com.svg";
+import mongoDB from "@assets/habilidades/mongodb-svgrepo-com.svg";
+import java from "@assets/habilidades/java-logo-svgrepo-com.svg";
+import nodejs from "@assets/habilidades/nodejs-svgrepo-com.svg";
+import react from "@assets/habilidades/react-svgrepo-com.svg";
+import astro from "@assets/habilidades/astro.svg";
+import nextjs from "@assets/habilidades/nextjs.svg";
+import nestjs from "@assets/habilidades/nestjs-svgrepo-com.svg";
+import dart from "@assets/habilidades/dart-svgrepo-com.svg";
+import androd from "@assets/habilidades/android-color-svgrepo-com.svg";
+import git from "@assets/habilidades/git-svgrepo-com.svg";
+import github from "@assets/habilidades/github.svg";
+import gitlab from "@assets/habilidades/gitlab-svgrepo-com.svg";
+import podman from "@assets/habilidades/Podman.svg";
+import vim from "@assets/habilidades/vim-svgrepo-com.svg";
+import docker from "@assets/habilidades/docker-svgrepo-com.svg";
+import lua from "@assets/habilidades/lua-svgrepo-com.svg";
+import angular from "@assets/habilidades/angular-svgrepo-com.svg";
+import cSharp from "@assets/habilidades/c-sharp-svgrepo-com.svg";
+import cplusplus from "@assets/habilidades/cplusplus.svg";
+import c3 from "@assets/habilidades/c3.svg";
+import SQL from "@assets/habilidades/SQL.svg";
+import typescript from "@assets/habilidades/typescript-official-svgrepo-com.svg";
+import php from "@assets/habilidades/php.svg";
+---
+
 <section id="habilidades">
   <h2>Habilidades</h2>
+  <!-- Lenguajes -->
+  <h3>Lenguajes</h3>
   <div class="skills">
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">React</div>
-    <div class="skill">Node.js</div>
-    <div class="skill">Git</div>
+    <div class="skill"><img src={html.src} />HTML</div>
+    <div class="skill"><img src={css.src} />CSS</div>
+    <div class="skill"><img src={javascript.src} />JavaScript</div>
+    <div class="skill"><img src={typescript.src} />Typescript</div>
+    <div class="skill"><img src={bash.src} />Bash</div>
+    <div class="skill"><img src={python.src} />Python</div>
+    <div class="skill"><img src={java.src} />JAVA</div>
+    <div class="skill"><img src={lua.src} />LUA</div>
+    <div class="skill"><img src={cplusplus.src} />C++</div>
+    <div class="skill"><img src={cSharp.src} />C#</div>
+    <div class="skill"><img src={c3.src} />C</div>
+    <div class="skill"><img src={php.src} />PHP</div>
+  </div>
+
+  <h3>Frameworks</h3>
+  <!-- Frameworks -->
+  <div class="skills">
+    <div class="skill"><img src={nodejs.src} />Node.js</div>
+    <div class="skill"><img src={react.src} />React</div>
+    <div class="skill"><img src={astro.src} />Astro</div>
+    <div class="skill"><img src={nextjs.src} />Next.js</div>
+    <div class="skill"><img src={nestjs.src} />NestJs</div>
+    <div class="skill"><img src={dart.src} />Dart</div>
+    <div class="skill"><img src={androd.src} />Android</div>
+    <div class="skill"><img src={angular.src} />Angular</div>
+  </div>
+
+  <h3>Tecnologías</h3>
+  <!-- Tecnologías -->
+  <div class="skills">
+    <div class="skill"><img src={git.src} />Git</div>
+    <div class="skill"><img src={github.src} />Github</div>
+    <div class="skill"><img src={gitlab.src} />Gitlab</div>
+    <div class="skill"><img src={vim.src} />VIM</div>
+    <div class="skill"><img src={podman.src} />Podman</div>
+    <div class="skill"><img src={docker.src} />Docker</div>
+    <div class="skill"><img src={SQL.src} />SQL</div>
+    <div class="skill"><img src={mongoDB.src} />MongoDB</div>
   </div>
 </section>
 
 <style>
+  #habilidades {
+    padding: 100px 1rem 300px;
+  }
+
   .skills {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -19,17 +88,32 @@
   }
 
   .skill {
+    user-select: none;
     background: rgba(255, 255, 255, 0.05);
     padding: 1rem;
     text-align: center;
     border-radius: 10px;
     transition: transform 0.3s;
     font-size: 0.9rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
   .skill:hover {
     transform: translateY(-3px);
     background: rgba(91, 192, 248, 0.15);
+  }
+
+  h3 {
+    margin-top: 3rem;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
   }
 
   @media screen and (min-width: 600px) {
@@ -39,6 +123,10 @@
   }
 
   @media screen and (min-width: 992px) {
+    #habilidades {
+      padding: 100px 10% 60px;
+    }
+
     .skills {
       grid-template-columns: repeat(6, 1fr);
     }
