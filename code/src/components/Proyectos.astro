@@ -1,0 +1,101 @@
+---
+import type Entry from "src/types/Entries";
+import loadProyects from "src/utils/loadProyects";
+
+const entries: Entry[] = await loadProyects();
+---
+
+<section id="proyectos">
+  <h2>Proyectos</h2>
+  <div class="projects">
+    {entries.map(({ Component }) => <Component />)}
+  </div>
+</section>
+
+<style>
+  #proyectos {
+    padding: 100px 1rem 300px;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media screen and (min-width: 600px) {
+    .projects {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    #proyectos {
+      padding: 100px 10% 60px;
+    }
+
+    .projects {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<style is:global>
+  #proyectos .project {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s;
+  }
+
+  #proyectos .project:hover {
+    transform: scale(1.02);
+    background: rgba(0, 191, 166, 0.15);
+  }
+
+  #proyectos .project img {
+    width: 100%;
+  }
+
+  /* --------------------------- Links --------------------------- */
+  #proyectos .links {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: 0.3s;
+  }
+  #proyectos .project:hover .links {
+    max-height: 100px;
+  }
+
+  #proyectos .links * {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 0.5rem;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  #proyectos .links *:hover {
+    background-color: rgba(91, 192, 248, 0.15);
+    color: #4db6ff;
+  }
+
+  #proyectos .links *::before {
+    content: "🔗";
+  }
+  #proyectos .links *.gitlab::before,
+  #proyectos .links *.codepen::before,
+  #proyectos .links *.github::before {
+    content: "📂";
+  }
+</style>
