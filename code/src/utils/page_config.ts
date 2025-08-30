@@ -1,5 +1,6 @@
 const config = {
-    TitlePage: "Elelis Page"
+    TitlePage: "Elelis Page",
+    basePage: "ElelisPage"
 }
 
 export default config
