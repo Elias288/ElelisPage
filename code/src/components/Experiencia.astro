@@ -1,15 +1,19 @@
 <section id="experiencia">
   <h2>Experiencia</h2>
+
   <div class="timeline">
     <div class="timeline-item">
-      <h3>Empresa X</h3>
-      <span>2022 - Actualidad</span>
-      <p>Desarrollador Full Stack trabajando en aplicaciones web modernas.</p>
+      <h3>Punto Com</h3>
+      <span>2025 - Actualidad</span>
+      <p>Educador en programación JAVA.</p>
     </div>
+
     <div class="timeline-item">
-      <h3>Freelance</h3>
-      <span>2020 - 2022</span>
-      <p>Proyectos variados en desarrollo web y consultoría tecnológica.</p>
+      <h3>SOFKA</h3>
+      <span>2022 - Actualidad</span>
+      <p>
+        Desarrollador Full Stack en desarrollo web y consultor en Frame Banking.
+      </p>
     </div>
   </div>
 </section>
@@ -25,13 +29,29 @@
     margin-bottom: 1.5rem;
   }
 
-  .timeline-item h3 {
+  h3 {
     color: var(--primary);
     margin-bottom: 0.3rem;
   }
 
-  .timeline-item span {
+  span {
     font-size: 0.9rem;
     color: var(--muted);
+    position: relative;
+  }
+
+  span::before {
+    --dot-size: 10px;
+
+    content: ""; /* obligatorio para que aparezca */
+    position: absolute; /* para colocarlo donde quieras */
+    left: calc(
+      -1rem - var(--dot-size) / 2 - 1px
+    ); /* alineado al borde izquierdo */
+    transform: translateY(200%); /* corrección de centrado */
+    width: var(--dot-size); /* tamaño del círculo */
+    height: var(--dot-size);
+    background-color: var(--secondary); /* color del círculo */
+    border-radius: 50%; /* lo convierte en círculo */
   }
 </style>
