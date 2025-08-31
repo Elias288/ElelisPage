@@ -1,6 +1,6 @@
 const config = {
     TitlePage: "Elelis Page",
-    basePage: "ElelisPage"
+    basePage: `${import.meta.env.DEV ? "" : "ElelisPage"}`
 }
 
 export default config

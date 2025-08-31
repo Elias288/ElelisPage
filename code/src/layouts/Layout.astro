@@ -2,6 +2,7 @@
 import GlobalStyles from "src/GlobalStyles.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import config from "@utils/page_config";
 ---
 
 <!doctype html>
@@ -9,7 +10,11 @@ import Footer from "./Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/ElelisPage/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href=`${config.basePage}/favicon.svg`
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Elelis page - portafolio</title>
   </head>
