@@ -1,14 +1,18 @@
-<section></section>
 <footer>
   <p>© 2025 - Elelis page - Portafolio</p>
+
+  <ul>
+    <li>
+      <a
+        href="http://github.com/Elias288/ElelisPage/"
+        target="_blank"
+        rel="noopener noreferrer">Repositorio del Portafolio</a
+      >
+    </li>
+  </ul>
 </footer>
 
 <style>
-  section {
-    min-height: 0;
-    padding: 0;
-  }
-
   footer {
     height: 10rem;
     text-align: center;
@@ -16,5 +20,23 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 2rem;
     color: var(--muted);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.2rem 0.3rem;
+    border-radius: 10px;
+  }
+  a:hover {
+    background: rgba(91, 192, 248, 0.15);
+    color: #4db6ff;
+  }
+  a::before {
+    content: "📂";
   }
 </style>
