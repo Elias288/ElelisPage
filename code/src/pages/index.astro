@@ -10,13 +10,15 @@ import Contacto from "@components/Contacto.astro";
 
 <Layout>
   <section id="inicio">
-    <h1>Hola, soy <span>Elías Bianchi</span></h1>
-    <p>Desarrollador informático, consultor en Frame banking.</p>
-    <p>
-      Diseño y construyo aplicaciones modernas que combinan eficiencia,
-      escalabilidad y una gran experiencia de usuario.
-    </p>
-    <Contacto />
+    <div class="inicio__container">
+      <h1>Hola, soy <span>Elías Bianchi</span></h1>
+      <p>Desarrollador informático, consultor en Frame banking.</p>
+      <p>
+        Diseño y construyo aplicaciones modernas que combinan eficiencia,
+        escalabilidad y una gran experiencia de usuario.
+      </p>
+      <Contacto />
+    </div>
   </section>
 
   <SobreMi />
@@ -37,6 +39,19 @@ import Contacto from "@components/Contacto.astro";
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 1rem;
+
+    overflow-x: hidden;
+
+    /* se sobrescribe porque al estar centrado con flex provoca un movimiento molesto */
+    min-height: 100vh;
+  }
+
+  .inicio__container {
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-name: right_appear;
+    animation-timing-function: cubic-bezier(0.74, 0.14, 0.5, 1.73);
   }
 
   h1 {
@@ -46,10 +61,41 @@ import Contacto from "@components/Contacto.astro";
 
   span {
     color: var(--primary);
+    animation: light 5s linear infinite;
+    animation-delay: 2s;
   }
-  @media screen and (min-width: 992px) {
-    #inicio {
-      min-height: 80vh;
+
+  @keyframes light {
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.1%,
+    92% {
+      color: var(--primary);
+      text-shadow: none;
+    }
+
+    18.1%,
+    20.1%,
+    30%,
+    50%,
+    60.1%,
+    65.1%,
+    80.1%,
+    90%,
+    92.1%,
+    100% {
+      color: #c9c9c9;
+      text-shadow:
+        0 0 10px var(--secondary),
+        0 0 20px var(--secondary),
+        0 0 40px var(--secondary),
+        0 0 80px var(--secondary),
+        0 0 160px var(--secondary);
     }
   }
 </style>

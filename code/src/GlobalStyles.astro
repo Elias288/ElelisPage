@@ -12,7 +12,7 @@
     --muted: #b0b0b0;
     --header-height: 75px;
 
-    --bg: #0b1220;
+    --bg: rgba(11, 18, 32, 0.85);
     --fg: #e5e7eb;
     --muted: #94a3b8;
     --card: #0f172a;
@@ -27,11 +27,6 @@
     font-family: "Segoe UI", sans-serif;
   }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-  }
-
   body {
     background: var(--background-color);
     color: var(--text);
@@ -44,12 +39,10 @@
   }
 
   section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    padding: 100px 1rem 300px;
+    padding: 110px 1rem 5rem;
   }
   section:not(:last-of-type) {
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   h2 {
@@ -66,8 +59,32 @@
     section {
       padding: 100px 10% 60px;
     }
-    section:not(:last-of-type) {
-      min-height: auto;
+  }
+
+  /** ----------------------- Animaciones ----------------------- */
+  @keyframes right_appear {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      margin-left: 0rem;
+    }
+    25% {
+      margin-left: 0.3rem;
+    }
+    75% {
+      margin-left: -0.3rem;
+    }
+    100% {
+      margin-left: 0rem;
     }
   }
 </style>

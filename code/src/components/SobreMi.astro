@@ -1,7 +1,6 @@
 <section class="about" id="sobre-mi">
   <div class="about__container">
     <div class="about__media">
-      <!-- Reemplaza src y srcset por tus imágenes -->
       <img
         class="about__img"
         src="images/perfil.webp"
@@ -12,7 +11,7 @@
     </div>
 
     <div class="about__content">
-      <h2 id="sobre-mi">Sobre mí</h2>
+      <h2>Sobre mí</h2>
       <p class="about__lead">
         Me apasiona aprender nuevos lenguajes y tecnologías, disfruto
         enfrentarme a desafíos complejos y encontrar soluciones que no solo
@@ -40,29 +39,17 @@
 </section>
 
 <style>
-  .about {
+  #sobre-mi {
     background: var(--bg);
-    color: var(--fg);
+    box-shadow: 20px 0 40px var(--bg);
   }
+
   .about__container {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
     gap: clamp(1rem, 2.5vw, 2rem);
     align-items: center;
-  }
-
-  @media screen and (min-width: 600px) {
-    .about__media {
-      max-width: 320px;
-    }
-  }
-
-  /* Dos columnas a partir de 700px */
-  @media (min-width: 992px) {
-    .about__container {
-      grid-template-columns: minmax(260px, 320px) 1fr;
-    }
   }
 
   .about__media {
@@ -79,7 +66,14 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     border: 1px solid var(--ring);
   }
-  /* Aro decorativo sutil */
+  .about__img:hover {
+    animation-name: shake;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+  }
+
   .about__media::after {
     content: "";
     position: absolute;
@@ -151,6 +145,22 @@
     background: transparent;
     color: var(--accent);
     box-shadow: none;
+  }
+
+  @media screen and (min-width: 600px) {
+    #sobre-mi {
+    }
+
+    .about__media {
+      max-width: 320px;
+    }
+  }
+
+  /* Dos columnas a partir de 700px */
+  @media (min-width: 992px) {
+    .about__container {
+      grid-template-columns: minmax(260px, 320px) 1fr;
+    }
   }
 
   /* Reduce motion si el usuario lo prefiere */
