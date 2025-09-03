@@ -5,7 +5,11 @@ import config from "src/utils/page_config";
 
 <header>
   <Astronav closeOnClick>
-    <h1>{config.TitlePage}</h1>
+    <h1>
+      <a href="#inicio">
+        {config.TitlePage}
+      </a>
+    </h1>
 
     <div class="menuIcon">
       <MenuIcon />
@@ -45,6 +49,10 @@ import config from "src/utils/page_config";
   header h1 {
     color: var(--primary);
     font-size: 1.5rem;
+  }
+  header h1 a {
+    color: inherit;
+    text-decoration: none;
   }
 
   :global(.menuIcon button) {
