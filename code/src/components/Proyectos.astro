@@ -1,15 +1,11 @@
 ---
-import type Entry from "src/types/Entries";
-import loadProyects from "src/utils/loadProyects";
 
-const entries: Entry[] = await loadProyects();
 ---
 
 <section id="proyectos">
   <div class="section__container">
-  <h2>Proyectos</h2>
-  <div class="projects">
-    {entries.map(({ Component }) => <Component />)}
+    <h2>Proyectos</h2>
+    <div class="projects"></div>
   </div>
 </section>
 
@@ -17,7 +13,7 @@ const entries: Entry[] = await loadProyects();
   .projects {
     display: grid;
     grid-template-columns: 1fr;
-    align-items: start;
+    align-items: stretch;
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -32,12 +28,6 @@ const entries: Entry[] = await loadProyects();
       grid-template-columns: repeat(2, 1fr);
     }
   }
-
-  @media screen and (min-width: 992px) {
-    .projects {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
 </style>
 
 <style is:global>
@@ -45,28 +35,42 @@ const entries: Entry[] = await loadProyects();
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 1rem;
-    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
   }
-
   #proyectos .project:hover {
     transform: scale(1.02);
     background: rgba(0, 191, 166, 0.15);
   }
 
-  #proyectos .project img {
-    width: 100%;
+  #proyectos .project p {
+    flex: 1;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  /* --------------------------- Tags --------------------------- */
+  #proyectos .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  #proyectos .tags .tag {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.1em 0.3em;
+    border-radius: 10px;
+    user-select: none;
+  }
+  #proyectos .tags .tag:hover {
+    animation: shake_vertical 2s ease 0s 1 normal forwards;
   }
 
   /* --------------------------- Links --------------------------- */
-  #proyectos .links {
-    max-height: 0;
-    overflow-y: hidden;
-    transition: 0.3s;
-  }
-  #proyectos .project:hover .links {
-    max-height: 100px;
-  }
-
   #proyectos .links * {
     color: inherit;
     text-decoration: none;
@@ -87,8 +91,54 @@ const entries: Entry[] = await loadProyects();
     content: "🔗";
   }
   #proyectos .links *.gitlab::before,
-  #proyectos .links *.codepen::before,
   #proyectos .links *.github::before {
-    content: "📂";
+    content: "📂 ";
+  }
+  #proyectos .links *.codepen::before {
+    content: "🖋️ ";
   }
 </style>
+
+<script>
+  import type Project from "src/types/Project";
+
+  const project__container = document.querySelector(".projects") as HTMLElement;
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    const data = await fetch("/proyectos.json");
+    if (!data.ok) throw new Error("Algo salió mal");
+
+    const DATA = await data.json();
+    project__container.innerHTML = renderContent(DATA);
+  });
+
+  function renderTags(tags: string[]) {
+    return tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+  }
+
+  function renderContent(data: Project[]) {
+    return data
+      .map((d) => {
+        const { title, description, links, tags } = d;
+
+        return `<div class="project">
+  <h3>${title}</h3>
+
+  <p>${description}</p>
+
+  ${tags && tags.length > 0 ? `<div class="tags">${renderTags(tags)}</div>` : ""}
+
+  <div class="links">
+    ${links.github ? `<a href="${links.github}" target="_blank" title="Github" class="github" rel="noopener noreferrer">Repositorio</a>` : ""}
+
+    ${links.gitlab ? `<a href="${links.gitlab}" target="_blank"  title="Gitlab" class="gitlab" rel="noopener noreferrer">Repositorio</a>` : ""}
+
+    ${links.demo ? `<a href="${links.demo}" target="_blank" title="${links.demo}" class="codepen" rel="noopener noreferrer">Demo</a>` : ""}
+
+    ${links.codepen ? `<a href="${links.codepen}" target="_blank" title="Codepen" class="codepen" rel="noopener noreferrer">Codepen</a>` : ""}
+  </div>
+</div>`;
+      })
+      .join("");
+  }
+</script>
