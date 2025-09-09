@@ -1,41 +1,44 @@
 <section id="educacion">
   <div class="section__container">
-  <h2>Educación / Certificaciones</h2>
+    <h2>Educación / Certificaciones</h2>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>UDELAR - UTEC</h3>
-      <span>2018 - 2024</span>
-      <p>Carrera terciaria de Tecnólogo en Informática..</p>
-    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>UDELAR - UTEC</h3>
+        <span>2018 - 2024</span>
+        <p>Carrera terciaria de Tecnólogo en Informática..</p>
+      </div>
 
-    <div class="timeline-item">
-      <h3>Instituto Tecnológico Superior de Paysandú - UTU</h3>
-      <span>2015 - 2017</span>
-      <p>Bachillerato en Informática.</p>
-    </div>
+      <div class="timeline-item">
+        <h3>Instituto Tecnológico Superior de Paysandú - UTU</h3>
+        <span>2015 - 2017</span>
+        <p>Bachillerato en Informática.</p>
+      </div>
 
-    <div class="timeline-item">
-      <h3>Instituto Punto Com</h3>
+      <div class="timeline-item">
+        <h3>Instituto Punto Com</h3>
 
-      <span>2017</span>
-      <p>Programación Visual .NET.</p>
+        <span>2017</span>
+        <p>Programación Visual .NET.</p>
 
-      <span>2016</span>
-      <p>Certificación en Mantenimiento y reparación de PC II.</p>
+        <span>2016</span>
+        <p>Certificación en Mantenimiento y reparación de PC II.</p>
 
-      <span>2015</span>
-      <p>Certificación en Mantenimiento y reparación de PC I.</p>
+        <span>2015</span>
+        <p>Certificación en Mantenimiento y reparación de PC I.</p>
 
-      <span>2014</span>
-      <p>Certificación en Diseño gráfico.</p>
+        <span>2014</span>
+        <p>Certificación en Diseño gráfico.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  #educacion {
-    min-height: auto;
+  .section__container {
+    animation: left_appear 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
   }
 
   .timeline {
@@ -72,5 +75,12 @@
     height: var(--dot-size);
     background-color: var(--secondary); /* color del círculo */
     border-radius: 50%; /* lo convierte en círculo */
+  }
+
+  @media screen and (min-width: 600px) {
+    .section__container {
+      width: fit-content;
+      padding: 0 20%;
+    }
   }
 </style>

@@ -1,27 +1,31 @@
 <section id="experiencia">
-  <h2>Experiencia</h2>
+  <div class="section__container right_appear">
+    <h2>Experiencia</h2>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Punto Com</h3>
-      <span>2025 - Actualidad</span>
-      <p>Educador en programación JAVA.</p>
-    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Punto Com</h3>
+        <span>2025 - Actualidad</span>
+        <p>Educador en programación JAVA.</p>
+      </div>
 
-    <div class="timeline-item">
-      <h3>SOFKA</h3>
-      <span>2022 - Actualidad</span>
-      <p>
-        Desarrollador Full Stack en desarrollo web y consultor en Frame Banking.
-      </p>
+      <div class="timeline-item">
+        <h3>SOFKA</h3>
+        <span>2022 - Actualidad</span>
+        <p>
+          Desarrollador Full Stack en desarrollo web y consultor en Frame
+          Banking.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  #experiencia {
-    min-height: auto;
+  .section__container {
+    animation: right_appear 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
   }
 
   .timeline {
@@ -58,5 +62,12 @@
     height: var(--dot-size);
     background-color: var(--secondary); /* color del círculo */
     border-radius: 50%; /* lo convierte en círculo */
+  }
+
+  @media screen and (min-width: 600px) {
+    .section__container {
+      width: fit-content;
+      padding: 0 20%;
+    }
   }
 </style>
