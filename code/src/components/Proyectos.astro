@@ -101,11 +101,12 @@
 
 <script>
   import type Project from "src/types/Project";
+  import config from "src/utils/page_config";
 
   const project__container = document.querySelector(".projects") as HTMLElement;
 
   window.addEventListener("DOMContentLoaded", async () => {
-    const data = await fetch("/proyectos.json");
+    const data = await fetch(`${config.basePage}/proyectos.json`);
     if (!data.ok) throw new Error("Algo salió mal");
 
     const DATA = await data.json();
