@@ -5,7 +5,8 @@
 <style is:global>
   :root {
     --base: #0d141e;
-    --background-color: linear-gradient(var(--base) 0%, #1a2432 100%);
+    --light-base: #1a2432;
+    --background-color: linear-gradient(var(--base) 0%, var(--light-base) 100%);
     --primary: #00bfa6; /* verde agua */
     --secondary: #5bc0f8; /* azul claro */
     --text: #eaeaea;
@@ -27,11 +28,18 @@
     font-family: "Segoe UI", sans-serif;
   }
 
+  html {
+    background-color: var(--light-base);
+  }
+
   body {
-    background: var(--background-color);
     color: var(--text);
     line-height: 1.6;
     min-width: 360px;
+
+    height: 100vh;
+    background: var(--background-color);
+    overflow-y: hidden;
   }
 
   .hidden {
@@ -39,8 +47,15 @@
   }
 
   section {
-    padding: 110px 1rem 5rem;
+    padding-top: 110px;
+    padding-inline: 1em;
+    padding-bottom: 300px;
     min-height: 100dvh;
+    contain: paint; /* Evita el scrolleo en el componente */
+  }
+  .section__container {
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   h2 {

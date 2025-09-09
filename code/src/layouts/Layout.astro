@@ -22,8 +22,8 @@ import Background from "./Background.astro";
 
   <body>
     <Header />
+    <Background />
     <div id="index">
-      <Background />
       <slot />
 
       <Footer />
@@ -34,8 +34,12 @@ import Background from "./Background.astro";
 
 <style>
   #index {
+    position: absolute;
+    z-index: 1;
     width: 100%;
-    height: 100dvh;
+    height: 100vh;
+    min-height: 100dvh;
+
     scroll-behavior: smooth;
     overflow: auto;
   }
