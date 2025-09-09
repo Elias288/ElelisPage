@@ -79,7 +79,7 @@ export async function GET({ }): Promise<Response> {
         {
             title: "Gym App",
             tags: ["React Native", "JsDoc", "MongoDB", "Podman", "NestJs"],
-            description: "Proyecto full-stack para el seguimiento de las rutinas del gimnasio en una aplicación movil. en una aplicación movil. en una aplicación movil. en una aplicación movil.",
+            description: "Proyecto full-stack para el seguimiento de las rutinas del gimnasio en una aplicación movil.",
             links: {
                 github: "https://github.com/Elias288/Gym_App",
             },
