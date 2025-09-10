@@ -4,8 +4,8 @@ import config from './src/utils/page_config'
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://elias288.github.io/ElelisPage/",
-    base: config.basePage,
+    site: "https://elias288.github.io",
+    base: `/${config.basePage}`,
     outDir: "public",
     publicDir: "static"
 });
