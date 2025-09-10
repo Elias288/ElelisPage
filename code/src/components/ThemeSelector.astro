@@ -40,31 +40,23 @@ import system from "@assets/eclipse.svg?raw";
   #theme-menu .icon {
     display: none;
   }
-  #theme-menu.dark .icon.moon {
-    display: block;
-  }
-  #theme-menu.light .icon.sun {
-    display: block;
-  }
+
+  #theme-menu.dark .icon.moon,
+  #theme-menu.light .icon.sun,
   #theme-menu.system .icon.system {
     display: block;
   }
-  #theme-menu span {
-    display: block;
-  }
+
   #theme-menu:hover .theme__content {
     height: calc(20px + 30px * 3 + 5px * 3);
     padding-block: 10px;
   }
 
-  #theme-menu.dark #dark-theme-btn span {
-    color: var(--contact-link-hover);
-  }
-  #theme-menu.light #light-theme-btn span {
-    color: var(--contact-link-hover);
-  }
-  #theme-menu.system #system-theme-btn span {
-    color: var(--contact-link-hover);
+  #theme-menu.dark #dark-theme-btn span,
+  #theme-menu.light #light-theme-btn span,
+  #theme-menu.system #system-theme-btn span,
+  button:hover span {
+    color: var(--card-text-hover);
   }
 
   .theme__content {
@@ -95,9 +87,6 @@ import system from "@assets/eclipse.svg?raw";
     border: none;
     cursor: pointer;
     color: var(--text);
-  }
-  button:hover span {
-    color: var(--contact-link-hover);
   }
 </style>
 

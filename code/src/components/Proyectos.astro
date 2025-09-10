@@ -32,7 +32,7 @@
 
 <style is:global>
   #proyectos .project {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     border-radius: 12px;
     padding: 1rem;
     display: flex;
@@ -41,14 +41,14 @@
   }
   #proyectos .project:hover {
     transform: scale(1.02);
-    background: rgba(0, 191, 166, 0.15);
+    background: var(--card-bg-hover);
   }
 
   #proyectos .project p {
     flex: 1;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid var(--card-ln);
   }
 
   /* --------------------------- Tags --------------------------- */
@@ -58,10 +58,10 @@
     gap: 5px;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid var(--card-ln);
   }
   #proyectos .tags .tag {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--bg);
     padding: 0.1em 0.3em;
     border-radius: 10px;
     user-select: none;
@@ -76,15 +76,15 @@
     text-decoration: none;
     display: inline-block;
 
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
     padding: 0.3rem 0.5rem;
     margin-bottom: 5px;
     text-align: center;
     border-radius: 10px;
   }
   #proyectos .links *:hover {
-    background-color: rgba(91, 192, 248, 0.15);
-    color: #4db6ff;
+    background-color: var(--card-bg-hover);
+    color: var(--card-text-hover);
   }
 
   #proyectos .links *::before {
