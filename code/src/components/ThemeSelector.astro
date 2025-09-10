@@ -4,98 +4,140 @@ import sun from "@assets/sun.svg?raw";
 import system from "@assets/eclipse.svg?raw";
 ---
 
-<button id="toggle-theme" class="dark">
-  <span class="icon sun" title="Light theme">
-    <Fragment set:html={sun} />
-  </span>
-  <span class="icon moon" title="Dark theme">
+<div id="theme-menu" class="dark">
+  <span class="icon moon">
     <Fragment set:html={moon} />
   </span>
-</button>
-
-<button id="system-theme" class="hidden" title="System theme">
-  <span class="system">
+  <span class="icon sun">
+    <Fragment set:html={sun} />
+  </span>
+  <span class="icon system">
     <Fragment set:html={system} />
   </span>
-</button>
+
+  <div class="theme__content">
+    <button id="dark-theme-btn" title="Dark theme">
+      <span>
+        <Fragment set:html={moon} />
+      </span>
+    </button>
+
+    <button id="light-theme-btn" title="Light theme">
+      <span>
+        <Fragment set:html={sun} />
+      </span>
+    </button>
+
+    <button id="system-theme-btn" title="System theme">
+      <span>
+        <Fragment set:html={system} />
+      </span>
+    </button>
+  </div>
+</div>
 
 <style>
+  #theme-menu .icon {
+    display: none;
+  }
+  #theme-menu.dark .icon.moon {
+    display: block;
+  }
+  #theme-menu.light .icon.sun {
+    display: block;
+  }
+  #theme-menu.system .icon.system {
+    display: block;
+  }
+  #theme-menu span {
+    display: block;
+  }
+  #theme-menu:hover .theme__content {
+    height: calc(20px + 30px * 3 + 5px * 3);
+    padding-block: 10px;
+  }
+
+  #theme-menu.dark #dark-theme-btn span {
+    color: var(--contact-link-hover);
+  }
+  #theme-menu.light #light-theme-btn span {
+    color: var(--contact-link-hover);
+  }
+  #theme-menu.system #system-theme-btn span {
+    color: var(--contact-link-hover);
+  }
+
+  .theme__content {
+    position: fixed;
+    height: 0;
+    overflow-y: hidden;
+    background-color: var(--bg);
+    border-radius: 5px;
+    transform: translateX(-5px);
+
+    padding-inline: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+
+  :global(#theme-menu svg),
+  button,
+  span {
+    width: 30px;
+    height: 30px;
+  }
+
   button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: var(--text);
   }
-
-  .icon {
-    display: none;
-  }
-
-  button.dark .sun {
-    display: inline-block;
-  }
-  button.light .moon {
-    display: inline-block;
-  }
-
-  :global(#toggle-theme svg),
-  :global(#system-theme svg) {
-    width: 30px;
-    height: 30px;
+  button:hover span {
+    color: var(--contact-link-hover);
   }
 </style>
 
 <!-- is:inline el script se ejecuta mientras se renderiza la página -->
 <script is:inline>
   const root = document.documentElement;
-  const toggleBtn = document.getElementById("toggle-theme");
-  const systemBtn = document.getElementById("system-theme");
+  // const toggleBtn = document.getElementById("toggle-theme");
+  const themeMenu = document.getElementById("theme-menu");
+  const systemBtn = document.getElementById("system-theme-btn");
+  const darkBtn = document.getElementById("dark-theme-btn");
+  const lightBtn = document.getElementById("light-theme-btn");
   const defaultTheme = getSystemTheme();
 
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
-    root.setAttribute("data-theme", savedTheme);
-    if (systemBtn) systemBtn.className = "";
-  } else {
-    setBtnTheme(defaultTheme, toggleBtn);
-    root.setAttribute("data-theme", defaultTheme);
+    root.setAttribute(
+      "data-theme",
+      savedTheme === "system" ? defaultTheme : savedTheme
+    );
+    themeMenu.className = savedTheme;
   }
 
-  if (toggleBtn && systemBtn && root) {
-    /* --------------------- TOGGLE THEME BUTTON --------------------- */
-    toggleBtn.addEventListener("click", () => {
-      systemBtn.className = "";
-      const current = root.getAttribute("data-theme") || "";
-      const newTheme =
-        current === ""
-          ? defaultTheme === "dark"
-            ? "light"
-            : "dark"
-          : current === "dark"
-            ? "light"
-            : "dark";
-
-      setBtnTheme(newTheme, toggleBtn);
-      root.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
+  if (themeMenu && darkBtn && lightBtn && systemBtn) {
+    lightBtn.addEventListener("click", () => {
+      setTheme("light", "light");
     });
 
-    /* --------------------- SYSTEM THEME BUTTON --------------------- */
+    darkBtn.addEventListener("click", () => {
+      setTheme("dark", "dark");
+    });
+
     systemBtn.addEventListener("click", () => {
-      systemBtn.classList.add("hidden");
-      setBtnTheme(defaultTheme, toggleBtn);
-      root.setAttribute("data-theme", defaultTheme);
-      localStorage.removeItem("theme");
+      setTheme("system", defaultTheme);
     });
   }
 
-  /**
-   * Agrega la clase dark o light al boton
-   * @param theme [dark|light]
-   * @param toggleBtn El botón a modificar
-   */
-  function setBtnTheme(theme, toggleBtn) {
-    toggleBtn.className = theme;
+  function setTheme(value, theme) {
+    themeMenu.className = value;
+    localStorage.setItem("theme", value);
+    root.setAttribute("data-theme", theme);
   }
 
   /**
