@@ -1,0 +1,109 @@
+---
+import moon from "@assets/moon.svg?raw";
+import sun from "@assets/sun.svg?raw";
+import system from "@assets/eclipse.svg?raw";
+---
+
+<button id="toggle-theme" class="dark">
+  <span class="icon sun" title="Light theme">
+    <Fragment set:html={sun} />
+  </span>
+  <span class="icon moon" title="Dark theme">
+    <Fragment set:html={moon} />
+  </span>
+</button>
+
+<button id="system-theme" class="hidden" title="System theme">
+  <span class="system">
+    <Fragment set:html={system} />
+  </span>
+</button>
+
+<style>
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  .icon {
+    display: none;
+  }
+
+  button.dark .sun {
+    display: inline-block;
+  }
+  button.light .moon {
+    display: inline-block;
+  }
+
+  :global(#toggle-theme svg),
+  :global(#system-theme svg) {
+    width: 30px;
+    height: 30px;
+  }
+</style>
+
+<!-- is:inline el script se ejecuta mientras se renderiza la página -->
+<script is:inline>
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById("toggle-theme");
+  const systemBtn = document.getElementById("system-theme");
+  const defaultTheme = getSystemTheme();
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    root.setAttribute("data-theme", savedTheme);
+    if (systemBtn) systemBtn.className = "";
+  } else {
+    setBtnTheme(defaultTheme, toggleBtn);
+    root.setAttribute("data-theme", defaultTheme);
+  }
+
+  if (toggleBtn && systemBtn && root) {
+    /* --------------------- TOGGLE THEME BUTTON --------------------- */
+    toggleBtn.addEventListener("click", () => {
+      systemBtn.className = "";
+      const current = root.getAttribute("data-theme") || "";
+      const newTheme =
+        current === ""
+          ? defaultTheme === "dark"
+            ? "light"
+            : "dark"
+          : current === "dark"
+            ? "light"
+            : "dark";
+
+      setBtnTheme(newTheme, toggleBtn);
+      root.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+
+    /* --------------------- SYSTEM THEME BUTTON --------------------- */
+    systemBtn.addEventListener("click", () => {
+      systemBtn.classList.add("hidden");
+      setBtnTheme(defaultTheme, toggleBtn);
+      root.setAttribute("data-theme", defaultTheme);
+      localStorage.removeItem("theme");
+    });
+  }
+
+  /**
+   * Agrega la clase dark o light al boton
+   * @param theme [dark|light]
+   * @param toggleBtn El botón a modificar
+   */
+  function setBtnTheme(theme, toggleBtn) {
+    toggleBtn.className = theme;
+  }
+
+  /**
+   * Retorna el tema del sistema
+   */
+  function getSystemTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+</script>

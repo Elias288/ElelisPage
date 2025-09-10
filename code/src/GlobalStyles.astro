@@ -4,6 +4,38 @@
 
 <style is:global>
   :root {
+    color-scheme: light dark;
+
+    /* Inmutables */
+    --min-width: 360px;
+    --header-height: 75px;
+
+    /* Mutables */
+    /* Default: dark */
+    --base: #0d141e;
+    --light-base: #1a2432;
+    --background-color: linear-gradient(var(--base) 0%, var(--light-base) 100%);
+    --primary: #00bfa6; /* verde agua */
+    --secondary: #5bc0f8; /* azul claro */
+    --text: #eaeaea;
+
+    --bg: rgba(11, 18, 32, 0.85);
+    --fg: #ffffff1a;
+    --muted: #94a3b8;
+    --card: #0f172a;
+    --ring: #1f2937;
+    --accent: #818cf8;
+
+    --contact-bg: rgba(255, 255, 255, 0.05);
+    --contact-bg-hover: rgba(91, 192, 248, 0.15);
+    --contact-link-hover: #4db6ff;
+    --contact-bg-link-hover: rgba(255, 255, 255, 0.7);
+
+    --bubble-bg: rgba(255, 255, 255, 0.03);
+  }
+
+  /* ------------------------- Temas --------------------------- */
+  :root[data-theme="dark"] {
     --base: #0d141e;
     --light-base: #1a2432;
     --background-color: linear-gradient(var(--base) 0%, var(--light-base) 100%);
@@ -11,15 +43,46 @@
     --secondary: #5bc0f8; /* azul claro */
     --text: #eaeaea;
     --muted: #b0b0b0;
-    --header-height: 75px;
 
     --bg: rgba(11, 18, 32, 0.85);
-    --fg: #e5e7eb;
+    --fg: #ffffff1a;
     --muted: #94a3b8;
     --card: #0f172a;
     --ring: #1f2937;
     --accent: #818cf8;
+
+    --contact-bg: rgba(255, 255, 255, 0.05);
+    --contact-bg-hover: rgba(91, 192, 248, 0.15);
+    --contact-link-hover: #4db6ff;
+    --contact-bg-link-hover: rgba(255, 255, 255, 0.7);
+
+    --bubble-bg: rgba(255, 255, 255, 0.03);
   }
+
+  :root[data-theme="light"] {
+    --base: #f5f7fa;
+    --light-base: #ffffff;
+    --background-color: linear-gradient(var(--base) 0%, var(--light-base) 100%);
+
+    --primary: #00bfa6; /* verde agua (mantiene contraste en claro) */
+    --secondary: #0077cc; /* azul más intenso para destacar sobre fondo claro */
+    --text: #1a1a1a;
+    --muted: #606060;
+
+    --bg: rgba(255, 255, 255, 0.9);
+    --fg: #0000000d;
+    --card: #f0f4f8;
+    --ring: #d0d7e2;
+    --accent: #4f46e5; /* morado fuerte para resaltar en claro */
+
+    --contact-bg: rgba(0, 0, 0, 0.03);
+    --contact-bg-hover: rgba(0, 119, 204, 0.1);
+    --contact-link-hover: #005fa3;
+    --contact-bg-link-hover: rgba(0, 0, 0, 0.7);
+
+    --bubble-bg: rgba(0, 80, 192, 0.129);
+  }
+  /* ------------------------------------------------------------ */
 
   * {
     margin: 0;
@@ -30,16 +93,22 @@
 
   html {
     background-color: var(--light-base);
+    transition:
+      background-color 0.3s,
+      color 0.3s;
   }
 
   body {
     color: var(--text);
     line-height: 1.6;
-    min-width: 360px;
+    min-width: var(--min-width);
 
     height: 100vh;
     background: var(--background-color);
     overflow-y: hidden;
+    transition:
+      background 0.3s,
+      color 0.3s;
   }
 
   .hidden {

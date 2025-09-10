@@ -52,7 +52,7 @@ import gmail from "@assets/gmail.svg?raw";
   }
 
   .social-links a {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
     font-size: 1.1rem;
     transition: color 0.3s ease;
@@ -61,7 +61,7 @@ import gmail from "@assets/gmail.svg?raw";
     align-items: center;
     gap: 10px;
 
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--contact-bg);
     padding: 0.5rem 1rem;
     text-align: center;
     border-radius: 10px;
@@ -69,11 +69,11 @@ import gmail from "@assets/gmail.svg?raw";
   }
   .social-links a:hover {
     transform: translateY(-3px);
-    background: rgba(91, 192, 248, 0.15);
-    color: #4db6ff;
+    background: var(--contact-bg-hover);
+    color: var(--contact-link-hover);
   }
   :global(.social-links a:hover svg) {
-    color: rgb(255 255 255 / 70%);
+    color: var(--contact-bg-link-hover);
   }
 
   :global(.social-links svg) {
