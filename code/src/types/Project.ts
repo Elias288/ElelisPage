@@ -8,5 +8,6 @@ export default interface Project {
     title: string;
     tags?: string[],
     description: string;
-    links: Links
+    img: string;
+    links: Links;
 }

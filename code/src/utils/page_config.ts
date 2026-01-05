@@ -1,6 +1,6 @@
 const config = {
     TitlePage: "Elelis Page",
-    basePage: `${import.meta.env.DEV ? "" : "ElelisPage"}`,
+    basePage: "ElelisPage",
     urlPage: "https://elias288.github.io/ElelisPage"
 }
 
