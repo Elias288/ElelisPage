@@ -1,0 +1,3 @@
+minimumReleaseAge: 1440
+ignored-built-dependencies[]=esbuild
+ignored-built-dependencies[]=sharp

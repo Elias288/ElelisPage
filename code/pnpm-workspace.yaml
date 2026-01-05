@@ -1,5 +1,0 @@
-ignoredBuiltDependencies:
-  - esbuild
-  - sharp
-
-minimumReleaseAge: 1440
