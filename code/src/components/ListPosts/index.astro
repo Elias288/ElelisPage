@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "./PostCard.astro";
+
+const { showLast } = Astro.props;
+
+const posts = await getCollection("posts");
+
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+---
+
+<div class="listPosts">
+  {
+    sortedPosts.map((post, key) => {
+      const { id, data } = post;
+
+      return (
+        <PostCard
+          id={id}
+          title={data.title}
+          description={data.description}
+          img={data.img}
+          date={data.date}
+        />
+      );
+    })
+  }
+</div>

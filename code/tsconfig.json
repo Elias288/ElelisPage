@@ -10,7 +10,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"],
-    }
+      "@utils/*": ["src/utils/*"]
+    },
+    "strictNullChecks": true
   }
 }
