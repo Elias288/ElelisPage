@@ -7,7 +7,7 @@ import config from "src/utils/page_config";
 <header>
   <Astronav closeOnClick>
     <h1>
-      <a href="#inicio">
+      <a href=`${config.basePage}/#inicio`>
         {config.TitlePage}
       </a>
     </h1>
@@ -20,12 +20,13 @@ import config from "src/utils/page_config";
 
     <MenuItems class="menuItems hidden">
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#educacion">Educación</a></li>
+        <li><a href=`${config.basePage}/#inicio`>Inicio</a></li>
+        <li><a href=`${config.basePage}/#sobre-mi`>Sobre mí</a></li>
+        <li><a href=`${config.basePage}/#habilidades`>Habilidades</a></li>
+        <li><a href=`${config.basePage}/#proyectos`>Proyectos</a></li>
+        <li><a href=`${config.basePage}/#experiencia`>Experiencia</a></li>
+        <li><a href=`${config.basePage}/#educacion`>Educación</a></li>
+        <li><a href="blog">Blog</a></li>
       </ul>
     </MenuItems>
   </Astronav>

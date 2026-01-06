@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  id: string;
+  date: Date;
+  img?: string;
+  tags?: string[];
+  suggestedPosts?: string[];
+}
+
+const { title, description, id, date, tags, suggestedPosts, img }: Props =
+  Astro.props;
+---
+
+<a class=`postCard`>
+  <div class="border">
+    <strong id="title">{title}</strong>
+    <small id="date">{new Date(date).toLocaleDateString()}</small>
+    <p id="description">{description}</p>
+  </div>
+</a>
+
+<style>
+  .postCard {
+    background-color: var(--base);
+    max-width: 700px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+
+    display: block;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  .postCard * {
+    font-family: monospace;
+  }
+  .postCard:hover {
+    transform: translateY(-15px);
+  }
+
+  .border {
+    border: 2px solid var(--secondary);
+    border-radius: 10px;
+    padding: 20px 10px 10px;
+    position: relative;
+  }
+
+  #title,
+  #date {
+    color: var(--secondary);
+    position: absolute;
+    background-color: var(--base);
+    font-weight: bold;
+    z-index: 1;
+    padding: 0 5px;
+    top: -10px;
+    height: 1.5rem;
+  }
+  #title {
+    left: 20px;
+  }
+  #date {
+    right: 20px;
+  }
+
+  #description {
+    margin: 0;
+  }
+</style>
