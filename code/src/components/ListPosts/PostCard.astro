@@ -13,7 +13,7 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
   Astro.props;
 ---
 
-<a class=`postCard` href=`${import.meta.env.BASE_URL}blog/post/${id}`>
+<a class=`postCard` href=`${import.meta.env.BASE_URL}/blog/post/${id}`>
   <div class="border">
     <small id="date">{new Date(date).toLocaleDateString()}</small>
     <strong id="title">{title}</strong>
