@@ -9,8 +9,8 @@ const posts = defineCollection({
         description: z.string(),
         img: z.string().optional(),
         date: z.date(),
-        tags: z.array(z.string().optional()).optional(),
-        suggestedPost: z.array(z.string().optional()).optional()
+        tags: z.array(z.string()).optional(),
+        suggestedPost: z.array(z.string()).optional()
     })
 })
 

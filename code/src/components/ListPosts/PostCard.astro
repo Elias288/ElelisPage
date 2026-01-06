@@ -13,10 +13,10 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
   Astro.props;
 ---
 
-<a class=`postCard`>
+<a class=`postCard` href=`${import.meta.env.BASE_URL}blog/post/${id}`>
   <div class="border">
-    <strong id="title">{title}</strong>
     <small id="date">{new Date(date).toLocaleDateString()}</small>
+    <strong id="title">{title}</strong>
     <p id="description">{description}</p>
   </div>
 </a>
@@ -25,14 +25,18 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
   .postCard {
     background-color: var(--base);
     max-width: 700px;
+    min-width: var(--min-width);
+
+    display: block;
     padding: 10px;
     border-radius: 15px;
     margin-bottom: 20px;
     margin-inline: auto;
 
-    display: block;
     cursor: pointer;
+    text-decoration: none;
     transition: transform 0.5s;
+    overflow: hidden;
   }
   .postCard * {
     font-family: monospace;
@@ -42,31 +46,36 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
   }
 
   .border {
+    min-height: 70px;
     border: 2px solid var(--secondary);
     border-radius: 10px;
-    padding: 20px 10px 10px;
+    padding: 5px 10px 10px;
     position: relative;
   }
 
-  #title,
-  #date {
+  #date,
+  #title {
     color: var(--secondary);
-    position: absolute;
     background-color: var(--base);
     font-weight: bold;
-    z-index: 1;
-    padding: 0 5px;
-    top: -10px;
-    height: 1.5rem;
   }
-  #title {
-    left: 20px;
-  }
+
   #date {
+    padding: 0 5px;
+    z-index: 1;
+    position: absolute;
+    top: -10px;
     right: 20px;
+  }
+
+  #title {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   #description {
     margin: 0;
+    color: var(--text);
   }
 </style>

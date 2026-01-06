@@ -115,12 +115,11 @@
 
 <script>
   import type Project from "src/types/Project";
-  import config from "src/utils/page_config";
 
   const project__container = document.querySelector(".projects") as HTMLElement;
 
   window.addEventListener("DOMContentLoaded", async () => {
-    const data = await fetch(`${config.urlPage}/proyectos.json`);
+    const data = await fetch(`${import.meta.env.BASE_URL}proyectos.json`);
     if (!data.ok) throw new Error("Algo salió mal");
 
     const DATA = await data.json();

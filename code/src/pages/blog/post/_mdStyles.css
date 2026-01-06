@@ -1,0 +1,35 @@
+#content {
+    margin-top: 4rem;
+}
+
+#content * {
+    padding: revert;
+    margin: revert;
+}
+
+#content p code {
+    border-radius: 5px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    background-color: #282A36;
+    color: #f8f8f2;
+    font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+}
+
+#content .astro-code {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary);
+}
+
+#content p {
+    line-height: 1.6em;
+}

@@ -1,0 +1,111 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import arrow_back from "@assets/arrow_back.svg?raw";
+
+import "./_mdStyles.css";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post, allPosts: posts },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post, allPosts } = Astro.props;
+const { data } = post;
+
+const { Content } = await render(post);
+---
+
+<Layout>
+  <section class="post">
+    <!-- Go Back -->
+    <a href=`${import.meta.env.BASE_URL}blog`>
+      <Fragment set:html={arrow_back} />
+    </a>
+
+    <div class="content__container">
+      <!-- Date -->
+      <small class="date">{new Date(data.date).toLocaleDateString()}</small>
+      <!-- Tags -->
+      {
+        data.tags && data.tags.length > 0 && (
+          <div class="tagList">
+            {data.tags.map((tag, index) => (
+              <>
+                <span>
+                  <a href="#">{tag}</a>
+                </span>
+                {data.tags && index < data.tags?.length - 1 && <span>|</span>}
+              </>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- Title -->
+      <h2 class="title">{data.title}</h2>
+
+      <!-- Post Description -->
+      <p class="description">{data.description}</p>
+
+      <!-- Content -->
+      <div id="content"><Content /></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .tagList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .tagList * {
+    color: var(--text);
+    opacity: 0.8;
+  }
+  .tagList a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .tagList a:hover {
+    opacity: 0.5;
+  }
+
+  .date {
+    opacity: 0.6;
+    float: right;
+  }
+
+  .title {
+    font-size: 3rem;
+    text-wrap: balance;
+  }
+  .description {
+    opacity: 0.6;
+  }
+
+  :global(.post svg) {
+    width: 30px;
+    height: 30px;
+    color: var(--secondary);
+
+    cursor: pointer;
+  }
+  :global(.post svg:hover) {
+    opacity: 0.6;
+  }
+
+  .content__container {
+    max-width: 700px;
+    margin-inline: auto;
+  }
+</style>
