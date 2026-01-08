@@ -22,7 +22,7 @@ const { data } = post;
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout title={data.title} description={data.description} showLink={true}>
   <section class="post">
     <!-- Go Back -->
     <a href=`${import.meta.env.BASE_URL}/blog`>

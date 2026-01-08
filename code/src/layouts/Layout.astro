@@ -3,6 +3,16 @@ import GlobalStyles from "src/GlobalStyles.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import Background from "./Background.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  showLink?: boolean;
+}
+
+const { title, description, showLink }: Props = Astro.props;
+const parsedTitle = `${title}${!showLink ? "" : " - ElelisPage"}`;
+const image = `${import.meta.env.BASE_URL}/favicon.svg`;
 ---
 
 <!doctype html>
@@ -11,13 +21,19 @@ import Background from "./Background.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="color-scheme" content="light dark" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={`${import.meta.env.BASE_URL}/favicon.svg`}
-    />
     <meta name="generator" content={Astro.generator} />
-    <title>Elelis page - portafolio</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="all" />
+    <meta name="Content-Language" content="es-ES" />
+    <meta name="revisit-after" content="1 days" />
+    <link rel="icon" type="image/svg+xml" href={image} />
+
+    <meta itemprop="name" content={`${parsedTitle}`} />
+    <meta itemprop="description" content={description} />
+    <meta itemprop="image" content={image} />
+
+    <title>{parsedTitle}</title>
+    <GlobalStyles />
   </head>
 
   <body>
@@ -28,7 +44,6 @@ import Background from "./Background.astro";
 
       <Footer />
     </div>
-    <GlobalStyles />
   </body>
 </html>
 
