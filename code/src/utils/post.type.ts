@@ -1,8 +1,7 @@
 export type PostData = {
     title: string;
     description: string
-    slug: string;
-    date: string;
+    date: Date | string;
     img?: string;
     tags?: string[];
     suggestedPosts?: string[]

@@ -6,25 +6,64 @@ const { showLast } = Astro.props;
 
 const posts = await getCollection("posts");
 
-const sortedPosts = posts.sort((a, b) => {
-  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
-});
+const sortedPosts = posts.reduce(
+  (acc, post) => {
+    const date = post.data.date;
+    const key = date.toISOString().split("T")[0];
+
+    acc[key] ??= [];
+    acc[key].push(post);
+    return acc;
+  },
+  {} as Record<string, typeof posts>
+);
+const sortedDates = Object.keys(sortedPosts).sort(
+  (a, b) => new Date(b).getTime() - new Date(a).getTime()
+);
 ---
 
 <div class="listPosts">
   {
-    sortedPosts.map((post, key) => {
-      const { id, data } = post;
+    sortedDates.map((date) => (
+      <>
+        <div class="date">
+          <hr />
+          <span>{date}</span>
+        </div>
 
-      return (
-        <PostCard
-          id={id}
-          title={data.title}
-          description={data.description}
-          img={data.img}
-          date={data.date}
-        />
-      );
-    })
+        {sortedPosts[date].map((post) => (
+          <PostCard id={post.id} post={post.data} />
+        ))}
+      </>
+    ))
   }
 </div>
+
+<style>
+  .date {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    position: relative;
+    background-color: var(--base);
+    padding-block: 1rem;
+    padding-inline: 0.5rem;
+  }
+  .date:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .date * {
+    color: var(--secondary);
+    border-color: var(--secondary);
+  }
+
+  .date span {
+    z-index: 5;
+    background-color: var(--base);
+    padding-inline: 5px;
+    position: absolute;
+    margin-left: 0.5rem;
+    top: 0.2rem;
+  }
+</style>

@@ -1,21 +1,19 @@
 ---
+import type { PostData } from "@utils/post.type";
+
 interface Props {
-  title: string;
-  description: string;
   id: string;
-  date: Date;
-  img?: string;
-  tags?: string[];
-  suggestedPosts?: string[];
+  post: PostData;
 }
 
-const { title, description, id, date, tags, suggestedPosts, img }: Props =
-  Astro.props;
+const { post, id }: Props = Astro.props;
+const { title, description, date, tags, suggestedPosts, img } = post;
 ---
 
 <a class=`postCard` href=`${import.meta.env.BASE_URL}/blog/post/${id}`>
   <div class="border">
-    <small id="date">{new Date(date).toLocaleDateString()}</small>
+    <!-- Tags -->
+    {tags && tags.length > 0 && <div id="tagList">{tags.join(" ")}</div>}
     <strong id="title">{title}</strong>
     <p id="description">{description}</p>
   </div>
@@ -24,7 +22,7 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
 <style>
   .postCard {
     background-color: var(--base);
-    max-width: 700px;
+    max-width: var(--max-width);
     min-width: var(--min-width);
 
     display: block;
@@ -53,14 +51,14 @@ const { title, description, id, date, tags, suggestedPosts, img }: Props =
     position: relative;
   }
 
-  #date,
+  #tagList,
   #title {
     color: var(--secondary);
     background-color: var(--base);
     font-weight: bold;
   }
 
-  #date {
+  #tagList {
     padding: 0 5px;
     z-index: 1;
     position: absolute;

@@ -31,7 +31,8 @@ const { Content } = await render(post);
 
     <div class="content__container">
       <!-- Date -->
-      <small class="date">{new Date(data.date).toLocaleDateString()}</small>
+      <small class="date">{data.date.toISOString().split("T")[0]}</small>
+
       <!-- Tags -->
       {
         data.tags && data.tags.length > 0 && (
