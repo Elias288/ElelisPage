@@ -1,0 +1,64 @@
+---
+title: "Mi configuración de Linux"
+description: "Configuración básica que utilizo en mi linux, comandos y facilidades."
+date: 2026-03-09
+
+tags: [Linux]
+---
+
+## Descripción
+
+En este caso voy a estar comentando las configuraciones que he hecho en mi sistema `Manjaro` que utilizo como sistema principal.
+
+## Configuraciones Básicas
+
+### Feedback de contraseñas
+
+Para poder tener un feedback de cuando escribimos una contraseña en la terminal se puede configurar en el archivo `/etc/sudoers` lo siguiente:
+
+```sh
+# comando
+sudo visudo
+
+# agregar al final
+Defaults env_reset,pwfeedback
+```
+
+### Descargas paralelas
+
+Se puede configurar para descargas paralelas y eso se hace editando el archivo `/etc/pacman.conf`
+
+```sh
+sudo vim /etc/pacman.conf
+
+# buscar y descomentar
+ParallelDownloads = 10
+```
+
+### Limpiar automáticamente la cache de paquetes
+
+Deja únicamente las 3 últimas versiones de cada paquete que se actualiza
+
+```sh
+# descargar
+sudo pacman -S pacman-contrib
+
+# activar limpieza automática
+sudo systemctl enable paccache.timer
+```
+
+### EZA para listar archivos y directorios
+
+Una herramienta mejor para listar archivos en consola
+
+```sh
+sudo pacman -S eza
+
+# como estoy usando la shell zsh
+vim ~/.zshrc
+
+# agregar alias
+alias ls='eza --icons'
+alias ll='eza -1 -a --icons --group-directories-first'
+alias la='eza -la --icons --git --group-directories-first'
+```
