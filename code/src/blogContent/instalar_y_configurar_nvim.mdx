@@ -1,0 +1,67 @@
+---
+title: Instalando y configurando NVIM
+description: Configuración de NVIM (lazyVim) personal.
+date: 2026-03-13
+---
+
+## Instalación de fuente
+
+Para esta configuración se va a instalar una fuente desde [Nerd Fonts](https://www.nerdfonts.com) a elección.
+
+En caso de que la fuente no esté en los repositorios del sistema es necesario hacerlo manual (mi caso para `CommitMono`
+
+```sh
+# Creamos el directorio donde guardaremos las fuentes
+# que descomprimimos del zip descargado y movemos los
+# archivos ahí
+mkdir -p ~/.local/share/fonts
+
+# Actualizamos cache
+fc-cache -fv
+```
+
+En mi caso fue necesario configurar un perfil con la nueva fuente y definirla como predeterminada
+
+## Configuración rápida
+
+Descargar el repositorio [configuración-nvim](https://gitlab.com/bianchi.elias/configuracion-nvim) y sobreescribir la configuración de nvim
+
+```sh
+cd ~/.config
+git clone https://gitlab.com/bianchi.elias/configuracion-nvim nvim
+```
+
+## Configuración desde cero
+
+### Descargando LazyVim
+
+```sh
+# Descargamos desde el repositorio de lazyVim
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+
+# Eliminamos el repositorio de nvim para configurarlo despues
+rm -rf ~/.config/nvim/.git
+```
+
+### Configuración de lazyVim
+
+En el archivo `~/.config/nvim/lua/config/options.lua` se configuró el `leader` en la `,`
+
+```lua
+vim.g.mapleader = ","
+```
+
+Se configuró margenes de lineas arriba y abajo del cursor
+
+```lua
+vim.opt.scrolloff = 8
+```
+
+y se configuró la sugerencia de texto con diccionario en español
+
+```lua
+vim.opt.spelllang = { "es", "en" }
+vim.opt.spell = true
+```
+
+> Es necesario dejar los archivos `.spl` en la carpeta `spell`
