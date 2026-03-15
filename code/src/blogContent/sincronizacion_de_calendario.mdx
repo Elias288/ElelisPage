@@ -1,0 +1,297 @@
+---
+title: Sincronización de calendario en Linux
+description: Sincronizando calendario de google con servidor local de calendario
+date: 2026-03-15
+tags: [linux, automatización]
+suggestedPost: [configuración_linux,instalar_y_configurar_nvim]
+---
+
+## Pre-requisitos
+
+Dependencias necesarias
+
+```sh
+sudo pacman -S vdirsyncer radicale python-oauthlib python-aiohttp-oauthlib
+```
+
+## Contenido del post
+
+- [Comenzando](#comenzando)
+  - [Radicale](#radicale)
+  - [Proyecto de Google e Id de cliente OAuth](#proyecto-de-google-e-id-de-cliente-oauth)
+  - [vdirsyncer](#vdirsyncer)
+- [Automatización](#automatización)
+  - [Servidor Radicale](#servidor-radicale)
+  - [Ejecución de vdirsyncer](#ejecución-de-vdirsyncer)
+- [Recomendaciones](#recomendaciones)
+  - [Almacenamiento de contraseñas y tokens](#almacenamiento-de-contraseñas-y-tokens)
+
+## Comenzando
+
+### Radicale
+
+Crear las carpetas
+
+```sh
+mkdir -p ~/.config/radicale/collections
+mkdir -p ~/.local/share/radicale/collections
+```
+
+Archivo de configuración
+
+```bash
+# ~/.config/radicale/config
+[server]
+hosts = 127.0.0.1:5232
+
+[storage]
+filesystem_folder = ~/.local/share/radicale/collections
+
+[auth]
+type = none
+```
+
+Ejecutando este comando el servidor se ejecutará en la url `http://localhost:5232`.
+
+```sh
+radicale
+```
+
+---
+
+### Proyecto de Google e Id de cliente OAuth
+
+Para este proyecto es necesario crear un
+[proyecto de google](https://console.cloud.google.com/apis/credentials) y
+configurar lo siguiente:
+
+- Obtener token de acceso: en "Credenciales"
+  - "+ Crear Credenciales" -> **Id de cliente de OAuth** -> Aplicación de
+  escritorio -> darle un nombre
+  - [guardar token](#almacenamiento-de-contraseñas-y-tokens).
+- Habilitar `CalDAV`: en "APIs y servicios"
+  - "Biblioteca", Buscar `CalDAV` y habilitarlo.
+- Habilitar `Google Calendar API`: en "APIs y servicios"
+  - "Biblioteca", Buscar `Google Calendar API` y habilitarlo.
+- Habilitar `CardDAV`: en "APIs y servicios"
+  - "Biblioteca", Buscar `CarldDAV` y habilitarlo.
+- Habilitar `Google Contacts API`: en "APIs y servicios"
+  - "Biblioteca", Buscar `Google Contacts API` y habilitarlo.
+- Permitir acceso de los calendarios y contactos: en "Consentimiento de OAuth"
+-> Acceso a los datos -> Agregar o quitar permisos
+  - Habilitar: `../auth/contacts`
+  - Habilitar: `../auth/calendar`
+
+---
+
+### VdirSyncer
+
+La herramienta que nos permitirá acceder y sincronizar el calendario y
+contactos de google con [Radicale](#radicale).
+
+Crear las carpetas
+
+```sh
+mkdir -p ~/.config/vdirsyncer/
+mkdir -p ~/.locale/share/vdirsyncer/status
+```
+
+Archivo de configuración
+
+{/*<!-- markdownlint-disable MD013 -->*/}
+
+```sh
+# ~ /.config/vdirsyncer/config
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+# --- CALENDARIOS ---
+[pair google_calendar]
+a = "google_calendar_remote"
+b = "google_calendar_local"
+collections = ["from a", "from b"]
+conflict_resolution = "a wins"
+metadata = ["displayname", "color"]
+
+[storage google_calendar_remote]
+type = "google_calendar"
+client_id.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer_clientId", "username", "TU_CORREO"]
+client_secret.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer_clientSecret", "username", "TU_CORREO"]
+token_file = "~/.config/vdirsyncer/google_token"
+
+[storage google_calendar_local]
+type = "caldav"
+url = "http://localhost:5232/"
+username = "USERNAME"
+password.fetch = ["command", "secret-tool", "lookup", "service", "manjaro_pass", "username", "TU_CORREO"]
+
+# --- CONTACTOS ---
+[pair google_contacts]
+a = "google_contacts_remote"
+b = "google_contacts_local"
+collections = ["from a", "from b"]
+conflict_resolution = "a wins"
+metadata = ["displayname", "color"]
+
+[storage google_contacts_remote]
+type = "google_contacts"
+client_id.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer_clientId", "username", "TU_CORREO"]
+client_secret.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer_clientSecret", "username", "TU_CORREO"]
+token_file = "~/.config/vdirsyncer/google_contacts_token"
+
+[storage google_contacts_local]
+type = "carddav"
+url = "http://localhost:5232/"
+username = "USERNAME"
+password.fetch = ["command", "secret-tool", "lookup", "service", "manjaro_pass", "username", "TU_CORREO"]
+```
+
+{/*<!-- markdownlint-enable MD013 -->*/}
+
+> Todas las contraseñas y tokens se guardan bajo su respectivo nombre y el
+correo como usuario.
+
+Hay que modificar el archivo con datos correctos:
+
+- `TU_COOREO`: Correo de google con los calendarios y contactos
+- `USERNAME`: Nombre de usuario del servidor [Radicale](#radicale)
+
+Hay que almacenar las credenciales y tokens usando [secret-tool](#almacenamiento-de-contraseñas-y-tokens)
+
+- `vdirsyncer_clientId`: clientId configurado en el [proyecto de google](#proyecto-de-google-e-id-de-cliente-oauth)
+- `vdirsyncer_clientSecret`: clientSecret configurado en el [proyecto de google](#proyecto-de-google-e-id-de-cliente-oauth)
+- `manjaro_pass`: contraseña de acceso al servidor [Radicale](#radicale)
+
+Ejecutaremos el comando que creará las colecciones en [Radicale](#radicale) y
+probará las conexiones estén funcionando con las credenciales ingresadas.
+
+```sh
+vdirsyncer discover
+```
+
+Sincronización manual de los datos
+
+```sh
+vdirsyncer sync
+```
+
+> Al sincronizar pueden mostrarse errores pero de archivos puntuales.
+
+## Automatización
+
+Para este ejemplo queremos que la sincronización se haga automáticamente
+después de encender la pc después cada lunes a las 8:00.
+
+### Servidor Radicale
+
+Para mantener ejecutando el servidor [Radicale](#radicale)
+
+```sh
+# ~/.config/systemd/user/radicale.service
+[Unit]
+Description=Radicale CalDAV/CardDAV server
+
+[Service]
+ExecStart=/usr/bin/radicale
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+```
+
+Activar
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable radicale
+```
+
+Verificar
+
+```sh
+systemctl --user status radicale
+```
+
+---
+
+### Ejecución de vdirsyncer
+
+Servicio para ejecutar [vdirsyncer](#vdirsyncer)
+
+```sh
+# ~/.config/systemd/user/vdirsyncer-sync.service
+[Unit]
+Description=Synchronize calendars and contacts
+After=radicale.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/vdirsyncer sync
+```
+
+---
+
+### Sincronización semanal
+
+En este ejemplo la sincronización se realizará siempre después de cada lunes
+después de cada lunes a las 08:00hs.
+
+```sh
+# ~/.config/systemd/user/vdirsyncer-sync.timer
+[Unit]
+Description=Weekly vdirsyncer synchronization
+
+[Timer]
+OnCalendar=Mon 08:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+Activar Timer:
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable --now vdirysncer-sync.timer
+```
+
+Verificar:
+
+```sh
+systemctl --user list-timers
+```
+
+## Recomendaciones
+
+### Almacenamiento de contraseñas y tokens
+
+En algunos archivos de configuración es necesario utilizar contraseñas, en vez
+de registrarlas en plano es recomendado utilizar herramientas de gestión de
+contraseñas como `libsecret`.
+
+{/*<!-- markdownlint-disable MD013 -->*/}
+
+```sh
+sudo pacman -S libsecret
+
+# Crear una contraseña almacenada
+# <Reemplazar TU_EMAIL_GOOGLE por un correo>
+secret-tool store --label "Google vdirsyncer password" service vdirsyncer username TU_EMAIL_GOOGLE
+```
+
+{/*<!-- markdownlint-enable MD013 -->*/}
+
+Esto guardará la contraseña, para obtenerla simplemente se tiene que ejecutar
+la herramienta
+
+{/*<!-- markdownlint-disable MD013 -->*/}
+
+```sh
+secret-tool lookup service vdirsyncer username TU_EMAIL_GOOGLE
+
+# En los archivos de configuración
+password.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer", "username", "TU_EMAIL_GOOGLE"]
+```
+
+{/*<!-- markdownlint-enable MD013 -->*/}
