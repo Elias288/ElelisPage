@@ -4,12 +4,15 @@ import PostCard from "./PostCard.astro";
 
 const { showLast } = Astro.props;
 
-const posts = await getCollection("posts");
+const posts = (await getCollection("posts"))
+  .sort((a,b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 const sortedPosts = posts.reduce(
   (acc, post) => {
-    const date = post.data.date;
-    const key = date.toISOString().split("T")[0];
+    const date = new Date(post.data.date);
+
+    //const key = date.toISOString().split("T")[0];
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
 
     acc[key] ??= [];
     acc[key].push(post);

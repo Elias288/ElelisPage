@@ -57,6 +57,20 @@ const { Content } = await render(post);
 
       <!-- Content -->
       <div id="content"><Content /></div>
+
+      {
+      data.suggestedPost && data.suggestedPost.length > 0 && (
+          <div id="suggestedPost">
+            <h2>Posts sugeridos</h2>
+            {data.suggestedPost.map(s => (
+            <a class="card" href=`${import.meta.env.BASE_URL}/blog/post/${s}` >
+                <span>{s}</span>
+              </a>
+            ))}
+          </div>
+        )
+      }
+
     </div>
   </section>
 </Layout>
@@ -108,5 +122,26 @@ const { Content } = await render(post);
   .content__container {
     max-width: 700px;
     margin-inline: auto;
+  }
+
+  #suggestedPost {
+    margin-top: 5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--primary);
+  }
+
+  #suggestedPost .card {
+    /*display: block;*/
+    background-color: var(--base);
+    border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid var(--secondary);
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+    /*margin-bottom: 20px;
+    margin-inline: auto;*/
+    margin-right: 10px;
+    padding: 10px;
+    text-decoration: none;
   }
 </style>
