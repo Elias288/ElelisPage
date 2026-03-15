@@ -25,7 +25,7 @@
 }
 
 #content .astro-code {
-    padding: 20px|
+    padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--secondary);
 }
@@ -36,4 +36,16 @@
 
 #content p {
     line-height: 1.6em;
+}
+
+#content blockquote {
+  border-left: 2px solid var(--secondary);
+  background-color: var(--bg);
+  padding-left: 20px;
+  padding-block: 1px;
+}
+
+#content hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem
 }
