@@ -11,7 +11,6 @@ interface SearchPost {
   slug: string;
 }
 
-console.log(posts);
 const searchData: SearchPost[] = posts.map((post) => ({
   title: post.data.title,
   description: post.data.description,
@@ -163,7 +162,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
       if (query)
         window.location.href = `${import.meta.env.BASE_URL}/blog/search?q=${encodeURIComponent(query)}`;
 
-      if (path !== `${import.meta.env.BASE_URL}/blog`) {
+      if (path.endsWith("/blog/search")) {
         window.location.href = `${import.meta.env.BASE_URL}/blog`;
       }
     }
