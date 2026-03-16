@@ -3,7 +3,7 @@ title: Sincronización de calendario en Linux
 description: Sincronizando calendario de google con servidor local de calendario
 date: 2026-03-15
 tags: [linux, automatización]
-suggestedPost: [configuración_linux,instalar_y_configurar_nvim]
+suggestedPost: [configuración_linux, instalar_y_configurar_nvim]
 ---
 
 ## Pre-requisitos
@@ -67,7 +67,7 @@ configurar lo siguiente:
 
 - Obtener token de acceso: en "Credenciales"
   - "+ Crear Credenciales" -> **Id de cliente de OAuth** -> Aplicación de
-  escritorio -> darle un nombre
+    escritorio -> darle un nombre
   - [guardar token](#almacenamiento-de-contraseñas-y-tokens).
 - Habilitar `CalDAV`: en "APIs y servicios"
   - "Biblioteca", Buscar `CalDAV` y habilitarlo.
@@ -78,7 +78,7 @@ configurar lo siguiente:
 - Habilitar `Google Contacts API`: en "APIs y servicios"
   - "Biblioteca", Buscar `Google Contacts API` y habilitarlo.
 - Permitir acceso de los calendarios y contactos: en "Consentimiento de OAuth"
--> Acceso a los datos -> Agregar o quitar permisos
+  -> Acceso a los datos -> Agregar o quitar permisos
   - Habilitar: `../auth/contacts`
   - Habilitar: `../auth/calendar`
 
@@ -98,7 +98,7 @@ mkdir -p ~/.locale/share/vdirsyncer/status
 
 Archivo de configuración
 
-{/*<!-- markdownlint-disable MD013 -->*/}
+{/* <!-- markdownlint-disable MD013 --> */}
 
 ```sh
 # ~ /.config/vdirsyncer/config
@@ -146,10 +146,10 @@ username = "USERNAME"
 password.fetch = ["command", "secret-tool", "lookup", "service", "manjaro_pass", "username", "TU_CORREO"]
 ```
 
-{/*<!-- markdownlint-enable MD013 -->*/}
+{/* <!-- markdownlint-enable MD013 --> */}
 
 > Todas las contraseñas y tokens se guardan bajo su respectivo nombre y el
-correo como usuario.
+> correo como usuario.
 
 Hay que modificar el archivo con datos correctos:
 
@@ -270,7 +270,7 @@ En algunos archivos de configuración es necesario utilizar contraseñas, en vez
 de registrarlas en plano es recomendado utilizar herramientas de gestión de
 contraseñas como `libsecret`.
 
-{/*<!-- markdownlint-disable MD013 -->*/}
+{/* <!-- markdownlint-disable MD013 --> */}
 
 ```sh
 sudo pacman -S libsecret
@@ -280,12 +280,12 @@ sudo pacman -S libsecret
 secret-tool store --label "Google vdirsyncer password" service vdirsyncer username TU_EMAIL_GOOGLE
 ```
 
-{/*<!-- markdownlint-enable MD013 -->*/}
+{/* <!-- markdownlint-enable MD013 --> */}
 
 Esto guardará la contraseña, para obtenerla simplemente se tiene que ejecutar
 la herramienta
 
-{/*<!-- markdownlint-disable MD013 -->*/}
+{/* <!-- markdownlint-disable MD013 --> */}
 
 ```sh
 secret-tool lookup service vdirsyncer username TU_EMAIL_GOOGLE
@@ -294,4 +294,4 @@ secret-tool lookup service vdirsyncer username TU_EMAIL_GOOGLE
 password.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer", "username", "TU_EMAIL_GOOGLE"]
 ```
 
-{/*<!-- markdownlint-enable MD013 -->*/}
+{/* <!-- markdownlint-enable MD013 --> */}

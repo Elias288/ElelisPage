@@ -104,7 +104,7 @@ import system from "@assets/eclipse.svg?raw";
   if (savedTheme) {
     root.setAttribute(
       "data-theme",
-      savedTheme === "system" ? defaultTheme : savedTheme
+      savedTheme === "system" ? defaultTheme : savedTheme,
     );
     themeMenu.className = savedTheme;
   }

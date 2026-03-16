@@ -14,5 +14,9 @@
     "astro": "5.16.6",
     "astro-navbar": "2.4.0",
     "typescript": "5.9.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

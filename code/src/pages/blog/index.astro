@@ -1,6 +1,7 @@
 ---
 import ListPosts from "@components/ListPosts/index.astro";
 import Layout from "@layouts/Layout.astro";
+import Search from "./components/Search.astro";
 ---
 
 <Layout
@@ -10,6 +11,8 @@ import Layout from "@layouts/Layout.astro";
 >
   <section id="blog">
     <h2>Blog</h2>
+    <Search />
+
     <ListPosts />
   </section>
 </Layout>

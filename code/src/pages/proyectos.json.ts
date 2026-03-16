@@ -1,5 +1,5 @@
-import type Project from "src/types/Project"
-import json from '../components/Proyectos/proyectos.json'
+import type Project from "src/types/Project";
+import json from "../components/Proyectos/proyectos.json";
 
 /* Project template
     {
@@ -15,12 +15,12 @@ import json from '../components/Proyectos/proyectos.json'
     },
  */
 
-export async function GET({ }): Promise<Response> {
-    const projects: Project[] = json;
-    return new Response(JSON.stringify(projects), {
-        status: 200,
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+export async function GET({}): Promise<Response> {
+  const projects: Project[] = json;
+  return new Response(JSON.stringify(projects), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
