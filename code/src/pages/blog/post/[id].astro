@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { render } from "astro:content";
 import arrow_back from "@assets/arrow_back.svg?raw";
 
@@ -18,6 +18,12 @@ export const getStaticPaths = (async () => {
 
 const { post, allPosts } = Astro.props;
 const { data } = post;
+
+const suggestedPosts = post.data.suggestedPost ? await Promise.all(
+  post.data.suggestedPost.map(id => 
+    getEntry("posts", id)
+  ) 
+) : []
 
 const { Content } = await render(post);
 ---
@@ -59,17 +65,21 @@ const { Content } = await render(post);
       <div id="content"><Content /></div>
 
       {
-      data.suggestedPost && data.suggestedPost.length > 0 && (
+      suggestedPosts.length > 0 && (
           <div id="suggestedPost">
             <h2>Posts sugeridos</h2>
-            {data.suggestedPost.map(s => (
-            <a class="card" href=`${import.meta.env.BASE_URL}/blog/post/${s}` >
-                <span>{s}</span>
-              </a>
+            {suggestedPosts.map(s => (
+              <div class="card">
+                <a class="cardLink" href=`${import.meta.env.BASE_URL}/blog/post/${s.id}` >
+                  <strong class="cardTitle">{s.data.title}</strong>
+                  <p class="cardDescription">{s.data.description}</p>
+                </a>
+              </div>
             ))}
           </div>
         )
       }
+
 
     </div>
   </section>
@@ -129,19 +139,29 @@ const { Content } = await render(post);
     padding-top: 1rem;
     border-top: 1px solid var(--primary);
   }
-
-  #suggestedPost .card {
-    /*display: block;*/
+  #suggestedPost .card:hover > .cardLink {
+    transform: translateY(-15px);
+  }
+  #suggestedPost .card .cardLink {
+    transition: transform 0.5s;
+    display: block;
     background-color: var(--base);
     border-radius: 15px;
     cursor: pointer;
     border: 2px solid var(--secondary);
     max-width: var(--max-width);
     min-width: var(--min-width);
-    /*margin-bottom: 20px;
-    margin-inline: auto;*/
-    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    /*margin-right: 10px;*/
     padding: 10px;
     text-decoration: none;
+  }
+  #suggestedPost .cardTitle {
+    font-size: 1.5rem;
+    color: var(--secondary);
+  }
+  #suggestedPost .cardDescription {
+    color: var(--text);
   }
 </style>
