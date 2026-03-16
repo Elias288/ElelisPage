@@ -19,11 +19,11 @@ export const getStaticPaths = (async () => {
 const { post, allPosts } = Astro.props;
 const { data } = post;
 
-const suggestedPosts = post.data.suggestedPost ? await Promise.all(
-  post.data.suggestedPost.map(id => 
-    getEntry("posts", id)
-  ) 
-) : []
+const suggestedPosts = post.data.suggestedPost
+  ? await Promise.all(
+      post.data.suggestedPost.map((id) => getEntry("posts", id)),
+    )
+  : [];
 
 const { Content } = await render(post);
 ---
@@ -31,7 +31,7 @@ const { Content } = await render(post);
 <Layout title={data.title} description={data.description} showLink={true}>
   <section class="post">
     <!-- Go Back -->
-    <a href=`${import.meta.env.BASE_URL}/blog`>
+    <a href={`${import.meta.env.BASE_URL}/blog`}>
       <Fragment set:html={arrow_back} />
     </a>
 
@@ -65,12 +65,15 @@ const { Content } = await render(post);
       <div id="content"><Content /></div>
 
       {
-      suggestedPosts.length > 0 && (
+        suggestedPosts.length > 0 && (
           <div id="suggestedPost">
             <h2>Posts sugeridos</h2>
-            {suggestedPosts.map(s => (
+            {suggestedPosts.map((s) => (
               <div class="card">
-                <a class="cardLink" href=`${import.meta.env.BASE_URL}/blog/post/${s.id}` >
+                <a
+                  class="cardLink"
+                  href={`${import.meta.env.BASE_URL}/blog/post/${s.id}`}
+                >
                   <strong class="cardTitle">{s.data.title}</strong>
                   <p class="cardDescription">{s.data.description}</p>
                 </a>
@@ -79,8 +82,6 @@ const { Content } = await render(post);
           </div>
         )
       }
-
-
     </div>
   </section>
 </Layout>

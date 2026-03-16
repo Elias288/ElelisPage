@@ -1,0 +1,161 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import Search from "./components/Search.astro";
+
+const posts = await getCollection("posts");
+
+interface SearchPost {
+  title: string;
+  description: string;
+  tags: Array<string>;
+  slug: string;
+}
+
+const searchData: SearchPost[] = posts.map((post) => ({
+  title: post.data.title,
+  description: post.data.description,
+  tags: post.data.tags,
+  slug: post.id,
+}));
+---
+
+<Layout
+  title="Blog"
+  showLink={true}
+  description="Blog donde publicar mis ideas."
+>
+  <section id="blogSearch">
+    <div class="blogMenu">
+      <h2>Blog</h2>
+      <Search />
+    </div>
+
+    <div id="listPosts" class="listPosts"></div>
+  </section>
+</Layout>
+
+<style>
+  @media screen and (min-width: 677px) {
+    .blogMenu {
+      justify-content: space-between;
+      display: flex;
+
+      gap: 10px;
+    }
+  }
+</style>
+
+<script define:vars={{ searchData }}>
+  window.searchData = searchData;
+</script>
+
+<script>
+  import Fuse from "fuse.js";
+  const params = new URLSearchParams(window.location.search);
+  const query = params.get("q");
+
+  const fuse = new Fuse(window.searchData, {
+    keys: ["title", "description", "tags"],
+    threshold: 0.3,
+  });
+
+  if (query) {
+    const results = fuse.search(query);
+    const listPosts = document.querySelector("#listPosts");
+
+    if (results.length === 0) {
+      listPosts.innerHTML = `
+      <div class="centerBox">
+        <h3>Sin resultados para la busqueda: ${query}</h3>
+        <a class="postLink" href="${import.meta.env.BASE_URL}/blog">volver</a>
+      </div>`;
+    } else {
+      listPosts.innerHTML = results
+        .map(
+          (r) => `
+    <div class="postCard">
+      <a class="postLink" href="${import.meta.env.BASE_URL}/blog/post/${r.item.slug}">
+        <div class="border">
+          ${r.item.tags && r.item.tags.length > 0 ? `<div id="tagList">${r.item.tags.join(" ")}</div>` : ""}
+          <strong id="title">${r.item.title}</strong>
+          <p id="description">${r.item.description}</p>
+        </div>
+      </a>
+    </div>
+      `,
+        )
+        .join("");
+    }
+  }
+</script>
+
+<style is:global>
+  #blogSearch .centerBox {
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+    margin-inline: auto;
+  }
+  #blogSearch .centerBox > * {
+    text-align: center;
+  }
+
+  #blogSearch .postLink {
+    background-color: var(--base);
+
+    display: block;
+    padding: 10px;
+    border-radius: 15px;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.5s;
+    overflow: hidden;
+  }
+  #blogSearch .postCard * {
+    font-family: monospace;
+  }
+  #blogSearch .postCard:hover > .postLink {
+    transform: translateY(-15px);
+  }
+
+  #blogSearch .postCard {
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+    margin-inline: auto;
+  }
+
+  #blogSearch .border {
+    min-height: 70px;
+    border: 2px solid var(--secondary);
+    border-radius: 10px;
+    padding: 5px 10px 10px;
+    position: relative;
+  }
+
+  #blogSearch #tagList,
+  #blogSearch #title {
+    color: var(--secondary);
+    background-color: var(--base);
+    font-weight: bold;
+  }
+
+  #blogSearch #tagList {
+    padding: 0 5px;
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    right: 20px;
+  }
+
+  #blogSearch #title {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  #blogSearch #description {
+    margin: 0;
+    color: var(--text);
+  }
+</style>

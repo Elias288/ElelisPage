@@ -1,12 +1,171 @@
+---
+import search_logo from "@assets/search.svg?raw";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+
+interface SearchPost {
+  title: string;
+  description: string;
+  tags: string;
+  slug: string;
+}
+
+console.log(posts);
+const searchData: SearchPost[] = posts.map((post) => ({
+  title: post.data.title,
+  description: post.data.description,
+  tags: post.data.tags ? post.data.tags.join(" ") : "",
+  slug: post.id,
+}));
+---
+
 <div class="buscador">
-  <input
-    type="search"
-    name="search"
-    value=""
-    placeholder"Buscar
-    post"
-    min="2"
-    max="24"
-    required
-  />
+  <div id="form">
+    <Fragment set:html={search_logo} />
+    <input
+      type="search"
+      name="search"
+      id="search"
+      value=""
+      placeholder="Buscar post"
+      min="2"
+      max="24"
+      autocomplete="off"
+      required
+    />
+    <ul id="results"></ul>
+  </div>
 </div>
+
+<style>
+  .buscador {
+    height: 40px;
+    width: 100%;
+  }
+
+  #form {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    background-color: var(--ring);
+    align-items: center;
+    padding-inline: 10px;
+    border-radius: 0.7rem;
+    position: relative;
+  }
+  #form.active {
+    border-radius: 0.7rem 0.7rem 0 0;
+    border-bottom: 1px solid var(--secondary);
+  }
+
+  input {
+    height: 100%;
+    width: 100%;
+    appearance: none;
+    position: relative;
+    outline: 0;
+    color: var(--text);
+    background-color: transparent;
+  }
+  input::placeholder,
+  :global(.buscador svg) {
+    opacity: 60%;
+    color: var(--text);
+  }
+
+  #results {
+    position: absolute;
+    background-color: var(--ring);
+    width: 100%;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+    list-style: none;
+  }
+  :global(#results li a) {
+    display: block;
+    padding: 8px;
+  }
+  :global(#results li a:hover) {
+    background: var(--card-bg-hover);
+    color: var(--card-text-hover);
+  }
+
+  :global(.buscador a) {
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  @media screen and (min-width: 677px) {
+    .buscador {
+      max-width: 350px;
+    }
+  }
+</style>
+
+<script define:vars={{ searchData }}>
+  window.searchData = searchData;
+</script>
+
+<script>
+  import Fuse from "fuse.js";
+  const params = new URLSearchParams(window.location.search);
+  const urlQuery = params.get("q");
+
+  const fuse = new Fuse(window.searchData, {
+    keys: ["title", "description", "tags"],
+    threshold: 0.3,
+  });
+
+  const form = document.querySelector("#form");
+  const input = document.querySelector("#search");
+  const resultsContainer = document.querySelector("#results");
+
+  if (urlQuery) {
+    input.value = urlQuery;
+  }
+
+  input.addEventListener("input", () => {
+    const query = input.value.trim();
+
+    if (!query) {
+      resultsContainer.innerHTML = "";
+      form.classList.remove("active");
+      return;
+    }
+
+    const results = fuse.search(query).slice(0, 5);
+    if (results.length === 0) {
+      form.classList.remove("active");
+    } else {
+      form.classList.add("active");
+    }
+
+    resultsContainer.innerHTML = results
+      .map(
+        (r) => `
+          <li>
+            <a href="${import.meta.env.BASE_URL}/blog/post/${r.item.slug}">
+              ${r.item.title}
+            </a>
+          </li>
+        `,
+      )
+      .join("");
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const query = input.value.trim();
+      const path = window.location.pathname;
+
+      if (query)
+        window.location.href = `${import.meta.env.BASE_URL}/blog/search?q=${encodeURIComponent(query)}`;
+
+      if (path !== `${import.meta.env.BASE_URL}/blog`) {
+        window.location.href = `${import.meta.env.BASE_URL}/blog`;
+      }
+    }
+  });
+</script>

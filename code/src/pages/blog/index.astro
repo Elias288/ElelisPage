@@ -10,9 +10,22 @@ import Search from "./components/Search.astro";
   description="Blog donde publicar mis ideas."
 >
   <section id="blog">
-    <h2>Blog</h2>
-    <Search />
+    <div class="blogMenu">
+      <h2>Blog</h2>
+      <Search />
+    </div>
 
     <ListPosts />
   </section>
 </Layout>
+
+<style>
+  @media screen and (min-width: 677px) {
+    .blogMenu {
+      justify-content: space-between;
+      display: flex;
+
+      gap: 10px;
+    }
+  }
+</style>
