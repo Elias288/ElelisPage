@@ -1,7 +1,7 @@
 ---
 import ListPosts from "@components/ListPosts/index.astro";
 import Layout from "@layouts/Layout.astro";
-import Search from "./components/Search.astro";
+import SearchComponent from "@components/SearchComponent.astro";
 ---
 
 <Layout
@@ -12,7 +12,7 @@ import Search from "./components/Search.astro";
   <section id="blog">
     <div class="blogMenu">
       <h2>Blog</h2>
-      <Search />
+      <SearchComponent />
     </div>
 
     <ListPosts />

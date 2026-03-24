@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import Search from "./components/Search.astro";
+import SearchComponent from "@components/SearchComponent.astro";
 
 const posts = await getCollection("posts");
 
@@ -15,7 +15,7 @@ interface SearchPost {
 const searchData: SearchPost[] = posts.map((post) => ({
   title: post.data.title,
   description: post.data.description,
-  tags: post.data.tags,
+  tags: post.data.tags ? post.data.tags : [],
   slug: post.id,
 }));
 ---
@@ -28,7 +28,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
   <section id="blogSearch">
     <div class="blogMenu">
       <h2>Blog</h2>
-      <Search />
+      <SearchComponent />
     </div>
 
     <div id="listPosts" class="listPosts"></div>
@@ -55,37 +55,39 @@ const searchData: SearchPost[] = posts.map((post) => ({
   const params = new URLSearchParams(window.location.search);
   const query = params.get("q");
 
-  const fuse = new Fuse(window.searchData, {
-    keys: ["title", "description", "tags"],
-    threshold: 0.3,
-  });
+  if(window.searchData) {
+    const fuse = new Fuse(window.searchData, {
+      keys: ["title", "description", "tags"],
+      threshold: 0.3,
+    });
 
-  if (query) {
-    const results = fuse.search(query);
-    const listPosts = document.querySelector("#listPosts");
+    if (query) {
+      const results = fuse.search(query);
+      const listPosts = document.querySelector("#listPosts") as HTMLUListElement;
 
-    if (results.length === 0) {
-      listPosts.innerHTML = `
-      <div class="centerBox">
-        <h3>Sin resultados para la busqueda: ${query}</h3>
-        <a class="postLink" href="${import.meta.env.BASE_URL}/blog">volver</a>
-      </div>`;
-    } else {
-      listPosts.innerHTML = results
-        .map(
-          (r) => `
-    <div class="postCard">
-      <a class="postLink" href="${import.meta.env.BASE_URL}/blog/post/${r.item.slug}">
-        <div class="border">
-          ${r.item.tags && r.item.tags.length > 0 ? `<div id="tagList">${r.item.tags.join(" ")}</div>` : ""}
-          <strong id="title">${r.item.title}</strong>
-          <p id="description">${r.item.description}</p>
-        </div>
-      </a>
-    </div>
-      `,
-        )
-        .join("");
+      if (results.length === 0) {
+        listPosts.innerHTML = `
+        <div class="centerBox">
+          <h3>Sin resultados para la busqueda: ${query}</h3>
+          <a class="postLink" href="${import.meta.env.BASE_URL}/blog">volver</a>
+        </div>`;
+      } else {
+        listPosts.innerHTML = results
+          .map(
+            (r) => `
+      <div class="postCard">
+        <a class="postLink" href="${import.meta.env.BASE_URL}/blog/post/${r.item.slug}">
+          <div class="border">
+            ${r.item.tags && r.item.tags.length > 0 ? `<div id="tagList">${r.item.tags.join(" ")}</div>` : ""}
+            <strong id="title">${r.item.title}</strong>
+            <p id="description">${r.item.description}</p>
+          </div>
+        </a>
+      </div>
+        `,
+          )
+          .join("");
+      }
     }
   }
 </script>
