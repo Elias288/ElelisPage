@@ -1,0 +1,58 @@
+---
+import default_logo from "@assets/default.svg?raw";
+
+interface Props {
+  url?: string;
+  icon?: string;
+  label?: string;
+  title?: string;
+  disable?: boolean
+}
+
+const { url = "/", icon = default_logo, label = "Titulo", title, disable = false }: Props = Astro.props;
+---
+
+{disable !== true && (
+    <a id="SocialButton" href={url} target="_blank" rel="noopener noreferrer" title={title} >
+      <Fragment set:html={icon} />
+      {label}
+    </a>
+)}
+
+<style>
+  a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: var(--card-bg);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  a.inactive {
+    display: none;
+  }
+
+  a:hover {
+    transform: translateY(-3px);
+    background: var(--card-bg-hover);
+    color: var(--card-text-hover);
+
+  }
+
+  :global(#SocialButton:hover svg) {
+    color: var(--card-text-hover);
+  }
+
+  :global(#SocialButton svg) {
+    width: 30px;
+    height: 30px;
+  }
+</style>
