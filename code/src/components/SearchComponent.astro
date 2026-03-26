@@ -41,6 +41,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
   .buscador {
     height: 40px;
     width: 100%;
+    margin-bottom: 2rem;
   }
 
   #form {
@@ -99,6 +100,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
   @media screen and (min-width: 677px) {
     .buscador {
       max-width: 350px;
+      margin-bottom: 0;
     }
   }
 </style>
@@ -112,37 +114,38 @@ const searchData: SearchPost[] = posts.map((post) => ({
   const params = new URLSearchParams(window.location.search);
   const urlQuery = params.get("q");
 
-  if(window.searchData) {
-
+  if (window.searchData) {
     const fuse = new Fuse(window.searchData, {
       keys: ["title", "description", "tags"],
       threshold: 0.3,
     });
-  
+
     const form = document.querySelector("#form") as HTMLFormElement;
     const input = document.querySelector("#search") as HTMLInputElement;
-    const resultsContainer = document.querySelector("#results") as HTMLUListElement;
-  
+    const resultsContainer = document.querySelector(
+      "#results",
+    ) as HTMLUListElement;
+
     if (urlQuery) {
       input.value = urlQuery;
     }
-  
+
     input.addEventListener("input", () => {
       const query = input.value.trim();
-  
+
       if (!query) {
         resultsContainer.innerHTML = "";
         form.classList.remove("active");
         return;
       }
-  
+
       const results = fuse.search(query).slice(0, 5);
       if (results.length === 0) {
         form.classList.remove("active");
       } else {
         form.classList.add("active");
       }
-  
+
       resultsContainer.innerHTML = results
         .map(
           (r) => `
@@ -160,16 +163,14 @@ const searchData: SearchPost[] = posts.map((post) => ({
       if (e.key === "Enter") {
         const query = input.value.trim();
         const path = window.location.pathname;
-  
+
         if (query)
           window.location.href = `${import.meta.env.BASE_URL}/blog/search?q=${encodeURIComponent(query)}`;
-  
+
         if (path.endsWith("/blog/search")) {
           window.location.href = `${import.meta.env.BASE_URL}/blog`;
         }
       }
     });
   }
-
-
 </script>

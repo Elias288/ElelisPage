@@ -12,11 +12,11 @@ export const getStaticPaths = (async () => {
 
   return posts.map((post) => ({
     params: { id: post.id },
-    props: { post, allPosts: posts },
+    props: { post },
   }));
 }) satisfies GetStaticPaths;
 
-const { post, allPosts } = Astro.props;
+const { post } = Astro.props;
 const { data } = post;
 
 const suggestedPosts = post.data.suggestedPost
@@ -31,7 +31,7 @@ const { Content } = await render(post);
 <Layout title={data.title} description={data.description} showLink={true}>
   <section class="post">
     <!-- Go Back -->
-    <a href={`${import.meta.env.BASE_URL}/blog`}>
+    <a href={`${import.meta.env.BASE_URL}/blog`} class="arrowBack">
       <Fragment set:html={arrow_back} />
     </a>
 
@@ -121,14 +121,14 @@ const { Content } = await render(post);
     opacity: 0.6;
   }
 
-  :global(.post svg) {
+  :global(.post .arrowBack svg) {
     width: 30px;
     height: 30px;
     color: var(--secondary);
 
     cursor: pointer;
   }
-  :global(.post svg:hover) {
+  :global(.post .arrowBack svg:hover) {
     opacity: 0.6;
   }
 

@@ -10,6 +10,7 @@
     --max-width: 700px;
     --min-width: 360px;
     --header-height: 75px;
+    --code-color: #282a36;
 
     /* Mutables */
     /* Default: dark */
@@ -20,6 +21,8 @@
     --secondary: #5bc0f8; /* azul claro */
     --text: #eaeaea;
     --muted: #b0b0b0;
+    --link-color: #4da3ff;
+    --hover-link-color: #82c7ff;
 
     --bg: rgba(11, 18, 32, 0.85);
     --fg: #ffffff1a;
@@ -45,9 +48,11 @@
     --secondary: #5bc0f8; /* azul claro */
     --text: #eaeaea;
     --muted: #b0b0b0;
+    --link-color: #4da3ff;
+    --hover-link-color: #82c7ff;
 
     --bg: rgba(11, 18, 32, 0.85);
-    --fg: #ffffff1a;
+    --fg: rgba(255, 255, 255, 0.102);
     --muted: #94a3b8;
     --card: #0f172a;
     --ring: #1f2937;
@@ -70,9 +75,11 @@
     --secondary: #0077cc; /* azul más intenso para destacar sobre fondo claro */
     --text: #1a1a1a;
     --muted: #606060;
+    --link-color: #1a73e8;
+    --hover-link-color: #174ea6;
 
     --bg: rgba(255, 255, 255, 0.9);
-    --fg: #0000000d;
+    --fg: rgba(0, 0, 0, 0.051);
     --card: #f0f4f8;
     --ring: #d0d7e2;
     --accent: #4f46e5; /* morado fuerte para resaltar en claro */
@@ -142,6 +149,13 @@
 
   p {
     margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--link-color);
+  }
+  a:hover {
+    color: var(--hover-link-color);
   }
 
   .bottom_appear {

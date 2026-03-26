@@ -55,7 +55,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
   const params = new URLSearchParams(window.location.search);
   const query = params.get("q");
 
-  if(window.searchData) {
+  if (window.searchData) {
     const fuse = new Fuse(window.searchData, {
       keys: ["title", "description", "tags"],
       threshold: 0.3,
@@ -63,7 +63,9 @@ const searchData: SearchPost[] = posts.map((post) => ({
 
     if (query) {
       const results = fuse.search(query);
-      const listPosts = document.querySelector("#listPosts") as HTMLUListElement;
+      const listPosts = document.querySelector(
+        "#listPosts",
+      ) as HTMLUListElement;
 
       if (results.length === 0) {
         listPosts.innerHTML = `
@@ -125,6 +127,7 @@ const searchData: SearchPost[] = posts.map((post) => ({
     max-width: var(--max-width);
     min-width: var(--min-width);
     margin-inline: auto;
+    margin-bottom: 15px;
   }
 
   #blogSearch .border {
