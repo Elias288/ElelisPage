@@ -1,5 +1,14 @@
 [
   {
+    "title": "Seguimiento Multimedia",
+    "tags": ["Javascript", "Typescript", "React", "HTML", "CSS"],
+    "img": "seguimiento_multimedia.png",
+    "description": "Herramienta web de seguimiento de multimedia (anime, series, manga y comics).",
+    "links": {
+      "demo": "https://multimediatracker.ebianchiserver.duckdns.org/"
+    }
+  },
+  {
     "title": "Game of Life",
     "tags": ["Javascript", "Game", "HTML", "CSS"],
     "img": "game_of_life.png",
