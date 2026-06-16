@@ -12,9 +12,9 @@
 <style>
   .projects {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     align-items: stretch;
-    gap: 1rem;
+    gap: 1rem 1.5rem;
     margin-top: 2rem;
   }
 
@@ -22,29 +22,35 @@
     text-decoration: none;
     color: inherit;
   }
-
-  @media screen and (min-width: 600px) {
-    .projects {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem 1.5rem;
-    }
-  }
 </style>
 
 <style is:global>
-  #proyectos .project {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s;
-    max-width: 600px;
+  .section__container {
+    width: 100%;
+    max-width: 1200px;
     margin-inline: auto;
   }
+
+  #proyectos .project {
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--card-bg) 85%, transparent);
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--card-ln) 60%, transparent);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
+  }
   #proyectos .project:hover {
-    transform: scale(1.02);
-    background: var(--card-bg-hover);
+    transform: translateY(-4px);
+  }
+
+  #proyectos .project h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
   }
 
   #proyectos .project p {
@@ -59,11 +65,19 @@
     aspect-ratio: 16/9;
     margin-bottom: 0.5rem;
   }
+  #proyectos .project picture {
+    overflow: hidden;
+    border-radius: 8px;
+  }
   #proyectos .project img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: left top;
+    transition: transform 0.4s ease;
+  }
+  #proyectos .project:hover img {
+    transform: scale(1.05);
   }
 
   /* --------------------------- Tags --------------------------- */
@@ -76,40 +90,47 @@
     border-bottom: 1px solid var(--card-ln);
   }
   #proyectos .tags .tag {
-    background-color: var(--bg);
-    padding: 0.1em 0.3em;
-    border-radius: 10px;
-    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--card-ln);
   }
   #proyectos .tags .tag:hover {
     animation: shake_vertical 2s ease 0s 1 normal forwards;
   }
 
   /* --------------------------- Links --------------------------- */
-  #proyectos .links * {
-    color: inherit;
+  #proyectos .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  #proyectos .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     text-decoration: none;
-    display: inline-block;
 
-    background-color: var(--card-bg);
-    padding: 0.3rem 0.5rem;
-    margin-bottom: 5px;
-    text-align: center;
-    border-radius: 10px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+
+    border: 1px solid var(--card-ln);
+
+    transition: all 0.2s ease;
   }
-  #proyectos .links *:hover {
-    background-color: var(--card-bg-hover);
-    color: var(--card-text-hover);
+  #proyectos .links a:hover {
+    transform: translateY(-2px);
   }
 
-  #proyectos .links *::before {
+  #proyectos .links a::before {
     content: "🔗";
   }
-  #proyectos .links *.gitlab::before,
-  #proyectos .links *.github::before {
+  #proyectos .links a.gitlab::before,
+  #proyectos .links a.github::before {
     content: "📂 ";
   }
-  #proyectos .links *.codepen::before {
+  #proyectos .links a.codepen::before {
     content: "🖋️ ";
   }
 </style>
