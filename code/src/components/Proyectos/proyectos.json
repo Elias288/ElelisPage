@@ -1,5 +1,15 @@
 [
   {
+    "title": "Quadletizador Web",
+    "tags": ["Typescript", "React", "Podman"],
+    "description": "Quadletizador Web es una herramienta que permite convertir configuraciones de contenedores de Podman entre distintos formatos de definición.  Permite transformar comandos podman run, archivos Compose, Quadlets, manifiestos Kubernetes generados por Podman y salidas JSON de podman inspect en representaciones equivalentes, facilitando la migración, documentación y administración de contenedores.",
+    "img": "quadletizador_web.png",
+    "links": {
+      "demo": "https://quadletizadorweb.ebianchiserver.duckdns.org/",
+      "gitlab": "https://gitlab.com/mrebianchi/quadletizador_web"
+    }
+  },
+  {
     "title": "Seguimiento Multimedia",
     "tags": ["Javascript", "Typescript", "React", "HTML", "CSS"],
     "img": "seguimiento_multimedia.png",
